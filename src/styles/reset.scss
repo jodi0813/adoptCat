@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  /* 不累加邊框及內距 */
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* 字體 */
+body {
+  font-family: "Noto Sans TC", sans-serif, /* 西文 */ -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica,
+    Arial, /* 中文 */ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC",
+    "微軟正黑體", "Microsoft JhengHei", "Dela Gothic One";
+  line-height: 1.5;
+  background-color: #fefcf7;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連接 */
+a {
+  display: block;
+  /* a預設的行內元素，不支援寬高及上下間距，通常會改為區塊，方便設定 */
+  color: #444;
+  text-decoration: none;
+}
+
+// html,
+// body {
+//   width: 100%;
+//   max-width: 100vw;
+//   // height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   overflow-x: hidden;
+// }
+// .wrap {
+//   width: 100%;
+//   max-width: 100vw;
+//   min-height: 100vh;
+//   background-color: #fefcf7; // 妳的底色
+//   overflow-x: hidden; // 有需要的話
+// }
+
+// input,
+// textarea,
+// select,
+// option,
+// button,
+// label {
+//   font-family: "Noto Sans TC", sans-serif;
+// }
+// // * {
+// //   outline: 2px solid rgba(0, 0, 255, 0.2);
+// // }
+// // Vector1.svg
+// select {
+//   appearance: none; // 去除預設箭頭（部分瀏覽器）
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   background-image: url("../../public/images/Vector1.svg"); // 可放右側箭頭
+//   background-repeat: no-repeat;
+//   background-position: right 1rem center;
+//   color: #989794;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: 140%; /* 19.6px */
+//   letter-spacing: 1.4px;
+// }

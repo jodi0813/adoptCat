@@ -1,0 +1,30 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+    position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 0px 20px;
+  z-index: 999;
+  .menuButton{
+      display: flex;
+        align-items: center;
+  }
+  .menu ul {
+    display: flex;
+    border-radius: 99px;
+    background-color: #d8bb19;
+    gap: 20px;
+    padding: 5px 20px;
+    li {
+      color: #000;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}
