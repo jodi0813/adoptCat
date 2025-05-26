@@ -15,16 +15,19 @@
   .menu ul {
     display: flex;
     border-radius: 99px;
-    background-color: #d8bb19;
-    gap: 20px;
+    background-color: #fff;
+    gap: 30px;
     padding: 5px 20px;
     li {
       color: #000;
       font-family: Inter;
-      font-size: 24px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
     }
+  }
+  .gohomeBt{
+    background-color: transparent;
   }
 }

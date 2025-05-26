@@ -27,7 +27,7 @@ function Navbar() {
             </li>
           </ul>
         </nav>
-        <button type="button" className="" onClick={() => navigate("/")}>
+        <button type="button" className="gohomeBt" onClick={() => navigate("/")}>
           <img src="/images/houseBt.png" alt="回家按鈕" />
           回家
         </button></div>
