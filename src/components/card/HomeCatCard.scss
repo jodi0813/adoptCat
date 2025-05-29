@@ -1,0 +1,38 @@
+.phoneCard {
+    width: 373px;
+    height: 589px;
+    border-radius: 30px;
+    border: 3px solid #000;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+
+    .phoneHead {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        span {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+
+        .icon-phonehead {
+            width: 138.54px;
+        }
+    }
+    .phoneCatPhoto{
+        border: 4px solid #F8B600;
+    }
+}

@@ -1,0 +1,29 @@
+.catNameTag {
+    position: relative;
+    width: 231px;
+    height: 77px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .catShape {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transition: all 0.3s ease;
+    }
+
+    .catText {
+        position: relative;
+        z-index: 1;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        pointer-events: none;
+        transform: translate(-10%, 0%);
+
+    }
+}

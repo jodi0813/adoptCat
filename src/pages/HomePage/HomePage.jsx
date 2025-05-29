@@ -1,3 +1,4 @@
+import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
 function HomePage() {
   return (
@@ -65,7 +66,7 @@ function HomePage() {
             <li>按下「我要領養」送出即可</li>
           </ul>
         </div>
-                <div className="catHead catHead2">
+        <div className="catHead catHead2">
           <div className="catear-left"></div>
           <div className="catear-right"></div>
           <span className="catHead-number">2</span>
@@ -77,6 +78,28 @@ function HomePage() {
             <li>最快當日就可以帶貓貓回家囉!</li>
           </ul>
         </div>
+        <div className="catHead catHead3">
+          <div className="catear-left"></div>
+          <div className="catear-right"></div>
+          <span className="catHead-number">3</span>
+          <h3 className="highlight">每月固定追蹤</h3>
+          <ul>
+            <li>領養完成後</li>
+            <li>將開始每月追蹤功能</li>
+            <li>每月須於15日前上傳貓咪生活照</li>
+            <li>並提供疫苗施打、結紮相關紀錄</li>
+          </ul>
+        </div>
+      </section>
+      <section id="WaitingAHome">
+        <header className="home-title">
+          <button >
+            查看更多
+            <img src="./images/catFootprint.png" alt="貓腳印" />
+          </button>
+          <h2>Waiting A Home</h2>
+        </header>
+        <HomeCatCard/>
       </section>
     </>
   );

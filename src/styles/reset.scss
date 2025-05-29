@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
-
 * {
   box-sizing: border-box;
   /* 不累加邊框及內距 */
@@ -97,14 +94,16 @@ video {
 
 /* 字體 */
 body {
-  font-family: "Noto Sans TC", sans-serif, /* 西文 */ -apple-system,
+  font-family:  "Noto Sans TC", sans-serif, /* 西文 */ -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica,
     Arial, /* 中文 */ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC",
     "微軟正黑體", "Microsoft JhengHei", "Dela Gothic One";
   line-height: 1.5;
   background-color: #fefcf7;
 }
-
+.english {
+  font-family: 'Lemon', cursive;
+}
 /* 重置標題 */
 h1,
 h2,
