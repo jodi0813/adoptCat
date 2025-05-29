@@ -7,7 +7,7 @@ function Navbar() {
       <header id="navbar">
         <div>
           <Link to="/" className="logo">
-            <img src="/images/logo_navbar.png" alt="網站LOGO" />
+            <img src="./images/logo_navbar.png" alt="網站LOGO" />
           </Link>
         </div>
         <div className="menuButton">
@@ -28,7 +28,7 @@ function Navbar() {
           </ul>
         </nav>
         <button type="button" className="gohomeBt" onClick={() => navigate("/")}>
-          <img src="/images/houseBt.png" alt="回家按鈕" />
+          <img src="./images/houseBt.png" alt="回家按鈕" />
           回家
         </button></div>
       </header>

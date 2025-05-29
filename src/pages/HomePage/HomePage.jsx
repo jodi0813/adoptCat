@@ -7,7 +7,7 @@ function HomePage() {
           {[...Array(8)].map((_, i) => (
             <img
               key={i}
-              src={`/images/bg-cat${i + 1}.png`}
+              src={`./images/bg-cat${i + 1}.png`}
               className="floatingCat"
               alt={`漂浮貓咪${i + 1}`}
             />
@@ -16,7 +16,7 @@ function HomePage() {
             {[...Array(10)].map((_, i) => (
               <img
                 key={i}
-                src="/images/catpaw.svg"
+                src="./images/catpaw.svg"
                 className="floatingPaw"
                 alt={`漂浮貓掌${i + 1}`}
               />
@@ -27,7 +27,7 @@ function HomePage() {
         <div className="mainHero">
           <div className="catContainer">
             <img
-              src="/images/catscreen.png"
+              src="./images/catscreen.png"
               alt="黑貓插圖"
               className="mainCatIllustration"
             />
@@ -37,10 +37,10 @@ function HomePage() {
 
           <div className="screen">
             <div>
-              <img src="/images/screen.png" alt="" />
+              <img src="./images/screen.png" alt="" />
             </div>
             <button className="testBt" onClick={() => navigate("/quiz")}>
-              <img src="/images/testbt.png" alt="" />
+              <img src="./images/testbt.png" alt="" />
             </button>
           </div>
         </div>
@@ -50,7 +50,7 @@ function HomePage() {
           <h2>Take Me Home</h2>
           <button >
             詳細流程
-            <img src="/images/catFootprint.png" alt="貓腳印" />
+            <img src="./images/catFootprint.png" alt="貓腳印" />
           </button>
         </header>
         <div className="catHead catHead1">
