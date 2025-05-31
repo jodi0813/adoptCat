@@ -1,3 +1,36 @@
+/* 手 */
+.home-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    color: #ffecb7;
+    -webkit-text-stroke: 6px #dfc681; // 外框色
+    font-family: "Lemon", cursive;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 8.64px;
+    line-height: 1;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    width: 180px;
+    height: 62px;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 70px img {
+      width: 47px;
+      height: 47px;
+    }
+  }
+}
 #homePage {
   position: relative;
   width: 100%;
@@ -222,52 +255,13 @@
   }
 }
 
-#takeMeHome,#WaitingAHome {
+#takeMeHome {
   width: 100%;
   height: 100vh;
   background: #fff6df;
   overflow: hidden;
   max-width: 100vw;
   padding: 5% 6%;
-
-  .home-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    h2 {
-      color: #ffecb7;
-        -webkit-text-stroke:6px #dfc681; // 外框色
-      font-family: 'Lemon', cursive;
-     font-size: 7rem;
-      font-style: normal;
-      font-weight: 400;
-      letter-spacing: 8.64px;
-      line-height: 1;
-    }
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 999px;
-      width: 180px;
-      height: 62px;
-      color: #000;
-      text-align: center;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 70px;
-
-      /* 291.667% */
-      img {
-        width: 47px;
-        height: 47px;
-      }
-    }
-  }
-
   .catHead {
     width: 360px;
     height: 280px;
@@ -351,5 +345,171 @@
   .catHead3 {
     left: 70%;
     bottom: 60%;
+  }
+}
+#waitingAHome {
+  width: 100%;
+  height: 100vh;
+  background: #f9eac1;
+  overflow: hidden;
+  max-width: 100vw;
+  padding: 5% 6%;
+
+  /* CarouselCats.scss */
+  .carousel-cats {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    transition: transform 0.8s ease-in-out;
+  }
+
+  .carousel-item {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .cat-quotes-wrapper {
+    position: relative;
+  }
+
+  .quotes {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    animation: fadeInQuotes 0.8s ease;
+    z-index: 10;
+  }
+
+  .debug-quotes {
+    background: rgba(255, 192, 203, 0.4) !important;
+    border: 2px dashed red !important;
+  }
+  .quote {
+    background: #fff3cd;
+    color: #5c3c00;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+
+  .quote.q2 {
+    animation-delay: 0.2s;
+  }
+
+  .quote.q3 {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes popIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInQuotes {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+#letsGoHome {
+ width: 100%;
+  // height: 100vh;
+  background: #FEFFE9;
+  overflow: hidden;
+  max-width: 100vw;
+  padding: 5% 6%;
+
+  .catWalk {
+    width: 242px;
+    animation: cat-walk 30s linear infinite;
+  }
+  .photoCarouselBox {
+    width: 100%;
+  }
+  .photoCarousel {
+    display: flex;
+    animation: scroll-right 80s linear infinite;
+    width: max-content;
+    img {
+      height: 293px;
+    }
+  }
+  .photoCarouselLeft{
+    animation:scroll-left   80s linear infinite;
+  }
+  .textCarouseBox {
+    white-space: nowrap;
+    width: 100%;
+    background-color: transparent;
+    margin:20px;
+    .textCarouse {
+      display: flex;
+      padding-left: 100%;
+      animation: scrollText 50s linear infinite;
+      gap: 50px;
+      span {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 4.8px;
+      }
+    }
+  }
+}
+@keyframes cat-walk {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform:  translateX(-50%);
+  }
+}
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
   }
 }

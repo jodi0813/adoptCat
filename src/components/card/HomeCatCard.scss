@@ -1,38 +1,108 @@
 .phoneCard {
-    width: 373px;
-    height: 589px;
-    border-radius: 30px;
-    border: 3px solid #000;
-    background: #FFF;
+  width: 373px;
+  height: 600px;
+  border-radius: 30px;
+  border: 3px solid #000;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  .phoneHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+
+    .icon-phonehead {
+      width: 138.54px;
+    }
+  }
+  .phoneMain {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    gap: 20px;
+    .phoneCat {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-
-    .phoneHead {
+      gap: 8px;
+      .phoneCatPhoto {
+        border: 4px solid #f8b600;
+        img{
+            height: 318.89px;
+       object-fit: contain
+        }
+      }
+      .cathashtag {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-
-        span {
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+        gap: 7px;
+        .hashtag {
+          display: inline-flex;
+          padding: 3px 14px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border-radius: 99px;
+          border: 3px solid #f8b600;
+          color: #000;
+          text-align: justify;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100.015%; /* 24.004px */
         }
-
-        img {
-            height: 30px;
-            width: 30px;
-        }
-
-        .icon-phonehead {
-            width: 138.54px;
-        }
+      }
     }
-    .phoneCatPhoto{
-        border: 4px solid #F8B600;
+    .phoneCatBt {
+      display: flex;
+      width: 142px;
+      height: 50px;
+      padding: 10px 21.708px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 99px;
+      background: #e8e3e3;
+      position: relative;
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 100% */
     }
+    .phoneCatBt::before,
+    .phoneCatBt::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      border: 20px solid transparent;
+      border-bottom-color: #e8e3e3;
+    }
+
+    .phoneCatBt::before {
+      left: 20px;
+      //   transform: rotate(-30deg);
+    }
+
+    .phoneCatBt::after {
+      right: 20px;
+      //   transform: rotate(30deg);
+    }
+  }
 }

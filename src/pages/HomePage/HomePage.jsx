@@ -1,6 +1,28 @@
+import { useEffect, useRef, useState } from "react";
+import catList from "../../components/card/catList";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
 function HomePage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (!paused) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % catList.length);
+      }, 3000);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [paused]);
+
+  // 前後補 1 張，總共顯示 3 張卡
+  const visibleCards = [
+    catList[(currentIndex - 1 + catList.length) % catList.length],
+    catList[currentIndex],
+    catList[(currentIndex + 1) % catList.length],
+  ];
+
   return (
     <>
       <section id="homePage">
@@ -49,7 +71,7 @@ function HomePage() {
       <section id="takeMeHome">
         <header className="home-title">
           <h2>Take Me Home</h2>
-          <button >
+          <button>
             詳細流程
             <img src="./images/catFootprint.png" alt="貓腳印" />
           </button>
@@ -91,15 +113,84 @@ function HomePage() {
           </ul>
         </div>
       </section>
-      <section id="WaitingAHome">
+      <section id="waitingAHome">
         <header className="home-title">
-          <button >
+          <button>
             查看更多
             <img src="./images/catFootprint.png" alt="貓腳印" />
           </button>
           <h2>Waiting A Home</h2>
         </header>
-        <HomeCatCard/>
+        <div
+          className="carousel-cats"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="carousel-track">
+            {visibleCards.map((cat, index) => (
+              <div
+                className="carousel-item"
+                key={`${cat.id}-${index}`}
+                style={{ border: index === 1 ? "2px dashed red" : "none" }}
+              >
+                <div className="cat-quotes-wrapper">
+                  <HomeCatCard
+                    years={cat.years}
+                    name={cat.name}
+                    hashtag1={cat.hashtag1}
+                    hashtag2={cat.hashtag2}
+                    hashtag3={cat.hashtag3}
+                  />
+                  {index === 1 && cat.quotes && (
+                    <div className="quotes debug-quotes">
+                      {cat.quotes.map((q, i) => (
+                        <div className={`quote q${i + 1}`} key={i}>
+                          {q}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="letsGoHome">
+        <header className="home-title">
+          <h2>Let’s Go Home!</h2>
+        </header>
+
+        <img src="./images/catwalk.png" className="catWalk" alt="貓咪走路" />
+        <div className="photoCarouselBox">
+          <div className="photoCarousel">
+            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((i, index) => (
+              <img
+                key={index}
+                src={`./images/group${i}.png`}
+                alt={`貓合照${i}`}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="textCarouseBox">
+          <div className="textCarouse">
+            <span>每隻貓咪都值得擁有一個溫暖的家　 </span>
+            <span>給貓咪一個家，也給自己一份無盡的溫暖　</span>
+            <span>給牠一個家，牠會給你一個世界　</span>
+          </div>
+        </div>
+        <div className="photoCarouselBox">
+          <div className="photoCarousel photoCarouselLeft">
+            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((i, index) => (
+              <img
+                key={index}
+                src={`./images/group${i}.png`}
+                alt={`貓合照${i}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
