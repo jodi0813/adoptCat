@@ -113,7 +113,7 @@ function HomePage() {
           </ul>
         </div>
       </section>
-      <section id="waitingAHome">
+      <section id="waitingForHome">
         <header className="home-title">
           <button>
             查看更多
@@ -160,11 +160,12 @@ function HomePage() {
         <header className="home-title">
           <h2>Let’s Go Home!</h2>
         </header>
-
-        <img src="./images/catwalk.png" className="catWalk" alt="貓咪走路" />
+        <div  className="catWalk">
+          <img src="./images/catwalk.png" alt="貓咪走路" />
+        </div>
         <div className="photoCarouselBox">
           <div className="photoCarousel">
-            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((i, index) => (
+            {[1, 2, 3, 4, 1, 2, 3, 4].map((i, index) => (
               <img
                 key={index}
                 src={`./images/group${i}.png`}
@@ -182,7 +183,7 @@ function HomePage() {
         </div>
         <div className="photoCarouselBox">
           <div className="photoCarousel photoCarouselLeft">
-            {[1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7].map((i, index) => (
+            {[5, 6, 7, 1,  5, 6, 7,1].map((i, index) => (
               <img
                 key={index}
                 src={`./images/group${i}.png`}

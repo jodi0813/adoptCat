@@ -1,0 +1,83 @@
+.waiting {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 5%;
+  .waiting-main {
+    display: flex;
+    gap: 8%;
+    margin-top: 50px;
+    .cat-filter-section {
+      background: #fdf0c9;
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 300px;
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        label {
+          color: #3a2c19;
+          text-align: center;
+          font-size: 1.3rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 2.16px;
+        }
+
+        .input-row {
+          input {
+            width: 100%;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+          }
+        }
+
+        .options {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+
+          button {
+            border: 1px solid #ffa134;
+            background: white;
+            border-radius: 999px;
+
+            padding: 4px 12px;
+            min-width: 105px;
+            color: #000;
+            text-align: center;
+            font-size: 1.5rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 2.16px;
+            cursor: pointer;
+
+            &:hover {
+              background: #fff6e0;
+            }
+
+            &.active {
+              background: #f1ca87;
+            }
+          }
+        }
+      }
+    }
+    .waiting-card{
+          display: flex;
+          flex-wrap:wrap;
+          gap: 30px;
+          width: 70%;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 .catNameTag--auto {
   position: relative;
-  width: 231px;
+  width:350px;
   height: 77px;
+
   cursor: default;
 
   .catAuto {
@@ -37,7 +38,7 @@
 
   .catText--auto {
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 50%;
     transform: translate(-60%, -45%);
     font-size: 24px;

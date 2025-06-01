@@ -20,10 +20,10 @@ function Navbar() {
               <Link to="/">領養流程</Link>
             </li>
             <li>
-              <Link to="/">帶我回家</Link>
+              <Link to="/waitinghome">帶我回家</Link>
             </li>
             <li>
-              <Link to="/">常見問題</Link>
+              <Link to="/adoptqa">常見問題</Link>
             </li>
           </ul>
         </nav>

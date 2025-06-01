@@ -347,7 +347,7 @@
     bottom: 60%;
   }
 }
-#waitingAHome {
+#waitingForHome {
   width: 100%;
   height: 100vh;
   background: #f9eac1;
@@ -435,16 +435,20 @@
   }
 }
 #letsGoHome {
- width: 100%;
+  width: 100%;
   // height: 100vh;
-  background: #FEFFE9;
+  background: #feffe9;
   overflow: hidden;
   max-width: 100vw;
   padding: 5% 6%;
 
   .catWalk {
-    width: 242px;
-    animation: cat-walk 30s linear infinite;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3%;
+    img {
+      width: 242px;
+    }
   }
   .photoCarouselBox {
     width: 100%;
@@ -457,14 +461,14 @@
       height: 293px;
     }
   }
-  .photoCarouselLeft{
-    animation:scroll-left   80s linear infinite;
+  .photoCarouselLeft {
+    animation: scroll-right 80s linear infinite;
   }
   .textCarouseBox {
     white-space: nowrap;
     width: 100%;
     background-color: transparent;
-    margin:20px;
+    margin: 20px;
     .textCarouse {
       display: flex;
       padding-left: 100%;
@@ -472,7 +476,7 @@
       gap: 50px;
       span {
         color: #000;
-        font-size: 24px;
+        font-size: 1.5rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -481,14 +485,14 @@
     }
   }
 }
-@keyframes cat-walk {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
-}
+// @keyframes cat-walk {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(100vw);
+//   }
+// }
 @keyframes scroll-right {
   0% {
     transform: translateX(-50%);
@@ -502,7 +506,7 @@
     transform: translateX(0);
   }
   100% {
-    transform:  translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 @keyframes scrollText {
