@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 import WaitingHome from "./pages/WaitingHome/WaitingHome";
 import AdoptQA from "./pages/AdoptQA/AdoptQA";
+import CatProfile from "./pages/CatProfile/CatProfile";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/waitinghome" element={<WaitingHome />} />
-          <Route path="/adoptqa" element={<AdoptQA/>} />
+        <Route path="/waitinghome/catprofile" element={<CatProfile />} />
+        <Route path="/adoptqa" element={<AdoptQA />} />
       </Routes>
       <Footer />
     </>

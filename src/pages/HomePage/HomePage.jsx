@@ -161,7 +161,7 @@ function HomePage() {
         <header className="home-title">
           <h2>Let’s Go Home!</h2>
         </header>
-        <div  className="catWalk">
+        <div className="catWalk">
           <img src="./images/catwalk.png" alt="貓咪走路" />
         </div>
         <div className="photoCarouselBox">
@@ -184,7 +184,7 @@ function HomePage() {
         </div>
         <div className="photoCarouselBox">
           <div className="photoCarousel photoCarouselLeft">
-            {[5, 6, 7, 1,  5, 6, 7,1].map((i, index) => (
+            {[5, 6, 7, 1, 5, 6, 7, 1].map((i, index) => (
               <img
                 key={index}
                 src={`./images/group${i}.png`}
@@ -193,6 +193,25 @@ function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+      <section id="aboutUs">
+        <header className="home-title">
+          <h2>Home for All</h2>
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </section>
     </>
   );

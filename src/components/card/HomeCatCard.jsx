@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import CatNameTagHover from "../tag/CatNameTagHover";
 import "./HomeCatCard.scss";
 
-function HomeCatCard({years,name,png,hashtag1,hashtag2,hashtag3}) {
+function HomeCatCard({ years, name, png, hashtag1, hashtag2, hashtag3 }) {
   return (
     <>
       <div className="phoneCard">
@@ -16,9 +17,9 @@ function HomeCatCard({years,name,png,hashtag1,hashtag2,hashtag3}) {
           <img src="./images/icon-wifi.svg" alt="wifi" />
           <img src="./images/icon-battery.svg" alt="電量" />
         </div>
-       
-          <CatNameTagHover name={name} catColor="#F8B600" textColor="#FFF"/>
-           <div className="phoneMain">
+
+        <CatNameTagHover name={name} catColor="#F8B600" textColor="#FFF" />
+        <div className="phoneMain">
           <div className="phoneCat">
             <div className="phoneCatPhoto">
               <img src={png} alt="貓照片" />
@@ -29,7 +30,8 @@ function HomeCatCard({years,name,png,hashtag1,hashtag2,hashtag3}) {
               <div className="hashtag">{hashtag3}</div>
             </div>
           </div>
-          <button className="phoneCatBt">主子檔案</button>
+          <Link to="/waitinghome/catprofile">
+            <button className="phoneCatBt">主子檔案</button></Link>
         </div>
       </div>
     </>
