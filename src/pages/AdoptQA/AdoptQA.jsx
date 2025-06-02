@@ -2,11 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import "./AdoptQA.scss";
 import Maintitle from "../../components/title/Maintitle";
 import CatNameTagAuto from "../../components/tag/CatNameTagAuto";
+import CatNameTagHover from "../../components/tag/CatNameTagHover";
 
 const sections = [
   { id: "before", title: "領養貓咪前" },
-  { id: "apply", title: "申請領養貓咪" },
-  { id: "after", title: "領養後追蹤機制" },
+  { id: "apply", title: "領養貓咪" },
+  { id: "after", title: "領養後追蹤" },
   { id: "other", title: "其他問題" },
 ];
 
@@ -15,7 +16,7 @@ const QASection = ({ id, title, qas }) => {
   return (
     <section id={id} className="qa-section">
       {/* <h2 className="qa-title">{title}</h2> */}
-      <div><CatNameTagAuto name={title}/></div>
+      <div className="catNameTagAuto"><CatNameTagAuto name={title} catColor="#CAB271"/></div>
       {qas.map((qa, index) => (
         <div
           key={index}
@@ -34,6 +35,7 @@ const QASection = ({ id, title, qas }) => {
 };
 
 function AdoptQA() {
+
   const navRef = useRef();
 
   useEffect(() => {
@@ -54,7 +56,7 @@ function AdoptQA() {
   const sampleQAs = [
     {
       q: "領養貓咪需要準備什麼?會需要費用嗎？",
-      a: "您只需要準備好貓咪基本的生活用品、食物、水，並確認門窗防護錯安全，填寫好相關資料並送出申請就可以囉!",
+      a: "我們不會跟您收取任何費用。您只需要準備好貓咪基本的生活用品、食物、水，並確認門窗防護錯安全，填寫好相關資料並送出申請就可以囉!",
     },
     {
       q: "問卷測驗不及格的話，還能夠領養貓咪嗎？",
@@ -82,13 +84,16 @@ function AdoptQA() {
             ))}
           </div>
           <div className="qa-nav" ref={navRef}>
+
             {sections.map((sec) => (
+
               <div
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
                 className="qa-nav-item"
               >
-                {sec.title}
+                <CatNameTagHover name={sec.title} catColor="#FFF" textColor="#FF630F"/>
+
               </div>
             ))}
           </div>

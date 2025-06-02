@@ -349,7 +349,7 @@
 }
 #waitingForHome {
   width: 100%;
-  height: 100vh;
+
   background: #f9eac1;
   overflow: hidden;
   max-width: 100vw;
@@ -367,6 +367,7 @@
     justify-content: center;
     gap: 24px;
     transition: transform 0.8s ease-in-out;
+    margin-top: 100px;
   }
 
   .carousel-item {

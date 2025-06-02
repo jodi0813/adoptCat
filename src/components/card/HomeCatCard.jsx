@@ -17,7 +17,7 @@ function HomeCatCard({years,name,png,hashtag1,hashtag2,hashtag3}) {
           <img src="./images/icon-battery.svg" alt="電量" />
         </div>
        
-          <CatNameTagHover name={name} />
+          <CatNameTagHover name={name} catColor="#F8B600" textColor="#FFF"/>
            <div className="phoneMain">
           <div className="phoneCat">
             <div className="phoneCatPhoto">

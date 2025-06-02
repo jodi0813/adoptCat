@@ -68,3 +68,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+a, .link {
+  color: #5C270A;
+
+  &:hover {
+    color: #F8B600;
+  
+  }
+}

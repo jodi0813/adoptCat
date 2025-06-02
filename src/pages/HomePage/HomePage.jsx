@@ -137,6 +137,7 @@ function HomePage() {
                   <HomeCatCard
                     years={cat.years}
                     name={cat.name}
+                    png={cat.png}
                     hashtag1={cat.hashtag1}
                     hashtag2={cat.hashtag2}
                     hashtag3={cat.hashtag3}
