@@ -82,12 +82,23 @@ function CatProfile() {
                             4. 可以多貓家庭
                         </div>
                     </div>
-                                        <div className="profileBox">
-                        <CatNameTagAuto name="領養條件" catColor="#CAB271" />
-                        <div className="profileDetail">1. 23歲以上
-                            2. 有穩定收入
-                            3. 適合新手
-                            4. 可以多貓家庭
+
+                    <div className="profileBox">
+                        <CatNameTagAuto name="健康狀態" catColor="#CAB271" />
+                        <div className="profileDetail">
+                            結紮
+                        </div>
+                    </div>
+                    <div className="profileBox">
+                        <CatNameTagAuto name="貓咪喜好" catColor="#CAB271" />
+                        <div className="profileDetail">
+                            貓肉泥
+                        </div>
+                    </div>
+                    <div className="profileBox">
+                        <CatNameTagAuto name="領貓想說" catColor="#CAB271" />
+                        <div className="profileDetail">
+                            豆漿雖然是一隻親人的貓咪，但我們發現當牠跟人們玩到太興奮的時候，容易突然地咬人一下(不會太大力)，帶回家可能要再耐心教導唷!
                         </div>
                     </div>
                 </div>
