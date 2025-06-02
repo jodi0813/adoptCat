@@ -1,8 +1,21 @@
 import CatPawRating from "./CatPawRating";
 import "./CatProfile.scss";
 import CatNameTagAuto from "../../components/tag/CatNameTagAuto";
+import { useState } from "react";
 
 function CatProfile() {
+  const [bigCat, setBigCat] = useState("/images/profile1.png");
+  const [smallCats, setSmallCats] = useState([
+    "/images/jodicat.png",
+    "/images/phonecat2.jpg",
+  ]);
+  function handleClick(idx) {
+    const cat = smallCats[idx];
+    const newSmallCats = [...smallCats];
+    newSmallCats[idx] = bigCat;
+    setSmallCats(newSmallCats);
+    setBigCat(cat);
+  }
   return (
     <>
       <section id="catProfile">
@@ -18,21 +31,20 @@ function CatProfile() {
             </header>
             <div>
               <img
-                src="./images/profile1.png"
+                src={bigCat}
                 alt="貓咪頭貼"
-                className="profilePhotoBig"
+                className="profilePhoto maskBig"
               />
-              <div>
-                <img
-                  src="./images/profile2.svg"
-                  alt="貓咪頭貼"
-                  className="profilePhotoSmall"
-                />
-                <img
-                  src="./images/profile2.svg"
-                  alt="貓咪頭貼"
-                  className="profilePhotoSmall"
-                />
+              <div className="maskSmallPhoto">
+                {smallCats.map((cat, idx) => (
+                  <img
+                    key={idx}
+                    src={cat}
+                    alt="貓咪頭貼"
+                    className="profilePhoto maskSmall"
+                    onClick={() => handleClick(idx)}
+                  />
+                ))}
               </div>
             </div>
           </div>

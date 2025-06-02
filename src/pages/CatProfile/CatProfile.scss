@@ -10,9 +10,9 @@
 
     .profileLeft {
       flex: 1;
- display: flex;
-   flex-direction: column;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .profileHeader {
         display: flex;
         flex-direction: column;
@@ -49,12 +49,26 @@
         }
       }
 
-      .profilePhotoBig {
-        width: 522px;
+      .profilePhoto {
+        object-fit: cover;
+        mask-image: url("/images/maskcatsmall.svg");
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-image: url("/images/maskcatsmall.svg");
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
       }
-
-      .profilePhotoSmall {
-        width: 159px;
+      .maskBig {
+        width: 500px;
+        height: 500px;
+      }
+      .maskSmall {
+        width: 300px;
+      }
+      .maskSmallPhoto {
+        display: flex;
       }
     }
 
@@ -70,7 +84,7 @@
         display: flex;
         justify-content: center;
         border-radius: 30px;
-gap: 30px;
+        gap: 30px;
         width: 600px;
       }
     }
