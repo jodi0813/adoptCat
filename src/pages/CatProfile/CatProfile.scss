@@ -1,124 +1,148 @@
 @use "../../styles/reset.scss";
 
 #catProfile {
-  display: flex;
-  flex-direction: column;
-  padding: 100px 5%;
-  gap: 150px;
-  .profilehead {
     display: flex;
+    flex-direction: column;
+    padding: 100px 5%;
+    gap: 150px;
 
-    .profileLeft {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .profileHeader {
+    .profilehead {
+        display: flex;
+
+        .profileLeft {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 50px;
+
+            .profileHeader {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+
+                .profileTitle {
+                    display: flex;
+                    align-items: center;
+
+                    h2 {
+                        color: #000;
+                        text-align: center;
+                        font-size: 4rem;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 0px;
+                    }
+
+                    /* 0% */
+                    img {
+                        width: 75px;
+                        height: 75px;
+                    }
+                }
+
+                .profileSubTitle {
+                    color: #000;
+                    font-size: 1.5rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+
+            .profilePhotoThree {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .profilePhoto {
+                    object-fit: cover;
+                    mask-image: url("/images/maskcatsmall.svg");
+                    mask-size: contain;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    -webkit-mask-image: url("/images/maskcatsmall.svg");
+                    -webkit-mask-size: contain;
+                    -webkit-mask-repeat: no-repeat;
+                    -webkit-mask-position: center;
+                }
+
+                .maskBig {
+                    width: 500px;
+                    height: 400px;
+                }
+
+                .maskSmall {
+                    width: 250px;
+                    height: 200px;
+                }
+
+                .maskSmallPhoto {
+                    display: flex;
+                    gap: 20px;
+                }
+            }
+        }
+
+        .profileRight {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 70px;
+            padding-top: 100px;
+
+            .catPawRatingBox {
+                // background: rgba(255, 255, 255, 0.5);
+                display: flex;
+                justify-content: center;
+                border-radius: 30px;
+                gap: 30px;
+                width: 600px;
+            }
+        }
+    }
+
+    .profileMain {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
+        gap: 1%;
+        width: 100%;
+        flex: 1;
 
-        .profileTitle {
-          display: flex;
-          align-items: center;
+        .profileMainBox {
+            display: flex;
 
-          h2 {
-            color: #000;
-            text-align: center;
-            font-size: 4rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 0px;
-          }
 
-          /* 0% */
-          img {
-            width: 75px;
-            height: 75px;
-          }
+            .profileBox {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+
+                .profileDetail {
+                    display: flex;
+                    width: 80%;
+                    height: 300px;
+                    padding: 16px 39px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    border-radius: 25px;
+                    background: rgba(255, 255, 255, 0.5);
+                    color: #000;
+                    font-size: 1.2rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 36px */
+                    letter-spacing: 2.64px;
+                }
+            }
         }
-
-        .profileSubTitle {
-          color: #000;
-          font-size: 1.5rem;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
-      }
-
-      .profilePhoto {
-        object-fit: cover;
-        mask-image: url("/images/maskcatsmall.svg");
-        mask-size: contain;
-        mask-repeat: no-repeat;
-        mask-position: center;
-        -webkit-mask-image: url("/images/maskcatsmall.svg");
-        -webkit-mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-      }
-      .maskBig {
-        width: 500px;
-        height: 500px;
-      }
-      .maskSmall {
-        width: 300px;
-      }
-      .maskSmallPhoto {
-        display: flex;
-      }
     }
-
-    .profileRight {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 70px;
-      padding: 3%;
-      .catPawRatingBox {
-        // background: rgba(255, 255, 255, 0.5);
-        display: flex;
-        justify-content: center;
-        border-radius: 30px;
-        gap: 30px;
-        width: 600px;
-      }
-    }
-  }
-
-  .profileMain {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 20px;
-
-    .profileBox {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .profileDetail {
-        display: flex;
-        width: 583px;
-        height: 250px;
-        padding: 16px 39px;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        border-radius: 25px;
-        background: rgba(255, 255, 255, 0.5);
-        color: #000;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%; /* 36px */
-        letter-spacing: 2.64px;
-      }
-    }
-  }
 }

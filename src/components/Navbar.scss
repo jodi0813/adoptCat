@@ -1,36 +1,48 @@
 @use "../styles/reset.scss";
+
 #navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-    position: fixed;
+  position: fixed;
   top: 0px;
   left: 0px;
   padding: 0px 20px;
   z-index: 999;
-  .menuButton{
-      display: flex;
-        align-items: center;
+
+  .menuButton {
+    display: flex;
+    align-items: center;
   }
+
   .menu ul {
     display: flex;
     border-radius: 99px;
-    background-color: #fff;
-    gap: 30px;
+    gap: 40px;
     padding: 5px 20px;
+
     li {
-      color: #000;
+      display: inline-block;
+      // color: #000;
       font-size: 20px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 600;
       line-height: normal;
-      &:hover{
-        color: #FF630F;
+      background: linear-gradient(to right, #000 50%, #daa001 50%);
+      background-size: 200% 100%;
+      background-position: left bottom;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: background-position 0.4s ease;
+
+      &:hover {
+        background-position: right bottom;
       }
     }
   }
-  .gohomeBt{
+
+  .gohomeBt {
     background-color: transparent;
   }
 }

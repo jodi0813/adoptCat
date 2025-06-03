@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import CatNameTagHover from "../tag/CatNameTagHover";
 import "./HomeCatCard.scss";
 
-function HomeCatCard({ years, name, png, hashtag1, hashtag2, hashtag3 }) {
+
+function HomeCatCard({ years, name, png, hashtag }) {
   return (
     <>
       <div className="phoneCard">
@@ -25,9 +26,9 @@ function HomeCatCard({ years, name, png, hashtag1, hashtag2, hashtag3 }) {
               <img src={png} alt="貓照片" />
             </div>
             <div className="cathashtag">
-              <div className="hashtag">{hashtag1}</div>
-              <div className="hashtag">{hashtag2}</div>
-              <div className="hashtag">{hashtag3}</div>
+              {hashtag.map((tag,index)=>(
+              <span key={index} className="hashtag">{tag}</span>
+              ))}
             </div>
           </div>
           <Link to="/waitinghome/catprofile">

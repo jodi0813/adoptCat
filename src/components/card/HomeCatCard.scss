@@ -1,4 +1,5 @@
 @use "../../styles/reset.scss";
+
 .phoneCard {
   width: 373px;
   height: 600px;
@@ -32,27 +33,33 @@
       width: 138.54px;
     }
   }
+
   .phoneMain {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
     .phoneCat {
       display: flex;
       flex-direction: column;
       justify-content: center;
 
       gap: 8px;
+
       .phoneCatPhoto {
         border: 4px solid #f8b600;
-        img{
-            height: 318.89px;
-       object-fit: contain
+
+        img {
+          height: 318.89px;
+          object-fit: contain
         }
       }
+
       .cathashtag {
         display: flex;
         gap: 7px;
+
         .hashtag {
           display: inline-flex;
           padding: 3px 14px;
@@ -66,10 +73,12 @@
           font-size: 24px;
           font-style: normal;
           font-weight: 400;
-          line-height: 100.015%; /* 24.004px */
+          line-height: 100.015%;
+          /* 24.004px */
         }
       }
     }
+
     .phoneCatBt {
       display: flex;
       width: 142px;
@@ -85,25 +94,33 @@
       font-size: 24px;
       font-style: normal;
       font-weight: 400;
-      line-height: 24px; /* 100% */
-    }
-    .phoneCatBt::before,
-    .phoneCatBt::after {
-      content: "";
-      position: absolute;
-      top: -30px;
-      border: 20px solid transparent;
-      border-bottom-color: #e8e3e3;
-    }
+      line-height: 24px;
 
-    .phoneCatBt::before {
-      left: 20px;
-      //   transform: rotate(-30deg);
-    }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        border: 20px solid transparent;
+        border-bottom-color: #e8e3e3;
+      }
 
-    .phoneCatBt::after {
-      right: 20px;
-      //   transform: rotate(30deg);
+      &::before {
+        left: 20px;
+      }
+
+    &::after {
+        right: 20px;
+      }
+
+      &:hover {
+        background: #f8b600;
+
+        &::before,
+        &::after {
+          border-bottom-color: #f8b600;
+        }
+      }
     }
   }
 }

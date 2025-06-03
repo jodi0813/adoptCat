@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import catList from "../../components/card/catList";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
+import Test from "./Test";
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -59,12 +60,7 @@ function HomePage() {
           </div>
 
           <div className="screen">
-            <div>
-              <img src="./images/screen.png" alt="" />
-            </div>
-            <button className="testBt" onClick={() => navigate("/quiz")}>
-              <img src="./images/testbt.png" alt="" />
-            </button>
+            <Test />
           </div>
         </div>
       </section>
@@ -194,25 +190,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section id="aboutUs">
-        <header className="home-title">
-          <h2>Home for All</h2>
-        </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </section>
     </>
   );
 }

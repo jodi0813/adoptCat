@@ -21,28 +21,31 @@ function WaitingHome() {
             <FilterGroup title="花色" options={["白", "橘", "虎斑", "黑"]} />
             <FilterGroup
               title="年齡"
-              options={["0~1歲", "1~3歲", "3~5歲", "5~8歲", "8歲以上"]}
+              options={["0~1歲", "1~3歲", "3~5歲", "5歲以上"]}
             />
             <FilterGroup
               title="貓咪個性"
-              options={["穩定", "慢熱", "黏人", "獨立", "話多", "安靜"]}
+              options={["穩定", "慢熱", "黏人", "獨立", "話多", "撒嬌"]}
             />
             <FilterGroup
               title="適合家庭"
               options={[
-                "家中沒有貓咪",
-                "家中有多隻貓",
-                "沒有養過貓咪",
-                "曾經養過貓咪",
+                "沒有貓咪",
+                "有其他貓",
               ]}
             />
             <FilterGroup
-              title="適合的主人"
+              title="養貓經驗"
               options={[
-                "工作無法經常陪伴貓",
-                "希望貓咪黏人的主人",
-                "有耐心照顧生病的貓",
-                "願意給兇貓一個機會",
+                "沒養過貓",
+                "有養過貓",
+              ]}
+            />
+            <FilterGroup
+              title="請給這些貓一個機會"
+              options={[
+                "我有耐心照顧生病的貓",
+                "我願意給兇貓一個機會",
               ]}
             />
           </div>
@@ -54,9 +57,8 @@ function WaitingHome() {
                 years={cat.years}
                 name={cat.name}
                 png={cat.png}
-                hashtag1={cat.hashtag1}
-                hashtag2={cat.hashtag2}
-                hashtag3={cat.hashtag3}
+                hashtag={cat.hashtag}
+
               />
             ))}
           </div>
