@@ -15,6 +15,27 @@
       align-items: center;
       gap: 30px;
       width: 300px;
+      height: 1000px;
+      position: relative;
+
+      .filter-reset {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+
+        .reset-button {
+          background: none;
+          border: none;
+          color: #ffa134;
+          font-size: 0.85rem;
+          cursor: pointer;
+          padding: 0;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
 
       .filter-group {
         display: flex;
@@ -38,6 +59,21 @@
             border-radius: 8px;
             font-size: 1rem;
           }
+          button {
+            border: 1px solid #ffa134;
+            background: white;
+            border-radius: 999px;
+            padding: 4px 12px;
+            min-width: 105px;
+            color: #000;
+            text-align: center;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 2.16px;
+            cursor: pointer;
+          }
         }
 
         .options {
@@ -50,7 +86,6 @@
             border: 1px solid #ffa134;
             background: white;
             border-radius: 999px;
-
             padding: 4px 12px;
             min-width: 105px;
             color: #000;
@@ -66,18 +101,21 @@
               background: #fff6e0;
             }
 
-            &.active {
+            &.selected {
               background: #f1ca87;
+              color: #3a2c19;
+              font-weight: 600;
+              border-color: #e09e30;
             }
           }
         }
       }
     }
-    .waiting-card{
-          display: flex;
-          flex-wrap:wrap;
-          gap: 30px;
-          width: 70%;
+    .waiting-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      width: 70%;
     }
   }
 }

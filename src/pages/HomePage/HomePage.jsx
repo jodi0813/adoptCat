@@ -3,6 +3,7 @@ import catList from "../../components/card/catList";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
 import Test from "./Test";
+import Button from "../../components/button/Button";
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -55,8 +56,6 @@ function HomePage() {
               alt="黑貓插圖"
               className="mainCatIllustration"
             />
-            {/* <div className="eye left" ref={leftEyeRef}></div>
-            <div className="eye right" ref={rightEyeRef}></div> */}
           </div>
 
           <div className="screen">
@@ -67,10 +66,8 @@ function HomePage() {
       <section id="takeMeHome">
         <header className="home-title">
           <h2>Take Me Home</h2>
-          <button>
-            詳細流程
-            <img src="./images/catFootprint.png" alt="貓腳印" />
-          </button>
+          <Button text="領養流程"/>
+
         </header>
         <div className="catHead catHead1">
           <div className="catear-left"></div>
@@ -190,7 +187,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

@@ -3,7 +3,7 @@ import CatNameTagHover from "../tag/CatNameTagHover";
 import "./HomeCatCard.scss";
 
 
-function HomeCatCard({ years, name, png, hashtag }) {
+function HomeCatCard({ years, name, png,hashtag = [] }) {
   return (
     <>
       <div className="phoneCard">
