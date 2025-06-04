@@ -66,8 +66,7 @@ function HomePage() {
       <section id="takeMeHome">
         <header className="home-title">
           <h2>Take Me Home</h2>
-          <Button text="領養流程"/>
-
+          <Button text="領養流程" />
         </header>
         <div className="catHead catHead1">
           <div className="catear-left"></div>
@@ -108,10 +107,7 @@ function HomePage() {
       </section>
       <section id="waitingForHome">
         <header className="home-title">
-          <button>
-            查看更多
-            <img src="./images/catFootprint.png" alt="貓腳印" />
-          </button>
+          <Button text="查看更多" />
           <h2>Waiting A Home</h2>
         </header>
         <div
@@ -155,7 +151,7 @@ function HomePage() {
           <h2>Let’s Go Home!</h2>
         </header>
         <div className="catWalk">
-          <img src="./images/catwalk.png" alt="貓咪走路" />
+          <img src="./images/catwalkingloop.gif" alt="貓咪走路" />
         </div>
         <div className="photoCarouselBox">
           <div className="photoCarousel">
