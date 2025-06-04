@@ -50,18 +50,18 @@
   }
 }
 .quiz-result {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 277px;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 277px;
+  gap: 50px;
   p {
     font-size: 2rem;
     color: #5c4033;
   }
-  button{
-      border: 3px solid #f8b600;
-      background-color: #fff3e0;
+  button {
+    border: 3px solid #f8b600;
+    background-color: #fff3e0;
   }
 }
