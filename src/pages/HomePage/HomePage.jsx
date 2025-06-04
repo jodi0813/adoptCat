@@ -166,9 +166,10 @@ function HomePage() {
         </div>
         <div className="textCarouseBox">
           <div className="textCarouse">
-            <span>每隻貓咪都值得擁有一個溫暖的家　 </span>
-            <span>給貓咪一個家，也給自己一份無盡的溫暖　</span>
-            <span>給牠一個家，牠會給你一個世界　</span>
+            <span>每隻貓咪都值得擁有一個溫暖的家</span>
+            <span>給貓咪一個家，也給自己一份無盡的溫暖</span>
+            <span>給牠一個家，牠會給你一個世界</span>
+            <span>領養代替購買</span>
           </div>
         </div>
         <div className="photoCarouselBox">
