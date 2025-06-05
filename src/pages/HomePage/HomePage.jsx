@@ -10,7 +10,7 @@ function HomePage() {
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
   const location = useLocation();
- useEffect(() => {
+  useEffect(() => {
     if (location.state?.scrollTo === "takeMeHome") {
       const section = document.getElementById("takeMeHome");
       if (section) {
@@ -27,6 +27,15 @@ function HomePage() {
     catList[currentIndex],
     catList[(currentIndex + 1) % catList.length],
   ];
+
+  useEffect(() => {
+  if (!paused) {
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % catList.length);
+    }, 4000);
+  }
+  return () => clearInterval(intervalRef.current);
+}, [paused]);
 
   return (
     <>
@@ -113,29 +122,25 @@ function HomePage() {
           <Button text="查看更多" />
           <h2>Waiting A Home</h2>
         </header>
-        <div
-          className="carousel-cats"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
+
+        <div className="carousel-cats" >
           <div className="carousel-track">
             {visibleCards.map((cat, index) => (
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-                style={{ border: index === 1 ? "2px dashed red" : "none" }}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard
                     years={cat.years}
                     name={cat.name}
                     png={cat.png}
-                    hashtag1={cat.hashtag1}
-                    hashtag2={cat.hashtag2}
-                    hashtag3={cat.hashtag3}
+                    hashtag={cat.hashtag}
                   />
                   {index === 1 && cat.quotes && (
-                    <div className="quotes debug-quotes">
+                    <div className="quotes">
                       {cat.quotes.map((q, i) => (
                         <div className={`quote q${i + 1}`} key={i}>
                           {q}

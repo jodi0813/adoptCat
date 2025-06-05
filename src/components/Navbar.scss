@@ -23,7 +23,7 @@
     gap: 40px;
     padding: 5px 20px;
 
-    li, button{
+    li{
       display: inline-block;
       // color: #000;
       font-size: 20px;
@@ -36,13 +36,11 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: background-position 0.4s ease;
-
+  cursor: pointer;
       &:hover {
         background-position: right bottom;
       }
-      button{
-        padding: 0;
-      }
+    
     }
   }
 
