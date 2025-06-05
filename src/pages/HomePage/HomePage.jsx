@@ -4,19 +4,22 @@ import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
 import Test from "./Test";
 import Button from "../../components/button/Button";
+import { useLocation } from "react-router-dom";
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
-
-  useEffect(() => {
-    if (!paused) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % catList.length);
-      }, 3000);
+  const location = useLocation();
+ useEffect(() => {
+    if (location.state?.scrollTo === "takeMeHome") {
+      const section = document.getElementById("takeMeHome");
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 100); // 延遲讓 DOM render 完
+      }
     }
-    return () => clearInterval(intervalRef.current);
-  }, [paused]);
+  }, [location]);
 
   // 前後補 1 張，總共顯示 3 張卡
   const visibleCards = [

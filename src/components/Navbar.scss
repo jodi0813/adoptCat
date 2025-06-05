@@ -18,11 +18,12 @@
 
   .menu ul {
     display: flex;
+        align-items: center;
     border-radius: 99px;
     gap: 40px;
     padding: 5px 20px;
 
-    li {
+    li, button{
       display: inline-block;
       // color: #000;
       font-size: 20px;
@@ -38,6 +39,9 @@
 
       &:hover {
         background-position: right bottom;
+      }
+      button{
+        padding: 0;
       }
     }
   }

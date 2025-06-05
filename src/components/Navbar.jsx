@@ -1,23 +1,35 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.scss"
 function Navbar() {
+  
   const navigate = useNavigate();
-  return (
-    <>
-      <header id="navbar">
-        <div>
-          <Link to="/" className="logo">
-            <img src="./images/logo_navbar.png" alt="網站LOGO" />
-          </Link>
-        </div>
-        <div className="menuButton">
+  const location = useLocation();
+  const handleScrollToTakeMeHome= () => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "takeMeHome" } });
+    } else {
+      const section = document.getElementById("takeMeHome");
+      section?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+
+return (
+  <>
+    <header id="navbar">
+      <div>
+        <Link to="/" className="logo">
+          <img src="./images/logo_navbar.png" alt="網站LOGO" />
+        </Link>
+      </div>
+      <div className="menuButton">
         <nav className="menu">
           <ul>
             <li>
               <Link to="/">關於我們</Link>
             </li>
-            <li>
-              <Link to="/">領養流程</Link>
+            <li onClick={handleScrollToTakeMeHome}>
+              領養流程
             </li>
             <li>
               <Link to="/waitinghome">帶我回家</Link>
@@ -31,8 +43,8 @@ function Navbar() {
           <img src="./images/houseBt.png" alt="回家按鈕" />
           回家
         </button></div>
-      </header>
-    </>
-  );
+    </header>
+  </>
+);
 }
 export default Navbar;
