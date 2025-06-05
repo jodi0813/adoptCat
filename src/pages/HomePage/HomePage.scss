@@ -444,10 +444,17 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 3%;
-
+  height: 180px; // 設定跟照片高度一致
+  // object-fit: contain;
+  position: relative; // 或 relative，看妳如何放置
+  // bottom: 0; // 讓它貼齊底部
     img {
-      width: 242px;
-    }
+      width: 260px;
+       object-fit: contain;
+  position: absolute; // 或 relative，看妳如何放置
+bottom: -70px;    
+right: 100px;
+}
   }
 
   .photoCarouselBox {
