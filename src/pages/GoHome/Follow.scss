@@ -19,6 +19,11 @@
         padding: 10.5px 8.5px;
         justify-content: center;
         align-items: center;
+        color: #000;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
       }
     }
     .followTitle {
@@ -96,7 +101,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 99px;
-        background: #ffc37d;
+        background: #D9D9D9;
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
         color: #fff;
         text-align: center;
@@ -106,6 +111,67 @@
         line-height: normal;
         letter-spacing: 3.2px;
       }
+      .blue{
+        background-color: #9ecbff;
+      }
+    }
+  }
+}
+.uploadModal {
+  position: fixed;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  width: 300px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.uploadBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  p {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  input[type="file"] {
+    margin-bottom: 12px;
+  }
+
+  .previewBox {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .previewImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .uploadBtn {
+    background: #f8b600;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 99px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background: #d99a00;
     }
   }
 }
