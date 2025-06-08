@@ -37,36 +37,36 @@ function Follow() {
         </div>
         <div className="gohomeBox followBox">
           <header className="followHeader">
-            <div>
+            <div className="followCatName">
               <span>目前貓咪：搗灰</span>
             </div>
-            <div>
-              <span>每月領養追蹤</span>
-              <span>(請於每月底前完成上傳貓咪生活照)</span>
+            <div className="followTitle">
+              <span className="followTitle1">每月領養追蹤</span>
+              <span className="followTitle2">(請於每月底前完成上傳貓咪生活照)</span>
             </div>
-            <div>
-              <div>未上傳</div>
-              <div>已上傳</div>
-              <div>已確認</div>
+            <div className="followCircles">
+              <div className="circle gray">未上傳</div>
+              <div className="circle blue">已上傳</div>
+              <div className="circle orange">已確認</div>
             </div>
           </header>
-          <div>當年度：114年</div>
-          <div>
-            <div>
-              <button>1月</button>
-              <button>2月</button>
-              <button>3月</button>
-              <button>4月</button>
-              <button>5月</button>
-              <button>6月</button>
+          <div className="followYear">當年度：114年</div>
+          <div className="monthCirleBox">
+            <div className="monthCircleLine">
+              <button className="monthCircle">1月</button>
+              <button className="monthCircle">2月</button>
+              <button className="monthCircle">3月</button>
+              <button className="monthCircle">4月</button>
+              <button className="monthCircle">5月</button>
+              <button className="monthCircle">6月</button>
             </div>
-            <div>
-              <button>7月</button>
-              <button>8月</button>
-              <button>9月</button>
-              <button>10月</button>
-              <button>11月</button>
-              <button>12月</button>
+            <div className="monthCircleLine">
+              <button className="monthCircle">7月</button>
+              <button className="monthCircle">8月</button>
+              <button className="monthCircle">9月</button>
+              <button className="monthCircle">10月</button>
+              <button className="monthCircle">11月</button>
+              <button className="monthCircle">12月</button>
             </div>
           </div>
         </div>

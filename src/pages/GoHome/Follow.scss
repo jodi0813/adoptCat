@@ -1,7 +1,111 @@
-.followBox{
+.followBox {
+  display: flex;
+  flex-direction: column;
+
+  padding: 5%;
+  gap: 20px;
+  .followHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .followCatName {
+      flex: 1;
+      span {
+        border: 1px solid #000;
+        height: 40%;
+        width: 140px;
+        border-radius: 5px;
+        display: inline-flex;
+        padding: 10.5px 8.5px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .followTitle {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      .followTitle1 {
+        color: #000;
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 3.2px;
+      }
+      .followTitle2 {
+        color: #000;
+        text-align: center;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 2.4px;
+      }
+    }
+    .followCircles {
+      display: flex;
+
+      flex: 1;
+      .circle {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        padding: 35px 12.5px 36px 10.5px;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        border-radius: 99px;
+        color: white;
+      }
+      .gray {
+        background: #d9d9d9;
+      }
+      .blue {
+        background: #9ecbff;
+      }
+      .orange {
+        background: #ffc37d;
+      }
+    }
+  }
+  .followYear {
+    color: #000;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2px;
+    display: flex;
+  }
+  .monthCirleBox {
     display: flex;
     flex-direction: column;
-    .followHeader{
-            display: flex;
+    gap: 20px;
+    .monthCircleLine {
+      display: flex;
+      justify-content: center;
+      gap: 3%;
+      .monthCircle {
+        display: inline-flex;
+        width: 120px;
+        height: 120px;
+        padding: 41px 32.5px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 99px;
+        background: #ffc37d;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        color: #fff;
+        text-align: center;
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 3.2px;
+      }
     }
+  }
 }
