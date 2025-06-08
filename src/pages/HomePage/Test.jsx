@@ -91,7 +91,7 @@ function Test() {
             <img src="./images/screen.png" alt="測驗背景" />
           </div>
           <button className="testBt" onClick={() => setStart(true)}>
-            <img src="./images/testbt.png" alt="" />
+            <img src="./images/testbt.png" alt="測驗按鈕" />
           </button>
         </>
       ) : currentQuestion < questions.length ? (

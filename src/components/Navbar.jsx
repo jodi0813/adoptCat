@@ -12,6 +12,14 @@ function Navbar() {
       section?.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const handleScrollToTAbout= () =>{
+    if(location.pathname !== "/"){
+      navigate("/",{state:{scrollTo:"about"}});
+    }else{
+      const section1 =document.getElementById("about");
+      section1?.scrollIntoView({behavior:"smooth"});
+    }
+  };
 
 
 return (
@@ -25,8 +33,8 @@ return (
       <div className="menuButton">
         <nav className="menu">
           <ul>
-            <li>
-              <Link to="/">關於我們</Link>
+            <li onClick={handleScrollToTAbout}>
+              關於我們
             </li>
             <li onClick={handleScrollToTakeMeHome}>
               領養流程

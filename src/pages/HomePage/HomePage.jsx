@@ -29,13 +29,13 @@ function HomePage() {
   ];
 
   useEffect(() => {
-  if (!paused) {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % catList.length);
-    }, 4000);
-  }
-  return () => clearInterval(intervalRef.current);
-}, [paused]);
+    if (!paused) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % catList.length);
+      }, 4000);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [paused]);
 
   return (
     <>
@@ -123,7 +123,7 @@ function HomePage() {
           <h2>Waiting A Home</h2>
         </header>
 
-        <div className="carousel-cats" >
+        <div className="carousel-cats">
           <div className="carousel-track">
             {visibleCards.map((cat, index) => (
               <div
@@ -189,6 +189,22 @@ function HomePage() {
                 alt={`貓合照${i}`}
               />
             ))}
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <div className="aboutPhoto">
+          <img src="./images/about.jpg" alt="貓跟人手的照片" />
+        </div>
+        <div className="aboutTextBox">
+          <h2>關於領貓</h2>
+          <div className="aboutText">
+            <span>你是不是也曾想領養貓，卻被問東問西，最後又沒有下文？</span>
+            <span>我們幫你省下繁瑣對話，輕鬆又安心找到命定主子 </span>
+            <span>透過線上審核，讓你可以即時掌握進度；</span>
+            <span>領養後也能在網站上定期追蹤回報，不必私訊往返。</span>
+            <span>我們希望建立起透明又溫暖的互信關係，</span>
+            <span>讓我們一起，守護每隻貓的幸福。</span>
           </div>
         </div>
       </section>
