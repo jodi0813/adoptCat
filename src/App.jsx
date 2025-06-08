@@ -1,6 +1,6 @@
 import ScrollToTop from "./utils/ScrollToTop";
 import "./App.css";
-import '../src/index.css';
+import "../src/index.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -9,6 +9,8 @@ import { Routes, Route } from "react-router-dom";
 import WaitingHome from "./pages/WaitingHome/WaitingHome";
 import AdoptQA from "./pages/AdoptQA/AdoptQA";
 import CatProfile from "./pages/CatProfile/CatProfile";
+import GoHome from "./pages/GoHome/GoHome";
+import Follow from "./pages/GoHome/Follow";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/waitinghome" element={<WaitingHome />} />
         <Route path="/waitinghome/catprofile" element={<CatProfile />} />
         <Route path="/adoptqa" element={<AdoptQA />} />
+        <Route path="/gohome" element={<GoHome />} />
+        <Route path="/gohome/follow" element={<Follow />} />
       </Routes>
       <Footer />
     </>
