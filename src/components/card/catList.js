@@ -16,7 +16,7 @@ const catList = [
     id: 2,
     years: "8m",
     name: "芝麻",
-    sex: "弟弟",
+    sex: "妹妹",
     color: "橘",
     old: "0~1歲",
     png: "./images/phonecat1.jpg",

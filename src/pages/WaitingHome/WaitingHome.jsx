@@ -134,6 +134,7 @@ function WaitingHome() {
               name={cat.name}
               png={cat.png}
               hashtag={cat.hashtag}
+              sex={cat.sex}
             />
           ))}
         </div>

@@ -10,6 +10,8 @@ function HomePage() {
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
   const location = useLocation();
+  const catHeadRefs = [useRef(null), useRef(null), useRef(null)];
+
   useEffect(() => {
     if (location.state?.scrollTo === "takeMeHome") {
       const section = document.getElementById("takeMeHome");
@@ -36,6 +38,30 @@ function HomePage() {
     }
     return () => clearInterval(intervalRef.current);
   }, [paused]);
+
+  useEffect(() => {
+    function onScroll() {
+      for (let idx = 0; idx < catHeadRefs.length; idx++) {
+        const ref = catHeadRefs[idx];
+        if (!ref.current) continue;
+        const rect = ref.current.getBoundingClientRect();
+        // 只有前一個已經 show，這個才允許 show
+        const prevShow =
+          idx === 0 || catHeadRefs[idx - 1].current.classList.contains("show");
+        if (
+          rect.top < window.innerHeight - 100 &&
+          !ref.current.classList.contains("show") &&
+          prevShow
+        ) {
+          ref.current.classList.add("show");
+          break; // 一次只顯示一個
+        }
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -80,7 +106,7 @@ function HomePage() {
           <h2>Take Me Home</h2>
           <Button text="領養流程" />
         </header>
-        <div className="catHead catHead1">
+        <div className="catHead catHead1" ref={catHeadRefs[0]}>
           <div className="catear-left"></div>
           <div className="catear-right"></div>
           <span className="catHead-number">1</span>
@@ -92,7 +118,7 @@ function HomePage() {
             <li>按下「我要領養」送出即可</li>
           </ul>
         </div>
-        <div className="catHead catHead2">
+        <div className="catHead catHead2" ref={catHeadRefs[1]}>
           <div className="catear-left"></div>
           <div className="catear-right"></div>
           <span className="catHead-number">2</span>
@@ -104,7 +130,7 @@ function HomePage() {
             <li>最快當日就可以帶貓貓回家囉!</li>
           </ul>
         </div>
-        <div className="catHead catHead3">
+        <div className="catHead catHead3" ref={catHeadRefs[2]}>
           <div className="catear-left"></div>
           <div className="catear-right"></div>
           <span className="catHead-number">3</span>
@@ -129,8 +155,8 @@ function HomePage() {
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}
+                // onMouseEnter={() => setPaused(true)}
+                // onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard
@@ -138,6 +164,7 @@ function HomePage() {
                     name={cat.name}
                     png={cat.png}
                     hashtag={cat.hashtag}
+                    sex={cat.sex}
                   />
                   {index === 1 && cat.quotes && (
                     <div className="quotes">
