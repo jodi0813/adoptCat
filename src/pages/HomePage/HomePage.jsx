@@ -11,6 +11,7 @@ function HomePage() {
   const intervalRef = useRef(null);
   const location = useLocation();
   const catHeadRefs = [useRef(null), useRef(null), useRef(null)];
+  const [peopleWalkActive, setPeopleWalkActive] = useState(false);
 
   useEffect(() => {
     if (location.state?.scrollTo === "takeMeHome") {
@@ -63,6 +64,21 @@ function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    function onScroll() {
+      const section = document.getElementById("takeMeHome");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setPeopleWalkActive(true);
+        }
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <section id="homePage">
@@ -106,41 +122,54 @@ function HomePage() {
           <h2>Take Me Home</h2>
           <Button text="領養流程" />
         </header>
-        <div className="catHead catHead1" ref={catHeadRefs[0]}>
-          <div className="catear-left"></div>
-          <div className="catear-right"></div>
-          <span className="catHead-number">1</span>
-          <h3 className="highlight">找到喜歡的貓並送出申請</h3>
-          <ul>
-            <li>在網站上找到喜歡的貓咪</li>
-            <li>先加入領貓會員後</li>
-            <li>填寫基本資料、問卷調查</li>
-            <li>按下「我要領養」送出即可</li>
-          </ul>
+        <div className="catHeadContainer">
+          <div className="catHead catHead1" ref={catHeadRefs[0]}>
+            <div className="catear-left"></div>
+            <div className="catear-right"></div>
+            <span className="catHead-number">1</span>
+            <h3 className="highlight">找到喜歡的貓並送出申請</h3>
+            <ul>
+              <li>在網站上找到喜歡的貓咪</li>
+              <li>先加入領貓會員後</li>
+              <li>填寫基本資料、問卷調查</li>
+              <li>按下「我要領養」送出即可</li>
+            </ul>
+          </div>
+          <div className="catHead catHead2" ref={catHeadRefs[1]}>
+            <div className="catear-left"></div>
+            <div className="catear-right"></div>
+            <span className="catHead-number">2</span>
+            <h3 className="highlight">等待審核與家訪</h3>
+            <ul>
+              <li>等待審核成功後</li>
+              <li>您會收到信件通知</li>
+              <li>將致電與您約家訪及簽約的時間</li>
+              <li>最快當日就可以帶貓貓回家囉!</li>
+            </ul>
+          </div>
+          <div className="catHead catHead3" ref={catHeadRefs[2]}>
+            <div className="catear-left"></div>
+            <div className="catear-right"></div>
+            <span className="catHead-number">3</span>
+            <h3 className="highlight">每月固定追蹤</h3>
+            <ul>
+              <li>領養完成後</li>
+              <li>將開始每月追蹤功能</li>
+              <li>每月須於15日前上傳貓咪生活照</li>
+              <li>並提供疫苗施打、結紮相關紀錄</li>
+            </ul>
+          </div>
         </div>
-        <div className="catHead catHead2" ref={catHeadRefs[1]}>
-          <div className="catear-left"></div>
-          <div className="catear-right"></div>
-          <span className="catHead-number">2</span>
-          <h3 className="highlight">等待審核與家訪</h3>
-          <ul>
-            <li>等待審核成功後</li>
-            <li>您會收到信件通知</li>
-            <li>將致電與您約家訪及簽約的時間</li>
-            <li>最快當日就可以帶貓貓回家囉!</li>
-          </ul>
-        </div>
-        <div className="catHead catHead3" ref={catHeadRefs[2]}>
-          <div className="catear-left"></div>
-          <div className="catear-right"></div>
-          <span className="catHead-number">3</span>
-          <h3 className="highlight">每月固定追蹤</h3>
-          <ul>
-            <li>領養完成後</li>
-            <li>將開始每月追蹤功能</li>
-            <li>每月須於15日前上傳貓咪生活照</li>
-            <li>並提供疫苗施打、結紮相關紀錄</li>
-          </ul>
+        <div className="peopleWalk">
+          <img
+            src="./images/peoplewalking.gif"
+            alt="人走路動畫"
+            className={`peopleWalking${
+              peopleWalkActive ? " animate" : ""
+            }`}
+          />
+          <img src="./images/cat.png" alt="貓咪圖片" className="catWaking" />
+          <img src="./images/house.png" alt="房子圖片" className="house" />
         </div>
       </section>
       <section id="waitingForHome">
@@ -155,8 +184,8 @@ function HomePage() {
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-                // onMouseEnter={() => setPaused(true)}
-                // onMouseLeave={() => setPaused(false)}
+              // onMouseEnter={() => setPaused(true)}
+              // onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard

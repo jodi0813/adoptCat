@@ -3,6 +3,8 @@
 .adoptBox {
     display: flex;
     flex-direction: column;
+    padding: 5%;
+    gap: 20%;
 
     .adoptHeader {
         display: flex;
@@ -22,16 +24,17 @@
     .step-section {
         display: flex;
         justify-content: center;
-        gap: 10%;
-        padding: 5%;
-        height: 80%;
+        gap: 8%;
+        // padding: 10% 3% 0% 3%;
+        height: 70%;
     }
 
     .step-card {
         border: 1px solid #ffa50050;
         border-radius: 12px;
-        padding: 16px;
+        padding: 2%;
         width: 90%;
+        height: 100%;
         text-align: center;
         background: #fff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -50,10 +53,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 99px;
+            border-radius: 40px;
             background-color: #ffe397;
             box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
             margin-bottom: 12px;
+            padding: 8%;
 
             span {
                 color: #000;
@@ -101,15 +105,15 @@
         background: #FFE397;
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 
-.number {
-    background-color: #FFFDF0;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .number {
+            background-color: #FFFDF0;
+            width: 60px;
+            height: 60px;
+            border-radius: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         span {
             color: #000;
@@ -127,6 +131,11 @@
 
         &.gray {
             background: #d9d9d9;
+        }
+
+        &.darkgray {
+            background: #888;
+            color: #fff;
         }
     }
 

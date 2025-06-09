@@ -1,6 +1,30 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Adopt.scss";
 
 function Adopt() {
+    const [quizStatus, setQuizStatus] = useState("notyet"); // notyet, passed, failed
+
+    useEffect(() => {
+        const status = localStorage.getItem("catQuizPassed");
+        if (status === "true") setQuizStatus("passed");
+        else if (status === "false") setQuizStatus("failed");
+        else setQuizStatus("notyet");
+    }, []);
+    // useEffect(() => {
+    //     localStorage.removeItem("catQuizPassed"); // 重新整理就清除
+    //     setQuizStatus("notyet");
+    // }, []);
+    let badgeClass = "gray";
+    let desc = "尚未測驗";
+    if (quizStatus === "passed") {
+        badgeClass = "yellow";
+        desc = "問卷已通過 ✅";
+    } else if (quizStatus === "failed") {
+        badgeClass = "darkgray";
+        desc = "請做好準備，過一個月後再測驗";
+    }
+
     return (
         <>
             <section id="adopt">
@@ -37,34 +61,49 @@ function Adopt() {
                 </div>
                 <div className="gohomeBox adoptBox">
                     <header className="adoptHeader">
-                        <span className="adoptTitle"> 申請領養貓咪</span>
+                        <span className="adoptTitle">申請領養貓咪</span>
                     </header>
                     <div className="step-section">
+
                         <div className="step-card">
-                            <div className="step-badge yellow">
-                                <div className="number">1</div>
-                                <span>填寫問卷測驗</span>
-                            </div>
+                            {quizStatus === "failed" ? (
+                                <div className={`step-badge ${badgeClass} disabled`}>
+                                    <div className="number">1</div>
+                                    <span>填寫問卷測驗</span>
+                                </div>
+                            ) : (
+                                <Link to="/gohome/adopt/catquiz">
+                                    <div className={`step-badge ${badgeClass}`}>
+                                        <div className="number">1</div>
+                                        <span>填寫問卷測驗</span>
+                                    </div>
+                                </Link>
+                            )}
                             <div>
                                 <div className="step-status-title">處理進度</div>
-                                <div className="step-description">問卷已通過 ✅</div></div>
+                                <div className="step-description">{desc}</div>
+                            </div>
                         </div>
 
                         <div className="step-card">
-                            <div className="step-badge yellow">
-                                <div className="number">2</div>
-                                <span>申請領養貓咪</span>
-                            </div>
+                            <Link to="#">
+                                <div className="step-badge gray">
+                                    <div className="number">2</div>
+                                    <span>申請領養貓咪</span>
+                                </div>
+                            </Link>
                             <div>
                                 <div className="step-status-title">處理進度</div>
-                                <div className="step-description">已送出申請，等待審核中</div></div>
+                                <div className="step-description">請先完成測驗</div></div>
                         </div>
 
                         <div className="step-card">
-                            <div className="step-badge gray">
-                                <div className="number">3</div>
-                                <span>家訪評估</span>
-                            </div>
+                            <Link to="#">
+                                <div className="step-badge gray">
+                                    <div className="number">3</div>
+                                    <span>家訪評估</span>
+                                </div>
+                            </Link>
                             <div>
                                 <div className="step-status-title">處理進度</div>
                                 <div className="step-description">已預約4/26上午10:00</div></div>

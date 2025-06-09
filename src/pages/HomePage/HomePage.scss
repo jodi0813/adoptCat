@@ -5,6 +5,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 3%;
+  height: 200px;
+  ;
 
   h2 {
     color: #ffecb7;
@@ -205,6 +207,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       .mainCatIllustration {
         width: 90%;
       }
@@ -244,7 +247,14 @@
   background: #fff6df;
   overflow: hidden;
   max-width: 100vw;
-  padding: 5%;
+  padding: 0% 5%;
+  display: flex;
+  flex-direction: column;
+
+  .catHeadContainer {
+    position: relative;
+    height: 50%;
+  }
 
   .catHead {
     width: 360px;
@@ -318,17 +328,85 @@
 
   .catHead1 {
     left: 3%;
-    top: 10%;
+    bottom: 0%;
   }
 
   .catHead2 {
     left: 35%;
-    top: 0%;
+    bottom: 30%;
   }
 
   .catHead3 {
     left: 70%;
-    bottom: 70%;
+    bottom: 120%;
+  }
+
+  .peopleWalk {
+    position: relative;
+    height: 80%;
+    // background: #ffeb3b;
+
+    .peopleWalking {
+      width: 250px;
+      position: absolute;
+      left: 0px;
+      bottom: 0;
+      z-index: 10;
+      /* 預設沒有動畫 */
+    }
+
+    .peopleWalking.animate {
+      animation: people-walk-right 12s linear forwards;
+    }
+
+    .catWaking {
+      width: 150px;
+      position: absolute;
+      left: 40%;
+      bottom: 0%;
+      animation: cat-walk-right 12s linear forwards;
+      z-index: 15;
+    }
+
+    .house {
+      position: absolute;
+      width: 320px;
+      right: 0%;
+      bottom: 10px;
+      z-index: 0;
+    }
+  }
+
+  @keyframes cat-walk-right {
+    40% {
+      left: 40%;
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      left: calc(100vw - 500px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes people-walk-right {
+    0% {
+      left: 10%;
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      left: calc(100vw - 500px);
+      opacity: 0;
+    }
   }
 }
 
@@ -380,23 +458,28 @@
       z-index: 10;
       animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
+
     @keyframes popIn {
       0% {
         opacity: 0;
         transform: scale(0.5);
       }
+
       60% {
         opacity: 1;
         transform: scale(1.1);
       }
+
       80% {
         transform: scale(0.95);
       }
+
       100% {
         opacity: 1;
         transform: scale(1);
       }
     }
+
     .quote.q1 {
       bottom: 400px;
       left: 400px;
@@ -416,6 +499,7 @@
     .quote.q2 {
       bottom: 300px;
       right: 400px;
+
       &::after {
         content: "";
         position: absolute;
@@ -430,6 +514,7 @@
     .quote.q3 {
       bottom: 170px;
       left: 350px;
+
       &::after {
         content: "";
         position: absolute;
@@ -459,6 +544,7 @@
     height: 180px; // 設定跟照片高度一致
     // object-fit: contain;
     position: relative; // 或 relative，看妳如何放置
+
     // bottom: 0; // 讓它貼齊底部
     img {
       width: 260px;
@@ -548,6 +634,7 @@
     transform: translateX(-100vw);
   }
 }
+
 #about {
   width: 100%;
   height: 100vh;
@@ -561,6 +648,7 @@
     width: 50%;
     height: 100vh;
     overflow: hidden;
+
     img {
       width: 100%;
       height: 100%;
@@ -569,22 +657,26 @@
       display: block;
     }
   }
+
   .aboutTextBox {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-self: center;
     gap: 56px;
+
     h2 {
       font-size: 1.5rem;
       font-style: normal;
       font-weight: 500;
       line-height: 150%;
     }
+
     .aboutText {
       display: flex;
       flex-direction: column;
       gap: 15px;
+
       span {
         font-size: 1.1rem;
         font-style: normal;
