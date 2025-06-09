@@ -14,7 +14,7 @@
       flex: 1;
 
       span {
-        border: 1px solid #000;
+        border: 1px solid #604d32;
         height: 40%;
         width: 140px;
         border-radius: 5px;
@@ -22,7 +22,7 @@
         padding: 10.5px 8.5px;
         justify-content: center;
         align-items: center;
-        color: #000;
+        color: #604d32;
         font-size: 1rem;
         font-style: normal;
         font-weight: 500;
@@ -36,7 +36,7 @@
       flex: 2;
 
       .followTitle1 {
-        color: #000;
+        color: #604d32;
         text-align: center;
         font-size: 2rem;
         font-style: normal;
@@ -46,7 +46,7 @@
       }
 
       .followTitle2 {
-        color: #000;
+        color: #604d32;
         text-align: center;
         font-size: 1.5rem;
         font-style: normal;
@@ -88,7 +88,7 @@
   }
 
   .followYear {
-    color: #000;
+    color: #604d32;
     text-align: center;
     font-size: 1.2rem;
     font-style: normal;
@@ -116,7 +116,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 99px;
-        background: #D9D9D9;
+        background: #d9d9d9;
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
         color: #fff;
         text-align: center;
@@ -183,7 +183,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 12px;
-    color: #000;
+    color: #604d32;
     text-align: center;
     font-family: "Noto Sans TC";
     font-size: 1.2rem;
@@ -199,7 +199,7 @@
     width: 100%;
 
     .customFileUpload {
-      border: 1px solid #FF630F;
+      border: 1px solid #ff630f;
       cursor: pointer;
       font-size: 1rem;
       font-weight: bold;
@@ -217,8 +217,8 @@
       position: relative;
 
       span {
-        color: #FF630F;
-        font-size:1.5rem;
+        color: #ff630f;
+        font-size: 1.5rem;
         text-align: center;
         padding: 8px;
         width: 100%;
@@ -242,8 +242,6 @@
       }
     }
   }
-
-
 
   .previewBox {
     display: flex;
@@ -272,7 +270,7 @@
     align-items: center;
     flex-shrink: 0;
     border-radius: 99px;
-    background: #FFC37D;
+    background: #ffc37d;
     cursor: pointer;
 
     &:hover {

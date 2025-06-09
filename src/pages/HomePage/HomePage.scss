@@ -6,8 +6,6 @@
   align-items: center;
   padding: 3%;
   height: 200px;
-  ;
-
   h2 {
     color: #ffecb7;
     -webkit-text-stroke: 6px #dfc681; // 外框色
@@ -28,7 +26,7 @@
   overflow: hidden;
   max-width: 100vw;
   padding: 0px;
-
+  cursor: url("/images/mouse.png"), auto; //鼠標
   .catBackground {
     position: absolute;
     width: 100%;
@@ -211,6 +209,30 @@
       .mainCatIllustration {
         width: 90%;
       }
+      .eyes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .eye {
+        position: absolute;
+        width: 8vw; // 響應式大小
+        max-width: 80px;
+        transition: transform 0.1s linear;
+      }
+
+      .left-eye {
+        top: 33%;
+        left: 31%;
+      }
+
+      .right-eye {
+        top: 33%;
+        left: 58%;
+      }
     }
 
     .screen {
@@ -309,7 +331,7 @@
     .highlight {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #f77e10;
+      color: #ffa45b;
       margin-bottom: 10px;
     }
 
@@ -317,7 +339,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      color: #333;
+      color: #604d32;
 
       li {
         margin-bottom: 0.5rem;
@@ -350,7 +372,7 @@
       width: 250px;
       position: absolute;
       left: 0px;
-      bottom: 0;
+      bottom: 12%;
       z-index: 10;
       /* 預設沒有動畫 */
     }
@@ -448,11 +470,11 @@
   .quotes {
     .quote {
       background: #fff6df;
-      color: #000;
+      color: #604d32;
       padding: 6px 12px;
       font-size: 24px;
       white-space: nowrap;
-      border: 1px solid #000;
+      border: 1px solid #604d32;
       background: #fff;
       position: absolute;
       z-index: 10;
@@ -492,7 +514,7 @@
         left: -115px;
         bottom: -10px;
         transform: rotate(-30deg);
-        background: #000;
+        background: #604d32;
       }
     }
 
@@ -507,7 +529,7 @@
         height: 3px;
         right: -100px;
         bottom: 20px;
-        background: #000;
+        background: #604d32;
       }
     }
 
@@ -523,7 +545,7 @@
         left: -80px;
         bottom: 40px;
         transform: rotate(20deg);
-        background: #000;
+        background: #604d32;
       }
     }
   }
@@ -542,14 +564,14 @@
     justify-content: flex-end;
     padding-right: 3%;
     height: 180px; // 設定跟照片高度一致
-    // object-fit: contain;
-    position: relative; // 或 relative，看妳如何放置
+ 
+    position: relative; 
 
     // bottom: 0; // 讓它貼齊底部
     img {
       width: 260px;
       object-fit: contain;
-      position: absolute; // 或 relative，看妳如何放置
+      position: absolute; 
       bottom: -70px;
       right: 100px;
     }
@@ -586,7 +608,7 @@
       gap: 50px;
 
       span {
-        color: #000;
+        color: #604d32;
         font-size: 1.5rem;
         font-style: normal;
         font-weight: 400;
@@ -648,6 +670,7 @@
     width: 50%;
     height: 100vh;
     overflow: hidden;
+ position: relative; 
 
     img {
       width: 100%;
@@ -656,6 +679,14 @@
       object-position: center;
       display: block;
     }
+     &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(245, 166, 63, 0.1); // 橘色+透明度可調整
+    pointer-events: none;
+    border-radius: inherit;
+  }
   }
 
   .aboutTextBox {

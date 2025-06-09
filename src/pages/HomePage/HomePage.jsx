@@ -78,6 +78,35 @@ function HomePage() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const leftEyeRef = useRef(null);
+  const rightEyeRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      moveEye(leftEyeRef.current, e.clientX, e.clientY);
+      moveEye(rightEyeRef.current, e.clientX, e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const moveEye = (eyeElement, mouseX, mouseY) => {
+    if (!eyeElement) return;
+    const rect = eyeElement.getBoundingClientRect();
+    const eyeCenterX = rect.left + rect.width / 2;
+    const eyeCenterY = rect.top + rect.height / 2;
+
+    const dx = mouseX - eyeCenterX;
+    const dy = mouseY - eyeCenterY;
+    const angle = Math.atan2(dy, dx);
+    const radius = Math.min(8, rect.width * 0.25); // 響應式範圍
+
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    eyeElement.style.transform = `translate(${x}px, ${y}px)`;
+  };
 
   return (
     <>
@@ -106,10 +135,24 @@ function HomePage() {
         <div className="mainHero">
           <div className="catContainer">
             <img
-              src="./images/catscreen.png"
+              src="./images/catscreen.svg"
               alt="黑貓插圖"
               className="mainCatIllustration"
             />
+            <div className="eyes">
+              <img
+                src="./images/catscreenlefteye.png"
+                ref={leftEyeRef}
+                className="eye left-eye"
+                alt="左眼"
+              />
+              <img
+                src="./images/catscreenrighteye.png"
+                ref={rightEyeRef}
+                className="eye right-eye"
+                alt="右眼"
+              />
+            </div>
           </div>
 
           <div className="screen">
@@ -164,11 +207,13 @@ function HomePage() {
           <img
             src="./images/peoplewalking.gif"
             alt="人走路動畫"
-            className={`peopleWalking${
-              peopleWalkActive ? " animate" : ""
-            }`}
+            className={`peopleWalking${peopleWalkActive ? " animate" : ""}`}
           />
-          <img src="./images/cat.png" alt="貓咪圖片" className="catWaking" />
+          <img
+            src="./images/catgohome.gif"
+            alt="貓咪圖片"
+            className="catWaking"
+          />
           <img src="./images/house.png" alt="房子圖片" className="house" />
         </div>
       </section>
@@ -184,8 +229,8 @@ function HomePage() {
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-              // onMouseEnter={() => setPaused(true)}
-              // onMouseLeave={() => setPaused(false)}
+                // onMouseEnter={() => setPaused(true)}
+                // onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard

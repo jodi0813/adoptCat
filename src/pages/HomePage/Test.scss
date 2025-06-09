@@ -1,14 +1,25 @@
-.testBt{
+.testBt {
   animation: shake 0.5s ease-in-out;
- 
 }
 @keyframes shake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-8px); }
-  40% { transform: translateX(8px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .quiz-question {
   display: flex;
@@ -29,17 +40,17 @@
     button {
       font-size: 1.3rem;
       border-radius: 99px;
-      border: 1px solid #f8b600;
+      border: 1px solid #f9d176;
       background-color: #fff3e0;
       color: #5c4033;
       width: 75%;
       &:hover {
-        background-color: #f8b600;
+        background-color: #f9d176;
         color: #fff3e0;
       }
     }
     .selectedAns {
-      background-color: #f8b600;
+      background-color: #f9d176;
       color: #fff3e0;
     }
   }
@@ -47,7 +58,7 @@
     font-size: 14px;
     color: #5c4033;
     background-color: #fff3e0;
-    border: 1px solid #f8b600;
+    border: 1px solid #f9d176;
     width: 74px;
     height: 74px;
     position: absolute;
@@ -56,7 +67,7 @@
     border-radius: 999px;
     padding: 0;
     &:hover {
-      background-color: #f8b600;
+      background-color: #f9d176;
       color: #fff3e0;
     }
   }
@@ -73,7 +84,7 @@
     color: #5c4033;
   }
   button {
-    border: 3px solid #f8b600;
+    border: 3px solid #f9d176;
     background-color: #fff3e0;
   }
 }

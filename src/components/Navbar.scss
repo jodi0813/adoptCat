@@ -18,29 +18,28 @@
 
   .menu ul {
     display: flex;
-        align-items: center;
+    align-items: center;
     border-radius: 99px;
     gap: 40px;
     padding: 5px 20px;
 
-    li{
+    li {
       display: inline-block;
-      // color: #000;
+      // color: #604D32;
       font-size: 20px;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
-      background: linear-gradient(to right, #000 50%, #daa001 50%);
+      background: linear-gradient(to right, #604d32 50%, #daa001 50%);
       background-size: 200% 100%;
       background-position: left bottom;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: background-position 0.4s ease;
-  cursor: pointer;
+      cursor: pointer;
       &:hover {
         background-position: right bottom;
       }
-    
     }
   }
 

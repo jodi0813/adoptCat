@@ -29,7 +29,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-
 }
 
 h1 {
@@ -68,11 +67,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-a, .link {
-  color: #5C270A;
+a,
+.link {
+  color: #5c270a;
 
   &:hover {
-    color: #F8B600;
-  
+    color: #f9d176;
   }
 }

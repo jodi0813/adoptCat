@@ -37,7 +37,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-content">
-          <img src="./images/logo_navbar.png" alt="網站LOGO" />
+          <img src="./images//logo_navbar.png" alt="網站LOGO" />
           <div className="footer-content1">
             <ul>
               <li>關於我們</li>
