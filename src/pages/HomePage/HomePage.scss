@@ -400,6 +400,10 @@
   }
 
   @keyframes cat-walk-right {
+      0% {
+      left: 40%;
+      opacity: 1;
+    }
     40% {
       left: 40%;
       opacity: 1;

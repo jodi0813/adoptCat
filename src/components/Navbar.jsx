@@ -44,7 +44,8 @@ function Navbar() {
           <Link to="/gohome">
             <button type="button" className="gohomeBt">
               <img src="./images/houseBt.png" alt="回家按鈕" />
-              回家
+               <img src="./images/catback.svg" alt="回家按鈕hover" className="hover-img" />
+             
             </button>
           </Link>
         </div>

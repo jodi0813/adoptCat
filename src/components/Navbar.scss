@@ -44,6 +44,28 @@
   }
 
   .gohomeBt {
+    position: relative;
+    display: flex;
+    align-items: center;
     background-color: transparent;
+
+    img {
+      display: block;
+      transition: opacity 1s;
+    }
+    .hover-img {
+      display: none;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+    }
+    &:hover img {
+      opacity: 0;
+    }
+    &:hover .hover-img {
+      display: block;
+      opacity: 1;
+      width: 40px;
+    }
   }
 }
