@@ -11,6 +11,7 @@ import AdoptQA from "./pages/AdoptQA/AdoptQA";
 import CatProfile from "./pages/CatProfile/CatProfile";
 import GoHome from "./pages/GoHome/GoHome";
 import Follow from "./pages/GoHome/Follow";
+import Adopt from "./pages/GoHome/Adopt";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/adoptqa" element={<AdoptQA />} />
         <Route path="/gohome" element={<GoHome />} />
         <Route path="/gohome/follow" element={<Follow />} />
+        <Route path="/gohome/adopt" element={<Adopt />} />
       </Routes>
       <Footer />
     </>

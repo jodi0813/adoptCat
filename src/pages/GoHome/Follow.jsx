@@ -106,32 +106,44 @@ function Follow() {
       </section>
 
       {showModal && (
-        <div className="uploadModal">
-          <div className="uploadBox">
-            <p>
-              請上傳 {selectedMonth} 月的生活照片 3 張（須清楚拍攝貓咪正面）
-            </p>
-            <input
-              type="file"
-              accept="image/*"
-              multiple
-              onChange={handleFileChange}
-            />
-            <div className="previewBox">
-              {previews.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  alt={`預覽圖${index}`}
-                  className="previewImage"
-                />
-              ))}
+        <>
+          <div className="modalOverlay"></div>
+          <div className="uploadModal">
+            <button className="closeBtn" onClick={() => setShowModal(false)}>×</button>
+            <div className="uploadBox">
+              <p>
+                請上傳 {selectedMonth} 月的生活照片 3 張<br />（須清楚拍攝貓咪正面）
+              </p>
+              <div className="fileUploadBox">
+                <label className="customFileUpload">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleFileChange}
+                    style={{ display: "none" }}
+                  />
+                  {previews.length === 0 ? (
+                    <span>請一次點選三張照片上傳</span>
+                  ) : (
+                    <div className="previewInUpload">
+                      {previews.map((src, idx) => (
+                        <img
+                          key={idx}
+                          src={src}
+                          alt={`預覽圖${idx}`}
+                          className="previewImage"
+                        />
+                      ))}
+                    </div>
+                  )}
+                </label>
+              </div>
+              <button onClick={handleUpload} className="uploadBtn">
+                上傳
+              </button>
             </div>
-            <button onClick={handleUpload} className="uploadBtn">
-              上傳
-            </button>
-          </div>
-        </div>
+          </div>    </>
       )}
     </>
   );

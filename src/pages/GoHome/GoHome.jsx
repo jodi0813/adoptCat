@@ -39,17 +39,21 @@ function GoHome() {
         <div className="gohomeBox">
           <div className="gohomeBtBox">
             <button className="gohomeBt">
-              <span>申請領養貓咪</span>
-              <img src="./images/gohome1.png" alt="領養插圖" />
+              <Link to="/gohome/adopt" >
+                <span>申請領養貓咪</span>
+                <img src="./images/gohome1.png" alt="領養插圖" />
+              </Link>
             </button>
           </div>
           <div className="gohomeBtBox">
-            <Link to="/gohome/follow">
-              <button className="gohomeBt">
+
+            <button className="gohomeBt">
+              <Link to="/gohome/follow" >
                 <span>每月領養追蹤</span>
                 <img src="./images/gohome2.png" alt="追蹤插圖" />
-              </button>
-            </Link>
+              </Link>
+            </button>
+
           </div>
         </div>
       </section>

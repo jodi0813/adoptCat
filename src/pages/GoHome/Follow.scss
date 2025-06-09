@@ -4,12 +4,15 @@
 
   padding: 5%;
   gap: 20px;
+
   .followHeader {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .followCatName {
       flex: 1;
+
       span {
         border: 1px solid #000;
         height: 40%;
@@ -26,10 +29,12 @@
         line-height: normal;
       }
     }
+
     .followTitle {
       display: flex;
       flex-direction: column;
       flex: 2;
+
       .followTitle1 {
         color: #000;
         text-align: center;
@@ -39,6 +44,7 @@
         line-height: normal;
         letter-spacing: 3.2px;
       }
+
       .followTitle2 {
         color: #000;
         text-align: center;
@@ -49,10 +55,12 @@
         letter-spacing: 2.4px;
       }
     }
+
     .followCircles {
       display: flex;
 
       flex: 1;
+
       .circle {
         display: flex;
         width: 100px;
@@ -64,17 +72,21 @@
         border-radius: 99px;
         color: white;
       }
+
       .gray {
         background: #d9d9d9;
       }
+
       .blue {
         background: #9ecbff;
       }
+
       .orange {
         background: #ffc37d;
       }
     }
   }
+
   .followYear {
     color: #000;
     text-align: center;
@@ -85,14 +97,17 @@
     letter-spacing: 2px;
     display: flex;
   }
+
   .monthCirleBox {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
     .monthCircleLine {
       display: flex;
       justify-content: center;
       gap: 3%;
+
       .monthCircle {
         display: inline-flex;
         width: 120px;
@@ -111,23 +126,51 @@
         line-height: normal;
         letter-spacing: 3.2px;
       }
-      .blue{
+
+      .blue {
         background-color: #9ecbff;
       }
     }
   }
 }
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); // 半透明黑色
+  z-index: 998;
+}
+
 .uploadModal {
   position: fixed;
   top: 50%;
-  right: 50px;
-  transform: translateY(-50%);
+  left: 50%; // 改成 left: 50%
+  transform: translate(-50%, -50%); // 水平垂直都置中
   background: #fff;
   border-radius: 20px;
   padding: 24px;
-  width: 300px;
+  width: 50%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 999;
+
+  .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+    z-index: 1001;
+
+    &:hover {
+      color: #333;
+    }
+  }
 }
 
 .uploadBox {
@@ -140,11 +183,67 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 12px;
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans TC";
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2.4px;
   }
 
-  input[type="file"] {
-    margin-bottom: 12px;
+  .fileUploadBox {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+
+    .customFileUpload {
+      border: 1px solid #FF630F;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      width: 100%;
+      height: 300px;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #fff7ef;
+      overflow: hidden;
+      position: relative;
+
+      span {
+        color: #FF630F;
+        font-size:1.5rem;
+        text-align: center;
+        padding: 8px;
+        width: 100%;
+      }
+
+      .previewInUpload {
+        display: flex;
+        gap: 2px;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        img.previewImage {
+          width: 40%;
+          height: 80%;
+          object-fit: cover;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+      }
+    }
   }
+
+
 
   .previewBox {
     display: flex;
@@ -162,12 +261,18 @@
   }
 
   .uploadBtn {
-    background: #f8b600;
     border: none;
-    padding: 8px 20px;
-    border-radius: 99px;
     color: #fff;
-    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    width: 142px;
+    height: 50px;
+    padding: 13px 21.708px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 99px;
+    background: #FFC37D;
     cursor: pointer;
 
     &:hover {
