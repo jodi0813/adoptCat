@@ -10,24 +10,38 @@
   left: 0px;
   padding: 0px 20px;
   z-index: 999;
+  box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    padding: 0px 10px; 
+  }
 
   .logo {
     @media (max-width: 767px) {
       width: 80px;
     }
+
+    a {
+      display: inline-block;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
 
-  .logo a {
-    display: inline-block;
-  }
-
-
-  .logo img {
-    display: block;
-    width: 100%;
-    height: auto;
-
-
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    // background-color: #604d32;
+    z-index: 200;
+    position: relative;
+    padding: 10px;
   }
 
   .menuButton {
@@ -35,42 +49,80 @@
     justify-content: end;
     align-items: center;
     width: 80%;
+          @media (max-width: 767px) {
+     justify-content: center;
+      }
   }
 
   .menu {
     width: 100%;
-  }
 
-  .menu ul {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-radius: 99px;
-    gap: 8%;
-    padding: 5px 20px;
-    @media (max-width: 767px) {
-    padding:0px;
-    }
-    li {
-      display: inline-block;
-      font-size: 1.2rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      background: linear-gradient(to right, #604d32 50%, #daa001 50%);
-      background-size: 200% 100%;
-      background-position: left bottom;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: background-position 0.4s ease;
-      cursor: pointer;
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-radius: 99px;
+      gap: 8%;
+      padding: 5px 20px;
 
       @media (max-width: 767px) {
-        font-size: 1rem;
+        padding: 0px;
       }
 
-      &:hover {
-        background-position: right bottom;
+      li {
+        display: inline-block;
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background: linear-gradient(to right, #604d32 50%, #daa001 50%);
+        background-size: 200% 100%;
+        background-position: left bottom;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background-position 0.4s ease;
+        cursor: pointer;
+
+        @media (max-width: 767px) {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          background-position: right bottom;
+        }
+      }
+    }
+  }
+
+  // 🔽 響應式切換
+  @media (max-width: 767px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .menuButton {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100vw;
+      height: 100vw;
+      background: #fff;
+      z-index: 100;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .menuButton.open {
+      display: flex;
+    }
+
+    .menu ul {
+      flex-direction: column;
+      gap:1rem;
+
+      li {
+        cursor: pointer;
       }
     }
   }
