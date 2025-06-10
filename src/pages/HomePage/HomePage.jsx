@@ -109,6 +109,8 @@ function HomePage() {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      // 1024px 以下不移動眼睛
+      if (window.innerWidth < 1025) return;
       moveEye(leftEyeRef.current, e.clientX, e.clientY);
       moveEye(rightEyeRef.current, e.clientX, e.clientY);
     };

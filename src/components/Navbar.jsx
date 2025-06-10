@@ -30,6 +30,7 @@ function Navbar() {
             <img src="./images/logo_navbar.png" alt="網站LOGO" />
           </Link>
         </div>
+        <div className="menuContainer">
         <button
           className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -50,13 +51,13 @@ function Navbar() {
               </li>
             </ul>
           </nav>
-          <Link to="/gohome" onClick={() => setMenuOpen(false)}>
-            <button type="button" className="gohomeBt">
-              <img src="./images/houseBt.png" alt="回家按鈕" />
-              <img src="./images/catback.svg" alt="回家按鈕hover" className="hover-img" />
-            </button>
-          </Link>
         </div>
+        <Link to="/gohome" onClick={() => setMenuOpen(false)}>
+          <button type="button" className="gohomeBt">
+            <img src="./images/houseBt.png" alt="回家按鈕" />
+            <img src="./images/catback.svg" alt="回家按鈕hover" className="hover-img" />
+          </button>
+        </Link></div>
       </header>
     </>
   );
