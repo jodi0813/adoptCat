@@ -12,18 +12,44 @@ function HomePage() {
   const location = useLocation();
   const catHeadRefs = [useRef(null), useRef(null), useRef(null)];
   const [peopleWalkActive, setPeopleWalkActive] = useState(false);
-
+  const [catWalkActive, setCatWalkActive] = useState(false);
   useEffect(() => {
     if (location.state?.scrollTo === "takeMeHome") {
       const section = document.getElementById("takeMeHome");
       if (section) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth" });
-        }, 100); // 延遲讓 DOM render 完
+        }, 100);
       }
     }
   }, [location]);
+  useEffect(() => {
+    function onScroll() {
+      const section = document.getElementById("takeMeHome");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setPeopleWalkActive(true);
+          setCatWalkActive(true); // 兩個動畫一起啟動
+        }
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
+  // 只有 peopleWalkActive 為 true 時才監聽動畫結束
+  const handlePeopleWalkEnd = () => {
+    // 再次確認區塊還在畫面內才啟動
+    const section = document.getElementById("takeMeHome");
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setCatWalkActive(true);
+      }
+    }
+  };
   // 前後補 1 張，總共顯示 3 張卡
   const visibleCards = [
     catList[(currentIndex - 1 + catList.length) % catList.length],
@@ -154,7 +180,6 @@ function HomePage() {
               />
             </div>
           </div>
-
           <div className="screen">
             <Test />
           </div>
@@ -208,11 +233,12 @@ function HomePage() {
             src="./images/peoplewalking.gif"
             alt="人走路動畫"
             className={`peopleWalking${peopleWalkActive ? " animate" : ""}`}
+            onAnimationEnd={handlePeopleWalkEnd}
           />
           <img
             src="./images/catgohome.gif"
-            alt="貓咪圖片"
-            className="catWaking"
+            alt="貓走路動畫"
+            className={`catWaking${catWalkActive ? " animate" : ""}`}
           />
           <img src="./images/house.png" alt="房子圖片" className="house" />
         </div>
@@ -229,8 +255,8 @@ function HomePage() {
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-                // onMouseEnter={() => setPaused(true)}
-                // onMouseLeave={() => setPaused(false)}
+              // onMouseEnter={() => setPaused(true)}
+              // onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard
@@ -298,7 +324,7 @@ function HomePage() {
           <img src="./images/about.jpg" alt="貓跟人手的照片" />
         </div>
         <div className="aboutTextBox">
-          <h2>關於領貓</h2>
+          <h1>關於領貓</h1>
           <div className="aboutText">
             <span>你是不是也曾想領養貓，卻被問東問西，最後又沒有下文？</span>
             <span>我們幫你省下繁瑣對話，輕鬆又安心找到命定主子 </span>

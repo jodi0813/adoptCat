@@ -2,6 +2,7 @@ import CatPawRating from "./CatPawRating";
 import "./CatProfile.scss";
 import CatNameTagAuto from "../../components/tag/CatNameTagAuto";
 import { useState } from "react";
+import Button from "../../components/button/Button";
 
 function CatProfile() {
     const [bigCat, setBigCat] = useState("/images/jodicat3.jpg");
@@ -21,12 +22,13 @@ function CatProfile() {
             <section id="catProfile">
                 <div className="profilehead">
                     <div className="profileLeft">
-                        <header className="profileHeader">
+                        <header className="profileHeader"> <Button text="申請領養" link="/gohome/adopt" />
                             <div className="profileTitle">
-                                <img src="./images/catpawbrown.svg" alt="標題圖示" />
+                                {/* <img src="./images/catpawbrown.svg" alt="標題圖示" /> */}
                                 <h2>搗灰</h2>
-                                <img src="./images/catpawbrown.svg" alt="標題圖示" />
-                            </div>
+                                {/* <img src="./images/catpawbrown.svg" alt="標題圖示" /> */}
+
+                            </div>   
                             <div className="profileSubTitle">弟弟/ 2歲/ 白貓</div>
                         </header>
                         <div className="profilePhotoThree">
@@ -49,7 +51,10 @@ function CatProfile() {
                         </div>
                     </div>
                     <div className="profileRight">
+
                         <CatNameTagAuto name="貓咪性格" catColor="#CAB271" />
+
+
                         <div className="catPawRatingBox">
                             <div>
                                 <CatPawRating

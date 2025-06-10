@@ -15,19 +15,19 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      padding-top: 50px;
+  
 
       .profileHeader {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 15px;
+        gap: 50px;
 
         .profileTitle {
           display: flex;
           align-items: center;
-
+   gap: 15px;
           h2 {
             color: #604d32;
             text-align: center;
