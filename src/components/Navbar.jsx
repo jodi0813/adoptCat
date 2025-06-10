@@ -23,9 +23,9 @@ function Navbar() {
   return (
     <>
       <header id="navbar">
-        <div>
-          <Link to="/" className="logo">
-            <img src="./images/logo_navbar.png" alt="網站LOGO" />
+        <div  className="logo" >
+          <Link to="/" >
+            <img src="./images/logo_navbar.png" alt="網站LOGO"/>
           </Link>
         </div>
         <div className="menuButton">
@@ -44,8 +44,8 @@ function Navbar() {
           <Link to="/gohome">
             <button type="button" className="gohomeBt">
               <img src="./images/houseBt.png" alt="回家按鈕" />
-               <img src="./images/catback.svg" alt="回家按鈕hover" className="hover-img" />
-             
+              <img src="./images/catback.svg" alt="回家按鈕hover" className="hover-img" />
+
             </button>
           </Link>
         </div>
