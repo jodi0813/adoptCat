@@ -13,6 +13,7 @@ function HomePage() {
   const catHeadRefs = [useRef(null), useRef(null), useRef(null)];
   const [peopleWalkActive, setPeopleWalkActive] = useState(false);
   const [catWalkActive, setCatWalkActive] = useState(false);
+  const [cardsToShow, setCardsToShow] = useState(3); // 預設是桌機版 3 張
   useEffect(() => {
     if (location.state?.scrollTo === "takeMeHome") {
       const section = document.getElementById("takeMeHome");
@@ -50,13 +51,7 @@ function HomePage() {
       }
     }
   };
-  // 前後補 1 張，總共顯示 3 張卡
-  const visibleCards = [
-    catList[(currentIndex - 1 + catList.length) % catList.length],
-    catList[currentIndex],
-    catList[(currentIndex + 1) % catList.length],
-  ];
-
+ 
   useEffect(() => {
     if (!paused) {
       intervalRef.current = setInterval(() => {
@@ -65,6 +60,31 @@ function HomePage() {
     }
     return () => clearInterval(intervalRef.current);
   }, [paused]);
+
+ useEffect(() => {
+  const handleResize = () => {
+    const width = window.innerWidth;
+    if (width < 768) {
+      setCardsToShow(1);
+    } else if (width < 1025) {
+      setCardsToShow(2);
+    } else {
+      setCardsToShow(3);
+    }
+  };
+
+  handleResize(); // 初始化時先跑一次
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+ // 前後補 1 張，總共顯示 3 張卡
+const visibleCards = [];
+
+for (let i = 0; i < cardsToShow; i++) {
+  const index = (currentIndex - Math.floor(cardsToShow / 2) + i + catList.length) % catList.length;
+  visibleCards.push(catList[index]);
+}
 
   useEffect(() => {
     function onScroll() {
@@ -246,9 +266,10 @@ function HomePage() {
         </div>
       </section>
       <section id="waitingForHome">
-        <header className="home-title">
+        <header className="home-title carousel-header">
+
+          <h2>Waiting For Home</h2>
           <Button text="查看更多" />
-          <h2>Waiting A Home</h2>
         </header>
 
         <div className="carousel-cats">
@@ -268,7 +289,7 @@ function HomePage() {
                     hashtag={cat.hashtag}
                     sex={cat.sex}
                   />
-                  {index === 1 && cat.quotes && (
+                  {index === 1 && cat.quotes && window.innerWidth >= 1025&& (
                     <div className="quotes">
                       {cat.quotes.map((q, i) => (
                         <div className={`quote q${i + 1}`} key={i}>
