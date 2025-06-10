@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 27px 193px;
+  // padding: 27px 193px;
   margin-top: 150px;
   gap: 10px;
   position: relative;
@@ -15,15 +15,19 @@
   .footer-ears {
     display: flex;
     position: absolute;
-    top: -150px;
+    top: -100px;
     z-index: 0;
+        @media (max-width: 767px) {
+    display: none;
+    }
     .left-ear {
       position: absolute;
-     right: 20vw;
+     right:3vw;
+
     }
     .right-ear {
       position: absolute;
-      left:20vw;
+      left:7vw;
     }
   }
   .footer-content {
@@ -48,6 +52,13 @@
       ul {
         display: flex;
         gap: 30px;
+        li{
+          font-size: 1rem;
+        }
+      }
+      span{
+        font-size: 1rem;
+
       }
     }
   }
