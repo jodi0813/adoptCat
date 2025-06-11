@@ -321,7 +321,7 @@ function HomePage() {
             {[1, 2, 3, 4, 1, 2, 3, 4].map((i, index) => (
               <img
                 key={index}
-                src={`./images/group${i}.png`}
+                src={`./images/group${i}.jpg`}
                 alt={`貓合照${i}`}
               />
             ))}
@@ -340,7 +340,7 @@ function HomePage() {
             {[5, 6, 7, 1, 5, 6, 7, 1].map((i, index) => (
               <img
                 key={index}
-                src={`./images/group${i}.png`}
+                src={`./images/group${i}.jpg`}
                 alt={`貓合照${i}`}
               />
             ))}
