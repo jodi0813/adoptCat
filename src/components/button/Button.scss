@@ -2,7 +2,7 @@
 
 $bg: #f3f8fa;
 $white: #fff;
-$black: #FFA45B;
+$black: #ffa45b;
 
 @mixin transition(
   $property: all,
@@ -23,9 +23,13 @@ $black: #FFA45B;
   padding: 0;
   font-size: inherit;
   font-family: inherit;
+
   &.learn-more {
     width: 12rem;
     height: auto;
+    @media (max-width: 767px) {
+      width: 8rem;
+    }
     .circle {
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
       position: relative;
@@ -35,6 +39,10 @@ $black: #FFA45B;
       height: 3rem;
       background: $black;
       border-radius: 1.625rem;
+      @media (max-width: 767px) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
       .icon {
         @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
         position: absolute;
@@ -70,6 +78,9 @@ $black: #FFA45B;
       font-size: 1.5rem;
       text-align: center;
       text-transform: uppercase;
+      @media (max-width: 767px) {
+        font-size: 1rem;
+      }
     }
   }
   &:hover {
@@ -88,4 +99,3 @@ $black: #FFA45B;
     }
   }
 }
-

@@ -51,7 +51,7 @@ function HomePage() {
       }
     }
   };
- 
+
   useEffect(() => {
     if (!paused) {
       intervalRef.current = setInterval(() => {
@@ -61,30 +61,32 @@ function HomePage() {
     return () => clearInterval(intervalRef.current);
   }, [paused]);
 
- useEffect(() => {
-  const handleResize = () => {
-    const width = window.innerWidth;
-    if (width < 768) {
-      setCardsToShow(1);
-    } else if (width < 1025) {
-      setCardsToShow(2);
-    } else {
-      setCardsToShow(3);
-    }
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setCardsToShow(1);
+      } else if (width < 1025) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(3);
+      }
+    };
 
-  handleResize(); // 初始化時先跑一次
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    handleResize(); // 初始化時先跑一次
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
- // 前後補 1 張，總共顯示 3 張卡
-const visibleCards = [];
+  // 前後補 1 張，總共顯示 3 張卡
+  const visibleCards = [];
 
-for (let i = 0; i < cardsToShow; i++) {
-  const index = (currentIndex - Math.floor(cardsToShow / 2) + i + catList.length) % catList.length;
-  visibleCards.push(catList[index]);
-}
+  for (let i = 0; i < cardsToShow; i++) {
+    const index =
+      (currentIndex - Math.floor(cardsToShow / 2) + i + catList.length) %
+      catList.length;
+    visibleCards.push(catList[index]);
+  }
 
   useEffect(() => {
     function onScroll() {
@@ -210,7 +212,9 @@ for (let i = 0; i < cardsToShow; i++) {
       <section id="takeMeHome">
         <header className="home-title">
           <h2>Take Me Home</h2>
-          <Button text="領養流程" />
+          <div className="home-title-Bt">
+            <Button text="領養流程" />
+          </div>
         </header>
         <div className="catHeadContainer">
           <div className="catHead catHead1" ref={catHeadRefs[0]}>
@@ -267,9 +271,9 @@ for (let i = 0; i < cardsToShow; i++) {
       </section>
       <section id="waitingForHome">
         <header className="home-title carousel-header">
-
           <h2>Waiting For Home</h2>
-          <Button text="查看更多" />
+          <div className="waiting-title">
+          <Button text="查看更多" /></div>
         </header>
 
         <div className="carousel-cats">
@@ -278,8 +282,8 @@ for (let i = 0; i < cardsToShow; i++) {
               <div
                 className="carousel-item"
                 key={`${cat.id}-${index}`}
-              // onMouseEnter={() => setPaused(true)}
-              // onMouseLeave={() => setPaused(false)}
+                // onMouseEnter={() => setPaused(true)}
+                // onMouseLeave={() => setPaused(false)}
               >
                 <div className="cat-quotes-wrapper">
                   <HomeCatCard
@@ -289,7 +293,7 @@ for (let i = 0; i < cardsToShow; i++) {
                     hashtag={cat.hashtag}
                     sex={cat.sex}
                   />
-                  {index === 1 && cat.quotes && window.innerWidth >= 1025&& (
+                  {index === 1 && cat.quotes && window.innerWidth >= 1025 && (
                     <div className="quotes">
                       {cat.quotes.map((q, i) => (
                         <div className={`quote q${i + 1}`} key={i}>
@@ -305,7 +309,7 @@ for (let i = 0; i < cardsToShow; i++) {
         </div>
       </section>
       <section id="letsGoHome">
-        <header className="home-title">
+        <header className="home-title gohome-title">
           <h2>Let’s Go Home!</h2>
         </header>
         <div className="catWalk">
