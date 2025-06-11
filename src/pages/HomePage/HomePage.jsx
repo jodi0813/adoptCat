@@ -212,9 +212,9 @@ function HomePage() {
       <section id="takeMeHome">
         <header className="home-title">
           <h2>Take Me Home</h2>
-          <div className="home-title-Bt">
+          {/* <div className="home-title-Bt">
             <Button text="領養流程" />
-          </div>
+          </div> */}
         </header>
         <div className="catHeadContainer">
           <div className="catHead catHead1" ref={catHeadRefs[0]}>
