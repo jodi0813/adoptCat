@@ -18,11 +18,7 @@ function Test() {
     },
     {
       question: "家中是否有其他貓咪?",
-      options: [
-        "否",
-        "是",
-        "目前沒有，未來有打算養第二隻貓",
-      ],
+      options: ["否", "是", "目前沒有，未來有打算養第二隻貓"],
       scores: ["沒有貓咪", "有其他貓", "有其他貓"],
       type: "catFriendly",
     },
@@ -87,12 +83,23 @@ function Test() {
     <div className="quiz-container">
       {!start ? (
         <>
-          <div>
-            <img src="./images/screen.png" alt="測驗背景" />
+          <div className="screenTest">
+            {/* <img src="./images/screen.png" alt="測驗背景" /> */}
+            <span>想知道適合你的貓咪性格是？</span>
+            <span>讓我們來幫你測驗！</span>
+            <div className="screenBt">
+              <button
+                className="testBt"
+                type="button"
+                onClick={() => setStart(true)}
+              >
+                立即
+                <br />
+                測驗
+                {/* <img src="./images/testbt.png" alt="測驗按鈕" /> */}
+              </button>
+            </div>
           </div>
-          <button className="testBt" onClick={() => setStart(true)}>
-            <img src="./images/testbt.png" alt="測驗按鈕" />
-          </button>
         </>
       ) : currentQuestion < questions.length ? (
         <div className="quiz-question">
@@ -111,7 +118,11 @@ function Test() {
               </button>
             ))}
           </div>
-          <button onClick={handleNext} disabled={selected === null} className="next-question">
+          <button
+            onClick={handleNext}
+            disabled={selected === null}
+            className="next-question"
+          >
             下一題
           </button>
         </div>
