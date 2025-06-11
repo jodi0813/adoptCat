@@ -730,6 +730,15 @@
 
     img {
       height: 248px;
+      width: 100%;
+      object-fit: cover; // 讓圖片填滿且不變形
+      object-position: center;
+      @media (max-width: 767px) {
+        height: 200px;
+        width: 300px;
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 
@@ -757,8 +766,8 @@
         line-height: normal;
         letter-spacing: 4.8px;
         @media (max-width: 767px) {
-        font-size: 1rem;
-      }
+          font-size: 1rem;
+        }
       }
     }
   }
