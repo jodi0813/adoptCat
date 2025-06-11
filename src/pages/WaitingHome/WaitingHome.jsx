@@ -31,8 +31,10 @@ function WaitingHome() {
     if (searchParams.get("sex")) newFilters.sex = searchParams.get("sex");
     if (searchParams.get("color")) newFilters.color = searchParams.get("color");
     if (searchParams.get("old")) newFilters.old = searchParams.get("old");
-    if (searchParams.get("catFriendly")) newFilters.catFriendly = searchParams.get("catFriendly");
-    if (searchParams.get("experienced")) newFilters.experienced = searchParams.get("experienced");
+    if (searchParams.get("catFriendly"))
+      newFilters.catFriendly = searchParams.get("catFriendly");
+    if (searchParams.get("experienced"))
+      newFilters.experienced = searchParams.get("experienced");
 
     const hashtags = searchParams.getAll("hashtag");
     if (hashtags.length > 0) newFilters.hashtag = hashtags;
@@ -85,7 +87,8 @@ function WaitingHome() {
     if (filters.catFriendly === "有其他貓" && !cat.CatFriendly) return false;
 
     if (filters.experienced === "沒養過貓" && cat.needExperienced) return false;
-    if (filters.experienced === "有養過貓" && !cat.needExperienced) return false;
+    if (filters.experienced === "有養過貓" && !cat.needExperienced)
+      return false;
 
     return true;
   });
@@ -96,7 +99,9 @@ function WaitingHome() {
       <div className="waiting-main">
         <div className="cat-filter-section">
           <div className="filter-reset">
-            <button className="reset-button" onClick={handleReset}>清除全部條件</button>
+            <button className="reset-button" onClick={handleReset}>
+              清除全部條件
+            </button>
           </div>
 
           <div className="filter-group">
@@ -112,9 +117,24 @@ function WaitingHome() {
             </div>
           </div>
 
-          <FilterGroup title="性別" options={["弟弟", "妹妹"]} selected={filters.sex} onSelect={(v) => toggleSingle("sex", v)} />
-          <FilterGroup title="花色" options={["白", "橘", "虎斑", "黑"]} selected={filters.color} onSelect={(v) => toggleSingle("color", v)} />
-          <FilterGroup title="年齡" options={["0~1歲", "1~3歲", "3~5歲", "5歲以上"]} selected={filters.old} onSelect={(v) => toggleSingle("old", v)} />
+          <FilterGroup
+            title="性別"
+            options={["弟弟", "妹妹"]}
+            selected={filters.sex}
+            onSelect={(v) => toggleSingle("sex", v)}
+          />
+          <FilterGroup
+            title="花色"
+            options={["白", "橘", "虎斑", "黑"]}
+            selected={filters.color}
+            onSelect={(v) => toggleSingle("color", v)}
+          />
+          <FilterGroup
+            title="年齡"
+            options={["0~1歲", "1~3歲", "3~5歲", "5歲以上"]}
+            selected={filters.old}
+            onSelect={(v) => toggleSingle("old", v)}
+          />
           <FilterGroup
             title="貓咪個性（可複選）"
             options={["穩定", "慢熱", "黏人", "獨立", "話多", "撒嬌"]}
@@ -122,22 +142,36 @@ function WaitingHome() {
             isMulti
             onSelect={handleHashtagSelect}
           />
-          <FilterGroup title="適合家庭" options={["沒有貓咪", "有其他貓"]} selected={filters.catFriendly} onSelect={(v) => toggleSingle("catFriendly", v)} />
-          <FilterGroup title="養貓經驗" options={["沒養過貓", "有養過貓"]} selected={filters.experienced} onSelect={(v) => toggleSingle("experienced", v)} />
+          <FilterGroup
+            title="適合家庭"
+            options={["沒有貓咪", "有其他貓"]}
+            selected={filters.catFriendly}
+            onSelect={(v) => toggleSingle("catFriendly", v)}
+          />
+          <FilterGroup
+            title="養貓經驗"
+            options={["沒養過貓", "有養過貓"]}
+            selected={filters.experienced}
+            onSelect={(v) => toggleSingle("experienced", v)}
+          />
         </div>
 
         <div className="waiting-card">
-          {filteredCats.map((cat) => (
-            < HomeCatCardSmall
-              key={cat.id}
-              cat={cat}
-              years={cat.years}
-              name={cat.name}
-              png={cat.png}
-              hashtag={cat.hashtag}
-              sex={cat.sex}
-            />
-          ))}
+          {filteredCats.length === 0 ? (
+            <div className="no-result">好可惜!沒有符合的貓咪，還是有其他貓咪在等著你唷~</div>
+          ) : (
+            filteredCats.map((cat) => (
+              <HomeCatCardSmall
+                key={cat.id}
+                cat={cat}
+                years={cat.years}
+                name={cat.name}
+                png={cat.png}
+                hashtag={cat.hashtag}
+                sex={cat.sex}
+              />
+            ))
+          )}
         </div>
       </div>
     </section>
