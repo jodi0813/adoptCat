@@ -1,0 +1,145 @@
+@use "../../styles/reset.scss";
+
+.phoneCardSmall {
+  width: 30%;
+  max-width: 280px;
+  height: 47%;
+  border-radius: 30px;
+  border: 3px solid #604d32;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px;
+  @media (max-width: 767px) {
+    width: 45%;
+    height: 30%;
+  }
+  .phoneHeadSmall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    span {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    img {
+      height: 15px;
+      width: 15px;
+    }
+
+    .icon-phoneheadSmall {
+      width: 50px;
+    }
+    .iconSmall {
+      font-size: 27px;
+      @media (max-width: 821px) {
+        font-size: 24px;
+      }
+      @media (max-width:767px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .phoneMainSmall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .phoneCatSmall {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      gap: 8px;
+
+      .phoneCatPhotoSmall {
+        border: 4px solid #f9d176;
+        height: 100%;
+       
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .cathashtagtSmall {
+        display: flex;
+        gap: 2px;
+
+        .hashtagtSmall {
+          display: flex;
+          padding: 3px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border-radius: 99px;
+          border: 3px solid #f9d176;
+          color: #604d32;
+          text-align: justify;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100.015%;
+          width: 25%;
+          @media (max-width: 767px) {
+            width: 33%;
+          }
+        }
+      }
+    }
+
+    .phoneCatBttSmall {
+      display: flex;
+      width: 100px;
+      height: 35px;
+      padding: 2px 10px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 99px;
+      background: #e2d9a8;
+      position: relative;
+      color: #604d32;
+      text-align: center;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        border: 20px solid transparent;
+        border-bottom-color: #e2d9a8;
+      }
+
+      &::before {
+        left: 20px;
+      }
+
+      &::after {
+        right: 20px;
+      }
+
+      &:hover {
+        background: #f9d176;
+        color: #fff;
+
+        &::before,
+        &::after {
+          border-bottom-color: #f9d176;
+        }
+      }
+    }
+  }
+}

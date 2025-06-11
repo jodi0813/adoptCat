@@ -566,6 +566,9 @@
   .carousel-cats {
     overflow: hidden;
     width: 100%;
+
+    display: flex;
+    justify-content: center;
     position: relative;
   }
 
@@ -576,9 +579,9 @@
     transition: transform 0.8s ease-in-out;
     margin-top: 50px;
 
-    @media (max-width: 1024px) {
-      gap: 0px;
-    }
+  @media (max-width: 768px) {
+    gap:3px;
+  }
   }
 
   .carousel-item {

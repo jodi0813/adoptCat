@@ -6,7 +6,7 @@ const catList = [
     sex: "弟弟",
     old: "1~3歲",
     color: "白",
-    png: "./images/jodicat.png",
+    png: "./images/jodicat.jpg",
     hashtag: ["慢熱", "獨立", "穩定"],
     CatFriendly: true,
     needExperienced: true,

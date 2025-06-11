@@ -5,6 +5,7 @@ import "./waitingHome.scss";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import catList from "../../components/card/catList.js";
 import { useLocation } from "react-router-dom";
+import HomeCatCardSmall from "../../components/card/HomeCatCardSmaill.jsx";
 
 function WaitingHome() {
   const location = useLocation();
@@ -103,7 +104,7 @@ function WaitingHome() {
             <div className="input-row">
               <input
                 type="text"
-                placeholder="搜尋"
+                placeholder="貓咪名字"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
@@ -127,7 +128,7 @@ function WaitingHome() {
 
         <div className="waiting-card">
           {filteredCats.map((cat) => (
-            <HomeCatCard
+            < HomeCatCardSmall
               key={cat.id}
               cat={cat}
               years={cat.years}

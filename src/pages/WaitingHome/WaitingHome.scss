@@ -9,20 +9,23 @@
     margin-top: 50px;
     .cat-filter-section {
       background: #fdf0c9;
-      padding: 16px;
+      padding: 15px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
-      width: 300px;
-      height: 1000px;
+      gap:10px;
+      width: 22%;
+      max-width: 220px;
+  
       position: relative;
-
+      @media (max-width: 1024px) {
+      display: none;
+      }
       .filter-reset {
         position: absolute;
-        top: 8px;
-        right: 12px;
+        top: -24px;
+        right: 3px;
 
         .reset-button {
           background: none;
@@ -41,11 +44,11 @@
       .filter-group {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 4px;
         label {
           color: #3a2c19;
           text-align: center;
-          font-size: 1.3rem;
+          font-size: 1rem;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -53,26 +56,29 @@
         }
 
         .input-row {
+          display: flex;
           input {
-            width: 100%;
+            width: 80%;
             padding: 6px 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #ffa134;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.8rem;
           }
           button {
-            border: 1px solid #ffa134;
-            background: white;
-            border-radius: 999px;
-            padding: 4px 12px;
-            min-width: 105px;
+            // border: 1px solid #ffa134;
+            background: transparent;
+         
+            padding: 4px;
+          
+            // width: 20%;
+            // height:50%;
             color: #604d32;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
-            letter-spacing: 2.16px;
+            // letter-spacing: 2.16px;
             cursor: pointer;
           }
         }
@@ -88,10 +94,10 @@
             background: white;
             border-radius: 999px;
             padding: 4px 12px;
-            min-width: 105px;
+            min-width: 60px;
             color: #604d32;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
@@ -116,7 +122,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      width: 70%;
+      width:70%;
+   @media (max-width:1024px) {
+    width: 100%;
+    
+   }
     }
   }
 }
