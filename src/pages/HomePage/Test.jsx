@@ -10,7 +10,7 @@ function Test() {
       question: "你想要領養什麼樣個性的主子？",
       options: [
         "很親人常常對我撒嬌",
-        "靜靜在旁邊陪伴，但不要過多打擾",
+        "陪伴型，不要過多打擾",
         "習慣及性格穩定比較重要",
       ],
       scores: ["黏人", "獨立", "穩定"],
@@ -18,7 +18,7 @@ function Test() {
     },
     {
       question: "家中是否有其他貓咪?",
-      options: ["否", "是", "目前沒有，未來有打算養第二隻貓"],
+      options: ["否", "是", "有計畫養第二隻貓"],
       scores: ["沒有貓咪", "有其他貓", "有其他貓"],
       type: "catFriendly",
     },
@@ -33,7 +33,7 @@ function Test() {
       options: [
         "我只想養幼貓",
         "我想要個性穩定的成貓",
-        "我願意給老貓一個晚年安心的家",
+        "我願意給老貓一個家",
       ],
       scores: ["0~1歲", "1~3歲", "5歲以上"],
       type: "old",
@@ -85,6 +85,7 @@ function Test() {
         <>
           <div className="screenTest">
             {/* <img src="./images/screen.png" alt="測驗背景" /> */}
+           <br />
             <span>想知道適合你的貓咪性格是？</span>
             <span>讓我們來幫你測驗！</span>
             <div className="screenBt">

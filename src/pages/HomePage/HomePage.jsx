@@ -203,9 +203,9 @@ function HomePage() {
                 alt="右眼"
               />
             </div>
-          </div>
-          <div className="screen">
-            <Test />
+            <div className="screen">
+              <Test />
+            </div>
           </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ function HomePage() {
         <header className="home-title carousel-header">
           <h2>Waiting For Home</h2>
           <div className="waiting-title">
-            <Button text="查看更多" link="/waitinghome"/>
+            <Button text="查看更多" link="/waitinghome" />
           </div>
         </header>
 
@@ -355,7 +355,7 @@ function HomePage() {
           <h1>關於領貓</h1>
           <div className="aboutText">
             <span>你是不是也曾想領養貓咪</span>
-           <span>卻被問東問西，最後又沒有下文？</span>
+            <span>卻被問東問西，最後又沒有下文？</span>
             <span>我們幫你省下繁瑣對話，輕鬆又安心找到命定主子 </span>
             <span>透過線上審核，讓你可以即時掌握進度；</span>
             <span>領養後也能在網站上定期追蹤回報，不必私訊往返。</span>
