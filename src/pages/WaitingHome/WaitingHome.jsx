@@ -160,6 +160,7 @@ function WaitingHome() {
           {filteredCats.length === 0 ? (
             <div className="no-result">好可惜!沒有符合的貓咪，還是有其他貓咪在等著你唷~</div>
           ) : (
+          
             filteredCats.map((cat) => (
               <HomeCatCardSmall
                 key={cat.id}
