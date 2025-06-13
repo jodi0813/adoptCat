@@ -25,7 +25,7 @@ const QASection = ({ id, title, qas }) => {
         >
           <div className="question">
             <span>{qa.q}</span>
-            <img src="/images/catpaworange.svg" alt="paw" className="paw" />
+            <img src="./images/catpaworange.svg" alt="paw" className="paw" />
           </div>
           {openIndex === index && <div className="answer">{qa.a}</div>}
         </div>
