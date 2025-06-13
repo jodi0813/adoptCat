@@ -1,3 +1,5 @@
+@use "../../styles/reset.scss";
+
 .waiting {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,7 @@
     display: flex;
     gap: 8%;
     margin-top: 50px;
+
     .cat-filter-section {
       background: #fdf0c9;
       padding: 15px;
@@ -14,14 +17,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap:10px;
+      gap: 10px;
       width: 22%;
       max-width: 220px;
-  
+
       position: relative;
+
       @media (max-width: 1024px) {
-      display: none;
+        display: none;
       }
+
       .filter-reset {
         position: absolute;
         top: -24px;
@@ -45,6 +50,7 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
+
         label {
           color: #3a2c19;
           text-align: center;
@@ -57,19 +63,22 @@
 
         .input-row {
           display: flex;
+
           input {
             width: 80%;
             padding: 6px 12px;
             border: 1px solid #ffa134;
             border-radius: 8px;
             font-size: 0.8rem;
+            background-color: #fff;
           }
+
           button {
             // border: 1px solid #ffa134;
             background: transparent;
-         
+
             padding: 4px;
-          
+
             // width: 20%;
             // height:50%;
             color: #604d32;
@@ -118,15 +127,17 @@
         }
       }
     }
+
     .waiting-card {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      width:70%;
-   @media (max-width:1024px) {
-    width: 100%;
-    
-   }
+      width: 70%;
+
+      @media (max-width:1024px) {
+        width: 100%;
+
+      }
     }
   }
 }
