@@ -16,7 +16,7 @@ function CatNameTagAuto({ name ,catColor}) {
     }, []);
 
     return (
-        <div className="catNameTag catNameTag--auto">
+        <div className="catNameTagAuto">
             <svg
                 className={`catAuto default-auto ${showAutoCat ? "hide-auto" : ""}`}
                 viewBox="0 0 231 77"
@@ -40,7 +40,7 @@ function CatNameTagAuto({ name ,catColor}) {
                 <path d="M5.9463 62.9462C4.96619 61.4639 4.68768 59.611 5.2943 57.9406C9.73471 45.7139 16.2339 41.4885 32.0261 40.3509C34.0607 40.2043 36.0007 41.2041 37.1257 42.9057V42.9057C40.1225 47.4382 35.646 53.3469 30.2185 53.6052C24.6851 53.8685 21.1437 56.1872 18.8149 60.7168C16.2779 65.6514 9.00649 67.5746 5.9463 62.9462V62.9462Z" fill={catColor} />
             </svg>
 
-            <span className="catText catText--auto">{name}</span>
+            <span className="catTextAuto">{name}</span>
         </div>
     );
 }

@@ -16,7 +16,7 @@ const QASection = ({ id, title, qas }) => {
   return (
     <section id={id} className="qa-section">
       {/* <h2 className="qa-title">{title}</h2> */}
-      <div className="catNameTagAuto"><CatNameTagAuto name={title} catColor="#CAB271"/></div>
+      <div className="catNameTagAutoBox"><CatNameTagAuto name={title} catColor="#CAB271"/></div>
       {qas.map((qa, index) => (
         <div
           key={index}

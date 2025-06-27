@@ -1,14 +1,20 @@
-.catNameTag--auto {
+.catNameTagAuto {
   width: 50%;
   // height: 70px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0px;
+  position: relative;
+  height: 115px;
   cursor: default;
   @media (max-width: 1023px) {
     width: 40%;
+    height: 90px;
   }
   @media (max-width: 767px) {
     width: 60%;
+    height: 70px;
   }
   .catAuto {
     position: absolute;
@@ -41,7 +47,7 @@
     }
   }
 
-  .catText--auto {
+  .catTextAuto {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -54,11 +60,10 @@
     letter-spacing: 2px;
     @media (max-width: 1023px) {
       font-size: 20px;
+      top: 50%;
     }
     @media (max-width: 767px) {
-      top: 50%;
       font-size: 18px;
-      
     }
   }
 }
