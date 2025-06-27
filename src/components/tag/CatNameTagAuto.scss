@@ -1,11 +1,15 @@
 .catNameTag--auto {
-  // position: relative;
-  width:300px;
-  height: 70px;
+  width: 50%;
+  // height: 70px;
   display: flex;
   top: 0px;
-
   cursor: default;
+  @media (max-width: 1023px) {
+    width: 40%;
+  }
+  @media (max-width: 767px) {
+    width: 60%;
+  }
   .catAuto {
     position: absolute;
     // width: 100%;
@@ -22,7 +26,7 @@
 
     &.hide-auto {
       opacity: 0;
-    //   transform: translateY(-10px);
+      //   transform: translateY(-10px);
     }
   }
 
@@ -39,7 +43,7 @@
 
   .catText--auto {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 50%;
     transform: translate(-55%, -45%);
     font-size: 24px;
@@ -47,6 +51,14 @@
     color: white;
     z-index: 2;
     pointer-events: none;
-     letter-spacing: 2px;
+    letter-spacing: 2px;
+    @media (max-width: 1023px) {
+      font-size: 20px;
+    }
+    @media (max-width: 767px) {
+      top: 50%;
+      font-size: 18px;
+      
+    }
   }
 }

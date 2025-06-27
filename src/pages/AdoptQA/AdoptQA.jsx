@@ -73,6 +73,18 @@ function AdoptQA() {
       <section className="qa">
         <Maintitle en="Q&A" cn="常見問題" />
         <div className="qa-container">
+           <div className="qa-nav" ref={navRef}>
+            {sections.map((sec) => (
+              <div
+                key={sec.id}
+                onClick={() => scrollToSection(sec.id)}
+                className="qa-nav-item"
+              >
+                <CatNameTagHover name={sec.title} catColor="#FFF" textColor="#FF630F"/>
+              </div>
+            ))}
+          </div>
+
           <div className="qa-content">
             {sections.map((sec) => (
               <QASection
@@ -83,20 +95,7 @@ function AdoptQA() {
               />
             ))}
           </div>
-          <div className="qa-nav" ref={navRef}>
-
-            {sections.map((sec) => (
-
-              <div
-                key={sec.id}
-                onClick={() => scrollToSection(sec.id)}
-                className="qa-nav-item"
-              >
-                <CatNameTagHover name={sec.title} catColor="#FFF" textColor="#FF630F"/>
-
-              </div>
-            ))}
-          </div>
+         
         </div>
       </section>
     </>
