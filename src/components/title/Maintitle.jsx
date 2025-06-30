@@ -6,7 +6,7 @@ function Maintitle({ en, cn }) {
         <span className="maintitle-En">{en}</span>
         <span className="maintitle-Cn">
           <img src="./images/catpawbrown.svg" alt="標題裝飾" />
-          {cn}
+          <h1>{cn}</h1>
           <img src="./images/catpawbrown.svg" alt="標題裝飾" />
         </span>
       </div>
