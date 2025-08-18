@@ -19,7 +19,7 @@
       align-items: center;
       gap: 10px;
       width: 22%;
-      max-width: 220px;
+      max-width: 250px;
 
       position: relative;
 
@@ -76,7 +76,6 @@
           button {
             // border: 1px solid #ffa134;
             background: transparent;
-
             padding: 4px;
 
             // width: 20%;
@@ -103,7 +102,7 @@
             background: white;
             border-radius: 999px;
             padding: 4px 12px;
-            min-width: 60px;
+            min-width: 100px;
             color: #604d32;
             text-align: center;
             font-size: 1rem;

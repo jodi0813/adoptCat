@@ -1,12 +1,21 @@
-# React + Vite
+id:貓咪序號
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+years: 貓咪年紀
 
-Currently, two official plugins are available:
+name: 貓咪名字
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+sex: 貓咪性別 ["弟弟", "妹妹"]
 
-## Expanding the ESLint configuration
+old: 貓咪年紀區間["0~1歲", "1~3歲", "3~5歲", "5歲以上"]
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+color: 貓咪花色["白", "橘", "虎斑", "黑]
+
+png: 貓咪照片
+
+hashtag: 貓咪特色標籤["穩定", "慢熱", "黏人", "獨立", "話多", "撒嬌"]（可複選）
+
+CatFriendly: 貓咪是否親貓（布林）
+
+needExperienced: 是否需要養貓經驗（布林）
+
+quotes: 貓咪OS（無需比對）
