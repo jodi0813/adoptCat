@@ -220,14 +220,20 @@
     @media (max-width: 1024px) {
       animation: slideUpMobile 5s ease-out forwards;
     }
-
-    @keyframes slideUpMobile {
+    @keyframes slideUp {
       from {
         transform: translateY(600px);
       }
-
       to {
-        transform: translateY(200px);
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideUpMobile {
+      from {
+        transform: translateY(300px);
+      }
+      to {
+        transform: translateY(50px);
       }
     }
 
@@ -302,15 +308,7 @@
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(600px);
-  }
 
-  to {
-    transform: translateY(0);
-  }
-}
 
 #takeMeHome {
   width: 100%;
