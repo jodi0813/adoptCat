@@ -85,7 +85,7 @@
             width: 80%;
             padding: 6px 12px;
             border: 1px solid #ffa134;
-            border-radius: 8px;
+            border-radius:99px;
             font-size: 0.8rem;
             background-color: #fff;
           }
@@ -116,7 +116,7 @@
           button {
             border: 1px solid #ffa134;
             background: white;
-            border-radius: 999px;
+            border-radius: 99px;
             padding: 4px 12px;
             min-width: 100px;
             color: #604d32;
@@ -139,7 +139,6 @@
               border-color: #e09e30;
             }
             @media (max-width: 1024px) {
-              min-width: auto;
               padding: 4px 7px;
             }
           }
