@@ -20,6 +20,9 @@
     width: 48%;
     height: 30%;
   }
+  @media (max-width: 576px) {
+    margin-bottom: 10px;
+  }
   .phoneHeadSmall {
     display: flex;
     justify-content: center;

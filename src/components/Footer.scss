@@ -41,7 +41,7 @@
     color: #fff;
     font-size:1.2rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
     z-index: 1;
     width: 100%;
@@ -58,6 +58,17 @@
         gap: 30px;
         li{
           font-size: 1rem;
+          cursor: pointer;
+          color: #fff;
+          &:hover{
+            color: #604d32;
+          }
+          a{
+            color: #fff;
+            &:hover{
+              color: #604d32;
+            }
+          }
         }
       }
       span{

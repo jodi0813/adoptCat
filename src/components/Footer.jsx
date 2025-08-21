@@ -1,5 +1,24 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Footer.scss";
 function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleScrollToTakeMeHome = () => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "takeMeHome" } });
+    } else {
+      const section = document.getElementById("takeMeHome");
+      section?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const handleScrollToTAbout = () => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "about" } });
+    } else {
+      const section1 = document.getElementById("about");
+      section1?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
       <div className="footer">
@@ -40,14 +59,18 @@ function Footer() {
           <img src="./images//logo_navbar.png" alt="網站LOGO" />
           <div className="footer-content1">
             <ul>
-              <li>關於我們</li>
-              <li>領養流程</li>
-              <li>帶我回家</li>
-              <li>常見問題</li>
+              <li onClick={() => handleScrollToTAbout()}>關於我們</li>
+              <li onClick={() => handleScrollToTakeMeHome()}>領養流程</li>
+              <li>
+                <Link to="/waitinghome">帶我回家</Link>
+              </li>
+              <li>
+                <Link to="/adoptqa">常見問題</Link>
+              </li>
             </ul>
             <span>電話：(02)2533-6666</span>
             <span>地址：台北市中正區領貓路一段66號</span>
-            <span>© Cospanyright 2024. All Rights Reserved.</span>
+            <span>© Companyright 2025. All Rights Reserved.</span>
           </div>
         </div>
       </div>
