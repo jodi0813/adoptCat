@@ -34,7 +34,8 @@
     position: relative;
     z-index: 1;
     display: flex;
-    width: 90%;
+    width: 100%;
+    max-width: 1500px;
     height: 90%;
     background-color: #fff;
     border-radius: 99px;
@@ -45,7 +46,7 @@
       height: 100%;
     }
     @media (max-width: 768px) {
-     background-color: transparent;
+    
     }
     .gohomeBtBox {
       flex: 1;

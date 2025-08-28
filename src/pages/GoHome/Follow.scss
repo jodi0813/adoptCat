@@ -1,7 +1,6 @@
 .followBox {
   display: flex;
   flex-direction: column;
-
   padding: 5%;
   gap: 20px;
 
@@ -9,7 +8,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 15px;
+    }
     .followCatName {
       flex: 1;
 
@@ -53,24 +55,25 @@
         font-weight: 700;
         line-height: normal;
         letter-spacing: 2.4px;
+        @media (max-width: 767px) {
+          font-size: 1.2rem;
+        }
       }
     }
 
     .followCircles {
       display: flex;
-
       flex: 1;
-
+      gap: 3%;
       .circle {
         display: flex;
-        width: 100px;
-        height: 100px;
-        padding: 35px 12.5px 36px 10.5px;
+        width: 25%;
         justify-content: center;
         align-items: center;
         aspect-ratio: 1/1;
         border-radius: 99px;
         color: white;
+        min-width: 50px;
       }
 
       .gray {
@@ -102,17 +105,21 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
+    @media (max-width: 767px) {
+      flex-direction: row;
+      justify-content: center;
+    }
     .monthCircleLine {
       display: flex;
       justify-content: center;
       gap: 3%;
-
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 10px;
+      }
       .monthCircle {
-        display: inline-flex;
-        width: 120px;
-        height: 120px;
-        padding: 41px 32.5px;
+        display: flex;
+        width: 35%;
         justify-content: center;
         align-items: center;
         border-radius: 99px;
@@ -125,6 +132,10 @@
         font-weight: 700;
         line-height: normal;
         letter-spacing: 3.2px;
+        aspect-ratio: 1/1;
+        @media (max-width: 767px) {
+          width: 100px;
+        }
       }
 
       .blue {
