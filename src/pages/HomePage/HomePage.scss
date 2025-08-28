@@ -351,8 +351,9 @@
     }
 
     @media (max-width: 768px) {
-      width: 300px;
+      width: 340px;
       height: 220px;
+      padding-top: 40px;
     }
 
     .catear-left {
@@ -686,10 +687,11 @@
     height: 180px; // 設定跟照片高度一致
     position: relative;
     @media (max-width: 767px) {
-      height: 20px;
+      height: 40px;
     }
     img {
       width: 20%;
+      max-width: 246px;
       object-fit: contain;
       position: absolute;
       bottom: -70px;
