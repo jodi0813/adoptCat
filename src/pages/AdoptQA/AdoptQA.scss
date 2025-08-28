@@ -15,7 +15,7 @@
     @media (max-width: 1024px) {
       flex-direction: column;
     }
-    @media (max-width:767px) {
+    @media (max-width: 767px) {
       margin-top: 0;
     }
     .qa-nav {
@@ -30,15 +30,12 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: top 0.3s ease;
       background-color: rgba(255, 236, 183, 0.5);
-      @media (max-width: 1023px) {
+      @media (max-width: 767px) {
         position: static;
-        flex-direction: row;
+        flex-direction: column;
         padding: 0px;
         background-color: transparent;
         box-shadow: none;
-      }
-      @media (max-width:767px) {
-      flex-direction: column;
       }
       .qa-nav-item {
         cursor: pointer;
@@ -53,7 +50,7 @@
     .qa-content {
       width: 70%;
       max-width: 800px;
-      @media (max-width: 1024px) {
+      @media (max-width: 767px) {
         width: 100%;
       }
     }
@@ -89,7 +86,10 @@
           letter-spacing: 2.16px;
           text-align: justify;
           @media (max-width: 1024px) {
-            font-size: 16px;
+            font-size: 1.3rem;
+          }
+          @media (max-width:767px) {
+            font-size: 1rem;
           }
           .paw {
             width: 60px;

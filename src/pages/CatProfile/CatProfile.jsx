@@ -22,10 +22,12 @@ function CatProfile() {
             <section id="catProfile">
                 <div className="profilehead">
                     <div className="profileLeft">
-                        <header className="profileHeader"> <Button text="申請領養" link="/gohome/adopt" />
+                        <header className="profileHeader"> 
+                            
                             <div className="profileTitle">
                                 {/* <img src="./images/catpawbrown.svg" alt="標題圖示" /> */}
-                                <h2>搗灰</h2>
+                                <span className="petName">搗灰</span>
+                                <Button text="申請領養" link="/gohome/adopt" />
                                 {/* <img src="./images/catpawbrown.svg" alt="標題圖示" /> */}
 
                             </div>   
@@ -64,6 +66,7 @@ function CatProfile() {
                                     level1="#FFC37D"
                                     level2="#FFC37D"
                                     level3="#FFC37D"
+                                    width="100%"
                                 />
                                 <CatPawRating
                                     attribute="適應力"
@@ -71,6 +74,7 @@ function CatProfile() {
                                     hight="高"
                                     level1="#FFC37D"
                                     level2="#FFC37D"
+                                    width="100%"
                                 />
                             </div>
                             <div>
@@ -80,6 +84,7 @@ function CatProfile() {
                                     hight="親貓"
                                     level1="#FFC37D"
                                     level2="#FFC37D"
+                                    width="100%"
                                 />
                                 <CatPawRating
                                     attribute="依賴力"
@@ -89,6 +94,7 @@ function CatProfile() {
                                     level2="#FFC37D"
                                     level3="#FFC37D"
                                     level4="#FFC37D"
+                                    width="100%"
                                 />
                             </div>
                         </div>

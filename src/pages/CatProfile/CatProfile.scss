@@ -8,39 +8,43 @@
 
   .profilehead {
     display: flex;
-
+    width: 100%;
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
     .profileLeft {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-  
+      padding-top: 50px;
 
       .profileHeader {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 50px;
+        gap: 10px;
 
         .profileTitle {
           display: flex;
           align-items: center;
-   gap: 15px;
-          h2 {
+          gap: 15px;
+          .petName {
             color: #604d32;
             text-align: center;
-            font-size: 4rem;
+            font-size: 3rem;
             font-style: normal;
-            font-weight: 400;
-            line-height: 0px;
+            font-weight: 500;
           }
 
-          /* 0% */
           img {
             width: 75px;
             height: 75px;
+            @media (max-width:767px) {
+              width: 42px;
+            }
           }
         }
 
@@ -71,18 +75,18 @@
         }
 
         .maskBig {
-          width: 500px;
-          height: 400px;
+          width: 70%;
         }
 
         .maskSmall {
-          width: 250px;
-          height: 200px;
+          width: 48%;
         }
 
         .maskSmallPhoto {
           display: flex;
+          justify-content: space-between;
           gap: 20px;
+          padding: 5%;
         }
       }
     }
@@ -93,15 +97,15 @@
       flex-direction: column;
       align-items: center;
       gap: 70px;
-      padding-top: 100px;
+      padding-top: 50px;
 
       .catPawRatingBox {
         // background: rgba(255, 255, 255, 0.5);
         display: flex;
         justify-content: center;
         border-radius: 30px;
-        gap: 30px;
-        width: 600px;
+        gap: 5%;
+        width: 100%;
       }
     }
   }
@@ -115,7 +119,9 @@
 
     .profileMainBox {
       display: flex;
-
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
       .profileBox {
         flex: 1;
         display: flex;
@@ -138,8 +144,11 @@
           font-style: normal;
           font-weight: 400;
           line-height: 150%;
-          /* 36px */
           letter-spacing: 2.64px;
+          text-align: justify;
+          @media (max-width: 767px) {
+            width: 100%;
+          }
         }
       }
     }

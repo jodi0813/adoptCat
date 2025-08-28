@@ -1,6 +1,6 @@
 .catNameTagAuto {
-  width: 50%;
-  // height: 70px;
+  width: 67%;
+  max-width: 315px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,11 +9,12 @@
   height: 115px;
   cursor: default;
   @media (max-width: 1023px) {
-    width: 40%;
+    width: 85%;
     height: 90px;
   }
   @media (max-width: 767px) {
     width: 60%;
+    max-width: 210px;
     height: 70px;
   }
   .catAuto {
@@ -49,7 +50,7 @@
 
   .catTextAuto {
     position: absolute;
-    top: 60%;
+    top: 45%;
     left: 50%;
     transform: translate(-55%, -45%);
     font-size: 24px;
@@ -60,10 +61,11 @@
     letter-spacing: 2px;
     @media (max-width: 1023px) {
       font-size: 20px;
-      top: 50%;
+      top: 57%;
     }
     @media (max-width: 767px) {
       font-size: 18px;
+      top: 50%;
     }
   }
 }
