@@ -50,6 +50,9 @@ function Navbar() {
                 <Link to="/adoptqa" onClick={() => setMenuOpen(false)}>常見問題</Link>
               </li>
               <li>
+                <Link to="/find" onClick={()=>setMenuOpen(false)}>遺失協尋</Link>
+              </li>
+              <li>
                 <Link to="/gohome" onClick={() => setMenuOpen(false)}>
                   <button type="button" className="gohomeBt">
                     <img src="./images/houseBt.png" alt="回家按鈕" />

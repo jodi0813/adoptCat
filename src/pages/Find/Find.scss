@@ -1,0 +1,12 @@
+@use "../../styles/reset.scss";
+#findPet{
+    width: 100%;
+    padding: 100px 7%;
+    .findBox{
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        margin-top: 50px;
+        gap:16px;
+    }
+}
