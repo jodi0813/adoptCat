@@ -8,7 +8,9 @@ function Find() {
   if (loading) return <p>載入中...</p>;
   if (error) return <p>發生錯誤：{String(error.message)}</p>;
 
-  const findCats=findList.filter((row) => row["寵物別"] === "貓");
+  const findCats=findList
+  .filter((row) => row["寵物別"] === "貓")
+  .sort((a, b) => new Date(b["遺失時間"]) - new Date(a["遺失時間"]));
 
   return (
     <>
