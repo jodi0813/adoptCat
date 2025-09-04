@@ -18,7 +18,7 @@ function Find() {
         {findCats.slice(0,10).map((item, idx) => (           
           <FindCard
             key={item["晶片號碼"] ?? idx}
-            find_pic={item["PICTURE"] || "./images/phonecat1.jpg"}
+            find_pic={item["PICTURE"] || "./images/lost_cat1.png"}
             find_name={item["寵物名"] || ""}
             find_sex={item["性別"] || ""}
             find_color={item["毛色"] || ""}
