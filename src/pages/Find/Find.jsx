@@ -5,7 +5,8 @@ import useFindApi from "../../utils/api";
 
 function Find() {
   const { findList, loading, error } = useFindApi();
-  if (loading) return <p>載入中...</p>;
+  if (loading) return <p>載入中請稍等...</p>;
+  
   if (error) return <p>發生錯誤：{String(error.message)}</p>;
 
   const findCats=findList
@@ -17,7 +18,7 @@ function Find() {
       <section id="findPet">
         <Maintitle cn="遺失協尋" en="Help Find Me"/>
         <div className="findBox">
-        {findCats.slice(0,10).map((item, idx) => (           
+        {findCats.slice(0,20).map((item, idx) => (           
           <FindCard
             key={item["晶片號碼"] ?? idx}
             find_pic={item["PICTURE"] || "./images/lost_cat1.png"}
