@@ -1,15 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-import catList from "../../components/card/catList";
+import { getCats } from "../../services/catsService";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import "./HomePage.scss";
 import Test from "./Test";
 import Button from "../../components/button/Button";
 import { useLocation } from "react-router-dom";
 function HomePage() {
+  const [catList, setCatList] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
   const location = useLocation();
+
+  useEffect(() => {
+    let cancelled = false;
+    getCats()
+      .then((cats) => {
+        if (!cancelled) setCatList(cats);
+      })
+      .catch((err) => console.error("讀取貓咪資料失敗:", err));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const catHeadRefs = [useRef(null), useRef(null), useRef(null)];
   const [peopleWalkActive, setPeopleWalkActive] = useState(false);
   const [catWalkActive, setCatWalkActive] = useState(false);
@@ -53,13 +66,13 @@ function HomePage() {
   };
 
   useEffect(() => {
-    if (!paused) {
+    if (!paused && catList.length > 0) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % catList.length);
       }, 4000);
     }
     return () => clearInterval(intervalRef.current);
-  }, [paused]);
+  }, [paused, catList.length]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -81,11 +94,13 @@ function HomePage() {
   // 前後補 1 張，總共顯示 3 張卡
   const visibleCards = [];
 
-  for (let i = 0; i < cardsToShow; i++) {
-    const index =
-      (currentIndex - Math.floor(cardsToShow / 2) + i + catList.length) %
-      catList.length;
-    visibleCards.push(catList[index]);
+  if (catList.length > 0) {
+    for (let i = 0; i < cardsToShow; i++) {
+      const index =
+        (currentIndex - Math.floor(cardsToShow / 2) + i + catList.length) %
+        catList.length;
+      visibleCards.push(catList[index]);
+    }
   }
 
   useEffect(() => {

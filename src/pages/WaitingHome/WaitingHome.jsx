@@ -3,7 +3,7 @@ import Maintitle from "../../components/title/Maintitle";
 import FilterGroup from "./FilterGroup";
 import "./waitingHome.scss";
 import HomeCatCard from "../../components/card/HomeCatCard";
-import catList from "../../components/card/catList.js";
+import { getCats } from "../../services/catsService";
 import { useLocation } from "react-router-dom";
 import HomeCatCardSmall from "../../components/card/HomeCatCardSmaill.jsx";
 
@@ -22,6 +22,29 @@ function WaitingHome() {
 
   const [filters, setFilters] = useState(initialFilters);
   const [searchInput, setSearchInput] = useState("");
+  const [catList, setCatList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    getCats()
+      .then((cats) => {
+        if (!cancelled) setCatList(cats);
+      })
+      .catch((err) => {
+        console.error("讀取貓咪資料失敗:", err);
+        if (!cancelled) setError(err);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -157,10 +180,14 @@ function WaitingHome() {
         </div>
 
         <div className="waiting-card">
-          {filteredCats.length === 0 ? (
+          {loading ? (
+            <div className="no-result">貓咪資料載入中...</div>
+          ) : error ? (
+            <div className="no-result">貓咪資料載入失敗，請稍後再試一次。</div>
+          ) : filteredCats.length === 0 ? (
             <div className="no-result">好可惜!沒有符合的貓咪，還是有其他貓咪在等著你唷~</div>
           ) : (
-          
+
             filteredCats.map((cat) => (
               <HomeCatCardSmall
                 key={cat.id}
