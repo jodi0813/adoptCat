@@ -1,5 +1,4 @@
 import ScrollToTop from "./utils/ScrollToTop";
-import "./App.css";
 import "../src/index.css";
 
 import Navbar from "./components/Navbar";
@@ -23,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/waitinghome" element={<WaitingHome />} />
-        <Route path="/waitinghome/catprofile" element={<CatProfile />} />
+        <Route path="/waitinghome/catprofile/:id" element={<CatProfile />} />
         <Route path="/adoptqa" element={<AdoptQA />} />
         <Route path="/gohome" element={<GoHome />} />
         <Route path="/gohome/follow" element={<Follow />} />

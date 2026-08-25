@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import "./AdoptQA.scss";
 import Maintitle from "../../components/title/Maintitle";
 import CatNameTagAuto from "../../components/tag/CatNameTagAuto";
 import CatNameTagHover from "../../components/tag/CatNameTagHover";
@@ -14,20 +13,26 @@ const sections = [
 const QASection = ({ id, title, qas }) => {
   const [openIndex, setOpenIndex] = useState(null);
   return (
-    <section id={id} className="qa-section">
+    <section id={id}>
       {/* <h2 className="qa-title">{title}</h2> */}
-      <div className="catNameTagAutoBox"><CatNameTagAuto name={title} catColor="#CAB271"/></div>
+      <div className="flex h-[130px] items-center justify-center"><CatNameTagAuto name={title} catColor="#CAB271"/></div>
       {qas.map((qa, index) => (
         <div
           key={index}
-          className={`qa-item ${openIndex === index ? "open" : ""}`}
+          className={`mb-4 cursor-pointer rounded-2xl p-4 px-6 shadow-[0_0_6px_rgba(0,0,0,0.1)] transition-all duration-200 ease-in-out max-[767px]:p-4 ${
+            openIndex === index ? "bg-[#fff9f2]" : "bg-white"
+          }`}
           onClick={() => setOpenIndex(openIndex === index ? null : index)}
         >
-          <div className="question">
+          <div className="flex items-center justify-between text-justify text-[1.5rem] leading-normal font-normal tracking-[2.16px] text-[#604d32] max-[1024px]:text-[1.3rem] max-[767px]:text-base">
             <span>{qa.q}</span>
-            <img src="./images/catpaworange.svg" alt="paw" className="paw" />
+            <img src="./images/catpaworange.svg" alt="paw" className="w-[60px]" />
           </div>
-          {openIndex === index && <div className="answer">{qa.a}</div>}
+          {openIndex === index && (
+            <div className="mt-3 flex justify-start text-justify text-base leading-normal font-normal tracking-[1.44px] text-[#604d32]">
+              {qa.a}
+            </div>
+          )}
         </div>
       ))}
     </section>
@@ -70,22 +75,25 @@ function AdoptQA() {
 
   return (
     <>
-      <section className="qa">
+      <section className="flex flex-col px-[7%] py-[100px] max-[1024px]:px-[5%] max-[767px]:px-[2%]">
         <Maintitle en="Q&A" cn="常見問題" />
-        <div className="qa-container">
-           <div className="qa-nav" ref={navRef}>
+        <div className="relative mt-[50px] flex max-[1024px]:flex-col max-[767px]:mt-0">
+           <div
+             className="absolute right-0 flex flex-col items-center rounded-3xl bg-[rgba(255,236,183,0.5)] py-6 shadow-[0_4px_10px_rgba(0,0,0,0.1)] transition-[top] duration-300 ease-in-out max-[767px]:static max-[767px]:flex-col max-[767px]:bg-transparent max-[767px]:p-0 max-[767px]:shadow-none"
+             ref={navRef}
+           >
             {sections.map((sec) => (
               <div
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
-                className="qa-nav-item"
+                className="flex w-full flex-1 cursor-pointer justify-center bg-transparent"
               >
                 <CatNameTagHover name={sec.title} catColor="#FFF" textColor="#FF630F"/>
               </div>
             ))}
           </div>
 
-          <div className="qa-content">
+          <div className="w-[70%] max-w-[800px] max-[767px]:w-full">
             {sections.map((sec) => (
               <QASection
                 key={sec.id}
@@ -95,7 +103,7 @@ function AdoptQA() {
               />
             ))}
           </div>
-         
+
         </div>
       </section>
     </>

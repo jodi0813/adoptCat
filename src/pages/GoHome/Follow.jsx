@@ -1,6 +1,10 @@
 import { useState } from "react";
-import "./GoHome.scss";
-import "./Follow.scss";
+import {
+  gohomeSectionClass,
+  gohomeLeftEarClass,
+  gohomeRightEarClass,
+  gohomeBoxClass,
+} from "./gohomeShellClasses";
 
 function Follow() {
   const [selectedMonth, setSelectedMonth] = useState(null);
@@ -32,7 +36,9 @@ function Follow() {
     return (
       <button
         key={month}
-        className={`monthCircle ${isUploaded ? "blue" : ""}`}
+        className={`flex aspect-square w-[35%] items-center justify-center rounded-full text-center text-[1.2rem] leading-normal font-bold tracking-[3.2px] text-white shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] max-[767px]:w-[100px] ${
+          isUploaded ? "bg-[#9ecbff]" : "bg-[#d9d9d9]"
+        }`}
         onClick={() => handleMonthClick(month)}
       >
         {month}月
@@ -42,9 +48,9 @@ function Follow() {
 
   return (
     <>
-      <section id="follow">
+      <section id="follow" className={gohomeSectionClass}>
         {/* 左耳 */}
-        <div className="gohomeLeftEar">
+        <div className={gohomeLeftEarClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="271"
@@ -60,7 +66,7 @@ function Follow() {
         </div>
 
         {/* 右耳 */}
-        <div className="gohomeRightEar">
+        <div className={gohomeRightEarClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="271"
@@ -74,31 +80,31 @@ function Follow() {
             />
           </svg>
         </div>
-        <div className="gohomeBox followBox">
-          <header className="followHeader">
-            <div className="followCatName">
-              <span>目前貓咪：搗灰</span>
+        <div className={`${gohomeBoxClass} flex-col! gap-5 p-[5%]`}>
+          <header className="flex items-center justify-center max-[767px]:flex-col max-[767px]:gap-[15px]">
+            <div className="flex-1">
+              <span className="inline-flex h-[40%] w-[140px] items-center justify-center rounded-[5px] border border-[#604d32] px-[8.5px] py-[10.5px] text-base leading-normal font-medium text-[#604d32]">目前貓咪：搗灰</span>
             </div>
-            <div className="followTitle">
-              <span className="followTitle1">每月領養追蹤</span>
-              <span className="followTitle2">
+            <div className="flex flex-[2] flex-col">
+              <span className="text-center text-[2rem] leading-normal font-bold tracking-[3.2px] text-[#604d32]">每月領養追蹤</span>
+              <span className="text-center text-[1.5rem] leading-normal font-bold tracking-[2.4px] text-[#604d32] max-[767px]:text-[1.2rem]">
                 (請於每月底前完成上傳貓咪生活照)
               </span>
             </div>
-            <div className="followCircles">
-              <div className="circle gray">未上傳</div>
-              <div className="circle blue">已上傳</div>
-              <div className="circle orange">已確認</div>
+            <div className="flex flex-1 gap-[3%]">
+              <div className="flex aspect-square min-w-[50px] w-1/4 items-center justify-center rounded-full text-white bg-[#d9d9d9]">未上傳</div>
+              <div className="flex aspect-square min-w-[50px] w-1/4 items-center justify-center rounded-full text-white bg-[#9ecbff]">已上傳</div>
+              <div className="flex aspect-square min-w-[50px] w-1/4 items-center justify-center rounded-full text-white bg-[#ffc37d]">已確認</div>
             </div>
           </header>
 
-          <div className="followYear">當年度：114年</div>
+          <div className="flex text-center text-[1.2rem] leading-normal font-bold tracking-[2px] text-[#604d32]">當年度：114年</div>
 
-          <div className="monthCirleBox">
-            <div className="monthCircleLine">
+          <div className="flex flex-col gap-5 max-[767px]:flex-row max-[767px]:justify-center">
+            <div className="flex justify-center gap-[3%] max-[767px]:flex-col max-[767px]:gap-[10px]">
               {[1, 2, 3, 4, 5, 6].map(renderMonthButton)}
             </div>
-            <div className="monthCircleLine">
+            <div className="flex justify-center gap-[3%] max-[767px]:flex-col max-[767px]:gap-[10px]">
               {[7, 8, 9, 10, 11, 12].map(renderMonthButton)}
             </div>
           </div>
@@ -107,15 +113,18 @@ function Follow() {
 
       {showModal && (
         <>
-          <div className="modalOverlay"></div>
-          <div className="uploadModal">
-            <button className="closeBtn" onClick={() => setShowModal(false)}>×</button>
-            <div className="uploadBox">
-              <p>
+          <div className="fixed top-0 left-0 z-[998] h-screen w-screen bg-black/50"></div>
+          <div className="fixed top-1/2 left-1/2 z-[999] w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[20px] bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+            <button
+              className="absolute top-0 right-0 z-[1001] cursor-pointer border-none bg-transparent text-[2rem] text-[#888] hover:text-[#333]"
+              onClick={() => setShowModal(false)}
+            >×</button>
+            <div className="flex flex-col items-center gap-3">
+              <p className="mb-3 text-center font-['Huninn'] text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32]">
                 請上傳 {selectedMonth} 月的生活照片 3 張<br />（須清楚拍攝貓咪正面）
               </p>
-              <div className="fileUploadBox">
-                <label className="customFileUpload">
+              <div className="flex w-full gap-3">
+                <label className="relative flex h-[300px] w-full shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-[10px] border border-[#ff630f] bg-[#fff7ef] p-0 text-center text-base font-bold">
                   <input
                     type="file"
                     accept="image/*"
@@ -124,22 +133,25 @@ function Follow() {
                     style={{ display: "none" }}
                   />
                   {previews.length === 0 ? (
-                    <span>請一次點選三張照片上傳</span>
+                    <span className="w-full p-2 text-center text-[1.5rem] text-[#ff630f]">請一次點選三張照片上傳</span>
                   ) : (
-                    <div className="previewInUpload">
+                    <div className="flex h-full w-full items-center justify-center gap-[2px]">
                       {previews.map((src, idx) => (
                         <img
                           key={idx}
                           src={src}
                           alt={`預覽圖${idx}`}
-                          className="previewImage"
+                          className="h-4/5 w-2/5 rounded-[5px] border border-[#ccc] object-cover"
                         />
                       ))}
                     </div>
                   )}
                 </label>
               </div>
-              <button onClick={handleUpload} className="uploadBtn">
+              <button
+                onClick={handleUpload}
+                className="flex h-[50px] w-[142px] shrink-0 items-center justify-center rounded-full bg-[#ffc37d] px-[21.708px] py-[13px] text-base text-white hover:bg-[#d99a00]"
+              >
                 上傳
               </button>
             </div>

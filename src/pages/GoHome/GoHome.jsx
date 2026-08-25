@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
-import "./GoHome.scss";
+import {
+  gohomeSectionClass,
+  gohomeLeftEarClass,
+  gohomeRightEarClass,
+  gohomeBoxClass,
+} from "./gohomeShellClasses";
 
 function GoHome() {
   return (
     <>
-      <section id="gohome">
+      <section id="gohome" className={gohomeSectionClass}>
         {/* 左耳 */}
-        <div className="gohomeLeftEar">
+        <div className={gohomeLeftEarClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="271"
@@ -22,7 +27,7 @@ function GoHome() {
         </div>
 
         {/* 右耳 */}
-        <div className="gohomeRightEar">
+        <div className={gohomeRightEarClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="271"
@@ -36,18 +41,18 @@ function GoHome() {
             />
           </svg>
         </div>
-        <div className="gohomeBox">
-          <div className="gohomeBtBox">
-            <button className="gohomeBt">
+        <div className={gohomeBoxClass}>
+          <div className="flex flex-1 items-center justify-center max-[1024px]:mb-[10%]">
+            <button className="flex min-w-[330px] flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white p-[5%] hover:bg-[#f8c1a4] max-[1024px]:min-w-[260px] max-[768px]:p-[15%] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
               <Link to="/gohome/adopt" >
                 <span>申請領養貓咪</span>
                 <img src="./images/gohome1.png" alt="領養插圖" />
               </Link>
             </button>
           </div>
-          <div className="gohomeBtBox">
+          <div className="flex flex-1 items-center justify-center max-[1024px]:mb-[10%]">
 
-            <button className="gohomeBt">
+            <button className="flex min-w-[330px] flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white p-[5%] hover:bg-[#f8c1a4] max-[1024px]:min-w-[260px] max-[768px]:p-[15%] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
               <Link to="/gohome/follow" >
                 <span>每月領養追蹤</span>
                 <img src="./images/gohome2.png" alt="追蹤插圖" />

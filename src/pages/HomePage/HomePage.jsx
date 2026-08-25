@@ -1,10 +1,42 @@
 import { useEffect, useRef, useState } from "react";
 import { getCats } from "../../services/catsService";
 import HomeCatCard from "../../components/card/HomeCatCard";
-import "./HomePage.scss";
 import Test from "./Test";
 import Button from "../../components/button/Button";
 import { useLocation } from "react-router-dom";
+
+// 背景漂浮貓咪的位置與動畫延遲（原 .floatingCat:nth-child(n)）
+const floatingCatPositions = [
+  { top: "20%", left: "5%", width: "20%", animationDelay: "0s" },
+  { top: "40%", left: "70%", width: "20%", animationDelay: "1s" },
+  { top: "10%", left: "20%", width: "10%", animationDelay: "3s" },
+  { top: "20%", left: "80%", width: "10%", animationDelay: "0.5s" },
+  { top: "75%", left: "80%", width: "15%", animationDelay: "0s" },
+  { top: "65%", left: "5%", width: "20%", animationDelay: "4s" },
+  { top: "45%", left: "20%", width: "10%", animationDelay: "1s" },
+  { top: "5%", left: "60%", width: "15%", animationDelay: "2.5s" },
+];
+
+// 背景漂浮貓掌的位置與旋轉縮放（原 .floatingPaw:nth-child(n)）
+const floatingPawPositions = [
+  { top: "5%", left: "20%", transform: "scale(0.5) rotate(0deg)" },
+  { top: "15%", left: "70%", transform: "scale(0.8) rotate(30deg)" },
+  { top: "50%", left: "10%", transform: "scale(0.9) rotate(-20deg)" },
+  { top: "80%", left: "50%", transform: "scale(0.6) rotate(0deg)" },
+  { top: "75%", left: "75%", transform: "scale(0.9) rotate(-45deg)" },
+  { top: "30%", left: "35%", transform: "scale(0.7) rotate(10deg)" },
+  { top: "50%", left: "65%", transform: "scale(1.2) rotate(15deg)" },
+  { top: "40%", left: "85%", transform: "scale(0.6) rotate(-60deg)" },
+  { top: "77%", left: "24%", transform: "scale(1) rotate(89deg)" },
+  { top: "10%", left: "40%", transform: "scale(1) rotate(-90deg)" },
+];
+
+// 引言泡泡的位置（原 .quote.q1 / q2 / q3，含 ::after 連接線改用內嵌 span 呈現）
+const quotePositions = [
+  { bottom: "400px", left: "400px", line: { width: "120px", left: "-115px", bottom: "-10px", rotate: "-30deg" } },
+  { bottom: "300px", right: "400px", line: { width: "100px", right: "-100px", bottom: "20px", rotate: "0deg" } },
+  { bottom: "170px", left: "350px", line: { width: "80px", left: "-80px", bottom: "40px", rotate: "20deg" } },
+];
 function HomePage() {
   const [catList, setCatList] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -175,93 +207,113 @@ function HomePage() {
 
   return (
     <>
-      <section id="homePage">
-        <div className="catBackground">
+      <section id="homePage" className="relative h-[1080px] w-full bg-[#fff1a8] p-0 [cursor:url('/images/mouse.png'),auto]">
+        <div className="absolute z-0 min-h-full w-full">
           {[...Array(8)].map((_, i) => (
             <img
               key={i}
               src={`./images/bg-cat${i + 1}.png`}
-              className="floatingCat"
+              className="absolute z-10 w-[300px] animate-float"
+              style={{
+                top: floatingCatPositions[i].top,
+                left: floatingCatPositions[i].left,
+                width: floatingCatPositions[i].width,
+                animationDelay: floatingCatPositions[i].animationDelay,
+              }}
               alt={`漂浮貓咪${i + 1}`}
             />
           ))}
-          <div className="pawBackground">
+          <div className="absolute z-0 h-full w-full">
             {[...Array(10)].map((_, i) => (
               <img
                 key={i}
                 src="./images/catpaw.svg"
-                className="floatingPaw"
+                className="pointer-events-none absolute max-w-[5%]"
+                style={{
+                  top: floatingPawPositions[i].top,
+                  left: floatingPawPositions[i].left,
+                  transform: floatingPawPositions[i].transform,
+                }}
                 alt={`漂浮貓掌${i + 1}`}
               />
             ))}
           </div>
         </div>
         {/* 前景貓咪與螢幕 */}
-        <div className="mainHero">
-          <div className="catContainer">
+        <div className="relative z-10 mx-auto h-screen w-full max-w-[800px] animate-slide-up max-[1024px]:animate-slide-up-mobile">
+          <div className="relative bottom-[5%] flex items-center justify-center">
             <img
               src="./images/catscreen.svg"
               alt="黑貓插圖"
-              className="mainCatIllustration"
+              className="w-[90%] max-[820px]:w-[79%]"
             />
-            <div className="eyes">
+            <div className="absolute top-0 left-0 h-full w-full">
               <img
                 src="./images/catscreenlefteye.png"
                 ref={leftEyeRef}
-                className="eye left-eye"
+                className="absolute top-[33%] left-[31%] w-[8vw] max-w-[80px] transition-transform duration-100 ease-linear max-[820px]:left-[34%]"
                 alt="左眼"
               />
               <img
                 src="./images/catscreenrighteye.png"
                 ref={rightEyeRef}
-                className="eye right-eye"
+                className="absolute top-[33%] left-[58%] w-[8vw] max-w-[80px] transition-transform duration-100 ease-linear max-[820px]:left-[57%]"
                 alt="右眼"
               />
             </div>
-            <div className="screen">
+            <div className="absolute top-1/2 left-[19%] z-99 w-[63%] max-[1024px]:top-[48%] max-[1024px]:left-[20%] max-[1024px]:w-[60%]">
               <Test />
             </div>
           </div>
         </div>
       </section>
-      <section id="takeMeHome">
-        <header className="home-title">
+      <section id="takeMeHome" className="flex h-screen w-full max-w-screen flex-col overflow-hidden bg-[#fff6df] max-[768px]:p-0">
+        <header className="flex flex-col items-end p-[3%] max-[767px]:h-[13%] [&_h2]:font-['Huninn',cursive] [&_h2]:text-[5rem] [&_h2]:leading-none [&_h2]:font-normal [&_h2]:whitespace-nowrap [&_h2]:text-[#dfc681] max-[767px]:[&_h2]:text-[2.5rem]">
           <h2>Take Me Home</h2>
           {/* <div className="home-title-Bt">
             <Button text="領養流程" />
           </div> */}
         </header>
-        <div className="catHeadContainer">
-          <div className="catHead catHead1" ref={catHeadRefs[0]}>
+        <div className="relative h-1/2 max-[1024px]:static max-[1024px]:flex max-[1024px]:h-full max-[1024px]:flex-col max-[1024px]:items-center max-[1024px]:gap-[4%]">
+          <div
+            className="catHead absolute top-[20%] left-[3%] h-[280px] w-[360px] rounded-[50%_50%_40%_40%] bg-[#ffe39f] pt-[60px] shadow-[0_4px_10px_rgba(0,0,0,0.05)] max-[1024px]:static max-[768px]:h-[220px] max-[768px]:w-[340px] max-[768px]:pt-[40px] [&_.catear-left]:absolute [&_.catear-left]:top-[-20px] [&_.catear-left]:left-5 [&_.catear-left]:h-0 [&_.catear-left]:w-0 [&_.catear-left]:rotate-[-27deg] [&_.catear-left]:border-r-[40px] [&_.catear-left]:border-b-[60px] [&_.catear-left]:border-l-[40px] [&_.catear-left]:border-r-transparent [&_.catear-left]:border-b-[#ffe39f] [&_.catear-left]:border-l-transparent [&_.catear-right]:absolute [&_.catear-right]:top-[-20px] [&_.catear-right]:right-5 [&_.catear-right]:h-0 [&_.catear-right]:w-0 [&_.catear-right]:rotate-[27deg] [&_.catear-right]:border-r-[40px] [&_.catear-right]:border-b-[60px] [&_.catear-right]:border-l-[40px] [&_.catear-right]:border-r-transparent [&_.catear-right]:border-b-[#ffe39f] [&_.catear-right]:border-l-transparent"
+            ref={catHeadRefs[0]}
+          >
             <div className="catear-left"></div>
             <div className="catear-right"></div>
-            <span className="catHead-number">1</span>
-            <h3 className="highlight">找到喜歡的貓並送出申請</h3>
-            <ul>
+            <span className="absolute top-[5px] left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-white text-[1.5rem] font-bold text-[#444] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">1</span>
+            <h3 className="mb-2 text-[1.5rem] font-bold text-[#ffa45b] max-[768px]:mb-[0.1rem]">找到喜歡的貓並送出申請</h3>
+            <ul className="m-0 list-none p-0 text-[#604d32] [&_li]:mb-2 [&_li]:text-[1.2rem] max-[768px]:[&_li]:mb-[0.1rem]">
               <li>在網站上找到喜歡的貓咪</li>
               <li>先加入領貓會員後</li>
               <li>填寫基本資料、問卷調查</li>
               <li>按下「我要領養」送出即可</li>
             </ul>
           </div>
-          <div className="catHead catHead2" ref={catHeadRefs[1]}>
+          <div
+            className="absolute top-0 left-[35%] h-[280px] w-[360px] rounded-[50%_50%_40%_40%] bg-[#ffe39f] pt-[60px] shadow-[0_4px_10px_rgba(0,0,0,0.05)] max-[1024px]:static max-[768px]:h-[220px] max-[768px]:w-[340px] max-[768px]:pt-[40px] [&_.catear-left]:absolute [&_.catear-left]:top-[-20px] [&_.catear-left]:left-5 [&_.catear-left]:h-0 [&_.catear-left]:w-0 [&_.catear-left]:rotate-[-27deg] [&_.catear-left]:border-r-[40px] [&_.catear-left]:border-b-[60px] [&_.catear-left]:border-l-[40px] [&_.catear-left]:border-r-transparent [&_.catear-left]:border-b-[#ffe39f] [&_.catear-left]:border-l-transparent [&_.catear-right]:absolute [&_.catear-right]:top-[-20px] [&_.catear-right]:right-5 [&_.catear-right]:h-0 [&_.catear-right]:w-0 [&_.catear-right]:rotate-[27deg] [&_.catear-right]:border-r-[40px] [&_.catear-right]:border-b-[60px] [&_.catear-right]:border-l-[40px] [&_.catear-right]:border-r-transparent [&_.catear-right]:border-b-[#ffe39f] [&_.catear-right]:border-l-transparent"
+            ref={catHeadRefs[1]}
+          >
             <div className="catear-left"></div>
             <div className="catear-right"></div>
-            <span className="catHead-number">2</span>
-            <h3 className="highlight">等待審核與家訪</h3>
-            <ul>
+            <span className="absolute top-[5px] left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-white text-[1.5rem] font-bold text-[#444] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">2</span>
+            <h3 className="mb-2 text-[1.5rem] font-bold text-[#ffa45b] max-[768px]:mb-[0.1rem]">等待審核與家訪</h3>
+            <ul className="m-0 list-none p-0 text-[#604d32] [&_li]:mb-2 [&_li]:text-[1.2rem] max-[768px]:[&_li]:mb-[0.1rem]">
               <li>等待審核成功後</li>
               <li>您會收到信件通知</li>
               <li>將致電與您約家訪及簽約的時間</li>
               <li>最快當日就可以帶貓貓回家囉!</li>
             </ul>
           </div>
-          <div className="catHead catHead3" ref={catHeadRefs[2]}>
+          <div
+            className="absolute top-[30%] right-[3%] h-[280px] w-[360px] rounded-[50%_50%_40%_40%] bg-[#ffe39f] pt-[60px] shadow-[0_4px_10px_rgba(0,0,0,0.05)] max-[1024px]:static max-[768px]:h-[220px] max-[768px]:w-[340px] max-[768px]:pt-[40px] [&_.catear-left]:absolute [&_.catear-left]:top-[-20px] [&_.catear-left]:left-5 [&_.catear-left]:h-0 [&_.catear-left]:w-0 [&_.catear-left]:rotate-[-27deg] [&_.catear-left]:border-r-[40px] [&_.catear-left]:border-b-[60px] [&_.catear-left]:border-l-[40px] [&_.catear-left]:border-r-transparent [&_.catear-left]:border-b-[#ffe39f] [&_.catear-left]:border-l-transparent [&_.catear-right]:absolute [&_.catear-right]:top-[-20px] [&_.catear-right]:right-5 [&_.catear-right]:h-0 [&_.catear-right]:w-0 [&_.catear-right]:rotate-[27deg] [&_.catear-right]:border-r-[40px] [&_.catear-right]:border-b-[60px] [&_.catear-right]:border-l-[40px] [&_.catear-right]:border-r-transparent [&_.catear-right]:border-b-[#ffe39f] [&_.catear-right]:border-l-transparent"
+            ref={catHeadRefs[2]}
+          >
             <div className="catear-left"></div>
             <div className="catear-right"></div>
-            <span className="catHead-number">3</span>
-            <h3 className="highlight">每月固定追蹤</h3>
-            <ul>
+            <span className="absolute top-[5px] left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-white text-[1.5rem] font-bold text-[#444] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">3</span>
+            <h3 className="mb-2 text-[1.5rem] font-bold text-[#ffa45b] max-[768px]:mb-[0.1rem]">每月固定追蹤</h3>
+            <ul className="m-0 list-none p-0 text-[#604d32] [&_li]:mb-2 [&_li]:text-[1.2rem] max-[768px]:[&_li]:mb-[0.1rem]">
               <li>領養完成後</li>
               <li>將開始每月追蹤功能</li>
               <li>每月須於15日前上傳貓咪生活照</li>
@@ -269,39 +321,39 @@ function HomePage() {
             </ul>
           </div>
         </div>
-        <div className="peopleWalk">
+        <div className="relative h-4/5 max-[1024px]:hidden">
           <img
             src="./images/peoplewalking.gif"
             alt="人走路動畫"
-            className={`peopleWalking${peopleWalkActive ? " animate" : ""}`}
+            className={`absolute bottom-[12%] left-0 z-10 w-[250px] ${peopleWalkActive ? "animate-people-walk-right" : ""}`}
             onAnimationEnd={handlePeopleWalkEnd}
           />
           <img
             src="./images/catgohome.gif"
             alt="貓走路動畫"
-            className={`catWaking${catWalkActive ? " animate" : ""}`}
+            className={`absolute bottom-0 left-[40%] z-15 w-[150px] ${catWalkActive ? "animate-cat-walk-right" : ""}`}
           />
-          <img src="./images/house.png" alt="房子圖片" className="house" />
+          <img src="./images/house.png" alt="房子圖片" className="absolute right-0 bottom-0 z-0 w-[320px]" />
         </div>
       </section>
-      <section id="waitingForHome">
-        <header className="home-title carousel-header">
+      <section id="waitingForHome" className="w-full max-w-screen overflow-hidden bg-[#fff6df] max-[1024px]:p-0">
+        <header className="flex flex-col items-start justify-center p-[3%] max-[767px]:h-[13%] [&_h2]:font-['Huninn',cursive] [&_h2]:text-[5rem] [&_h2]:leading-none [&_h2]:font-normal [&_h2]:whitespace-nowrap [&_h2]:text-[#dfc681] max-[767px]:[&_h2]:text-[2.5rem]">
           <h2>Waiting For Home</h2>
-          <div className="waiting-title">
+          <div className="flex w-full justify-end">
             <Button text="查看更多" link="/waitinghome" />
           </div>
         </header>
 
-        <div className="carousel-cats">
-          <div className="carousel-track">
+        <div className="relative flex w-full justify-center overflow-hidden">
+          <div className="mt-[50px] flex justify-center gap-6 transition-transform duration-800 ease-in-out max-[768px]:gap-[3px]">
             {visibleCards.map((cat, index) => (
               <div
-                className="carousel-item"
+                className="relative flex flex-[0_0_30%] items-center justify-center max-[1024px]:flex-[0_0_50%] max-[767px]:flex-[0_0_100%]"
                 key={`${cat.id}-${index}`}
-                // onMouseEnter={() => setPaused(true)}
-                // onMouseLeave={() => setPaused(false)}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
               >
-                <div className="cat-quotes-wrapper">
+                <div className="relative">
                   <HomeCatCard
                     years={cat.years}
                     name={cat.name}
@@ -310,12 +362,33 @@ function HomePage() {
                     sex={cat.sex}
                   />
                   {index === 1 && cat.quotes && window.innerWidth >= 1025 && (
-                    <div className="quotes">
-                      {cat.quotes.map((q, i) => (
-                        <div className={`quote q${i + 1}`} key={i}>
-                          {q}
-                        </div>
-                      ))}
+                    <div>
+                      {cat.quotes.map((q, i) => {
+                        const pos = quotePositions[i];
+                        return (
+                          <div
+                            key={i}
+                            className="absolute z-10 animate-pop-in border border-[#604d32] bg-white px-3 py-[6px] text-2xl whitespace-nowrap text-[#604d32]"
+                            style={{
+                              bottom: pos.bottom,
+                              left: pos.left,
+                              right: pos.right,
+                            }}
+                          >
+                            {q}
+                            <span
+                              className="absolute h-[3px] bg-[#604d32]"
+                              style={{
+                                width: pos.line.width,
+                                left: pos.line.left,
+                                right: pos.line.right,
+                                bottom: pos.line.bottom,
+                                transform: `rotate(${pos.line.rotate})`,
+                              }}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -324,15 +397,15 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section id="letsGoHome">
-        <header className="home-title gohome-title">
+      <section id="letsGoHome" className="my-[10%] w-full max-w-screen overflow-hidden bg-[#fff6df]">
+        <header className="flex flex-col items-center p-[3%] max-[767px]:h-[13%] [&_h2]:font-['Huninn',cursive] [&_h2]:text-[5rem] [&_h2]:leading-none [&_h2]:font-normal [&_h2]:whitespace-nowrap [&_h2]:text-[#dfc681] max-[767px]:[&_h2]:text-[2.5rem]">
           <h2>Let’s Go Home!</h2>
         </header>
-        <div className="catWalk">
+        <div className="relative flex h-[180px] justify-end pr-[3%] max-[767px]:h-10 [&_img]:absolute [&_img]:right-[100px] [&_img]:bottom-[-70px] [&_img]:w-1/5 [&_img]:max-w-[246px] [&_img]:object-contain max-[1024px]:[&_img]:bottom-[-46px] max-[767px]:[&_img]:bottom-[-22px]">
           <img src="./images/catwalkingloop.gif" alt="貓咪走路" />
         </div>
-        <div className="photoCarouselBox">
-          <div className="photoCarousel">
+        <div className="relative h-auto w-full">
+          <div className="flex w-max animate-scroll-right [&_img]:h-[248px] [&_img]:w-full [&_img]:object-cover [&_img]:object-center max-[767px]:[&_img]:h-[200px] max-[767px]:[&_img]:w-[300px]">
             {[1, 2, 3, 4, 1, 2, 3, 4].map((i, index) => (
               <img
                 key={index}
@@ -342,16 +415,16 @@ function HomePage() {
             ))}
           </div>
         </div>
-        <div className="textCarouseBox">
-          <div className="textCarouse">
+        <div className="m-[6px] w-full bg-transparent whitespace-nowrap">
+          <div className="flex animate-scroll-text gap-[50px] pl-full [&_span]:text-[1.5rem] [&_span]:leading-normal [&_span]:font-normal [&_span]:tracking-[4.8px] [&_span]:text-[#604d32] max-[767px]:[&_span]:text-base">
             <span>每隻貓咪都值得擁有一個溫暖的家</span>
             <span>給貓咪一個家，也給自己一份無盡的溫暖</span>
             <span>給牠一個家，牠會給你一個世界</span>
             <span>領養代替購買</span>
           </div>
         </div>
-        <div className="photoCarouselBox">
-          <div className="photoCarousel photoCarouselLeft">
+        <div className="relative h-auto w-full">
+          <div className="flex w-max animate-scroll-right [&_img]:h-[248px] [&_img]:w-full [&_img]:object-cover [&_img]:object-center max-[767px]:[&_img]:h-[200px] max-[767px]:[&_img]:w-[300px]">
             {[5, 6, 7, 1, 5, 6, 7, 1].map((i, index) => (
               <img
                 key={index}
@@ -362,13 +435,13 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section id="about">
-        <div className="aboutPhoto">
+      <section id="about" className="flex h-[90vh] w-full max-w-screen overflow-hidden max-[767px]:flex-col">
+        <div className="relative flex-1 overflow-hidden w-1/2 h-screen max-[767px]:w-full after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(245,166,63,0.1)] after:content-[''] after:pointer-events-none [&_img]:block [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:object-center">
           <img src="./images/about.jpg" alt="貓跟人手的照片" />
         </div>
-        <div className="aboutTextBox">
-          <h1>關於領貓</h1>
-          <div className="aboutText">
+        <div className="flex flex-1 flex-col gap-14 self-center text-[#604d32] max-[767px]:gap-[15px] max-[767px]:pt-5">
+          <h1 className="text-[1.5rem] leading-[150%] font-medium">關於領貓</h1>
+          <div className="flex flex-col gap-[15px] whitespace-nowrap [&_span]:text-[1.1rem] [&_span]:leading-[194%] [&_span]:font-normal">
             <span>你是不是也曾想領養貓咪</span>
             <span>卻被問東問西，最後又沒有下文？</span>
             <span>我們幫你省下繁瑣對話，輕鬆又安心找到命定主子 </span>

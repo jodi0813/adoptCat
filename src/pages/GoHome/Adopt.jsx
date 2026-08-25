@@ -1,6 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Adopt.scss";
+import {
+  gohomeSectionClass,
+  gohomeLeftEarClass,
+  gohomeRightEarClass,
+  gohomeBoxClass,
+} from "./gohomeShellClasses";
+
+const badgeColorClass = {
+  gray: "bg-[#d9d9d9]",
+  yellow: "bg-[#ffeda6]",
+  darkgray: "bg-[#888] text-white",
+};
 
 function Adopt() {
     const [quizStatus, setQuizStatus] = useState("notyet"); // notyet, passed, failed
@@ -27,9 +38,9 @@ function Adopt() {
 
     return (
         <>
-            <section id="adopt">
+            <section id="adopt" className={gohomeSectionClass}>
                 {/* 左耳 */}
-                <div className="gohomeLeftEar">
+                <div className={gohomeLeftEarClass}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="271"
@@ -45,7 +56,7 @@ function Adopt() {
                 </div>
 
                 {/* 右耳 */}
-                <div className="gohomeRightEar">
+                <div className={gohomeRightEarClass}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="271"
@@ -59,54 +70,54 @@ function Adopt() {
                         />
                     </svg>
                 </div>
-                <div className="gohomeBox adoptBox">
-                    <header className="adoptHeader">
-                        <span className="adoptTitle">申請領養貓咪</span>
+                <div className={`${gohomeBoxClass} flex-col! gap-[20%] p-[5%]`}>
+                    <header className="flex justify-center">
+                        <span className="text-center text-[2rem] leading-normal font-bold tracking-[3.2px] text-[#604d32]">申請領養貓咪</span>
                     </header>
-                    <div className="step-section">
+                    <div className="flex h-[70%] justify-center gap-[8%] max-[768px]:h-auto max-[768px]:flex-col max-[768px]:gap-[30px]">
 
-                        <div className="step-card">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
                             {quizStatus === "failed" ? (
-                                <div className={`step-badge ${badgeClass} disabled`}>
+                                <div className={`flex flex-col items-center justify-center gap-[10px] rounded-full p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] ${badgeColorClass[badgeClass]}`}>
                                     <div className="number">1</div>
                                     <span>填寫問卷測驗</span>
                                 </div>
                             ) : (
                                 <Link to="/gohome/adopt/catquiz">
-                                    <div className={`step-badge ${badgeClass}`}>
+                                    <div className={`flex flex-col items-center justify-center gap-[10px] rounded-full p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] ${badgeColorClass[badgeClass]}`}>
                                         <div className="number">1</div>
                                         <span>填寫問卷測驗</span>
                                     </div>
                                 </Link>
                             )}
                             <div>
-                                <div className="step-status-title">處理進度</div>
-                                <div className="step-description">{desc}</div>
+                                <div className="text-center text-[1.2rem] leading-normal tracking-[2px] text-[#ff630f]">處理進度</div>
+                                <div className="rounded-[6px] bg-[#fff4da] p-2 text-center font-['Huninn'] text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32]">{desc}</div>
                             </div>
                         </div>
 
-                        <div className="step-card">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
                             <Link to="#">
-                                <div className="step-badge gray">
+                                <div className="flex flex-col items-center justify-center gap-[10px] rounded-full bg-[#d9d9d9] p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32]">
                                     <div className="number">2</div>
                                     <span>申請領養貓咪</span>
                                 </div>
                             </Link>
                             <div>
-                                <div className="step-status-title">處理進度</div>
-                                <div className="step-description">請先完成測驗</div></div>
+                                <div className="text-center text-[1.2rem] leading-normal tracking-[2px] text-[#ff630f]">處理進度</div>
+                                <div className="rounded-[6px] bg-[#fff4da] p-2 text-center font-['Huninn'] text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32]">請先完成測驗</div></div>
                         </div>
 
-                        <div className="step-card">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
                             <Link to="#">
-                                <div className="step-badge gray">
+                                <div className="flex flex-col items-center justify-center gap-[10px] rounded-full bg-[#d9d9d9] p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32]">
                                     <div className="number">3</div>
                                     <span>家訪評估</span>
                                 </div>
                             </Link>
                             <div>
-                                <div className="step-status-title">處理進度</div>
-                                <div className="step-description">已預約4/26上午10:00</div></div>
+                                <div className="text-center text-[1.2rem] leading-normal tracking-[2px] text-[#ff630f]">處理進度</div>
+                                <div className="rounded-[6px] bg-[#fff4da] p-2 text-center font-['Huninn'] text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32]">已預約4/26上午10:00</div></div>
                         </div> </div>
                 </div>
             </section>

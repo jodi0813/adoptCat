@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Footer.scss";
 function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,10 +20,10 @@ function Footer() {
   };
   return (
     <>
-      <div className="footer">
-        <div className="footer-ears">
+      <div className="relative mt-[150px] flex w-full items-center justify-center gap-[10px] rounded-t-[99px] bg-[#e2d9a8] max-[767px]:mt-[10%] h-[200px] max-[767px]:rounded-none">
+        <div className="absolute top-[-100px] z-0 flex max-[767px]:hidden">
           {/* 左耳 */}
-          <div className="left-ear">
+          <div className="absolute right-[3vw]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="271"
@@ -40,7 +39,7 @@ function Footer() {
           </div>
 
           {/* 右耳 */}
-          <div className="right-ear">
+          <div className="absolute left-[7vw]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="271"
@@ -55,22 +54,32 @@ function Footer() {
             </svg>
           </div>
         </div>
-        <div className="footer-content">
-          <img src="./images//logo_navbar.png" alt="網站LOGO" />
-          <div className="footer-content1">
-            <ul>
-              <li onClick={() => handleScrollToTAbout()}>關於我們</li>
-              <li onClick={() => handleScrollToTakeMeHome()}>領養流程</li>
-              <li>
+        <div className="z-1 flex w-full items-center justify-center text-[1.2rem] leading-normal font-semibold text-white not-italic">
+          <img className="w-[10%]" src="./images//logo_navbar.png" alt="網站LOGO" />
+          <div className="flex flex-col gap-[17px]">
+            <ul className="flex gap-[30px]">
+              <li
+                className="cursor-pointer text-[1rem] text-white hover:text-[#604d32] [&_a]:text-white [&_a:hover]:text-[#604d32]"
+                onClick={() => handleScrollToTAbout()}
+              >
+                關於我們
+              </li>
+              <li
+                className="cursor-pointer text-[1rem] text-white hover:text-[#604d32] [&_a]:text-white [&_a:hover]:text-[#604d32]"
+                onClick={() => handleScrollToTakeMeHome()}
+              >
+                領養流程
+              </li>
+              <li className="cursor-pointer text-[1rem] text-white hover:text-[#604d32] [&_a]:text-white [&_a:hover]:text-[#604d32]">
                 <Link to="/waitinghome">帶我回家</Link>
               </li>
-              <li>
+              <li className="cursor-pointer text-[1rem] text-white hover:text-[#604d32] [&_a]:text-white [&_a:hover]:text-[#604d32]">
                 <Link to="/adoptqa">常見問題</Link>
               </li>
             </ul>
-            <span>電話：(02)2533-6666</span>
-            <span>地址：台北市中正區領貓路一段66號</span>
-            <span>© Companyright 2025. All Rights Reserved.</span>
+            <span className="text-[1rem]">電話：(02)2533-6666</span>
+            <span className="text-[1rem]">地址：台北市中正區領貓路一段66號</span>
+            <span className="text-[1rem]">© Companyright 2025. All Rights Reserved.</span>
           </div>
         </div>
       </div>

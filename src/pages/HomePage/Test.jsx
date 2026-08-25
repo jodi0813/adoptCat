@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Test.scss";
 
 function Test() {
   const navigate = useNavigate();
@@ -80,17 +79,17 @@ function Test() {
   const progress = Math.round((currentQuestion / questions.length) * 100);
 
   return (
-    <div className="quiz-container">
+    <div>
       {!start ? (
         <>
-          <div className="screenTest">
+          <div className="flex flex-col gap-4 max-[767px]:gap-[6px] [&_span]:text-[2.3rem] [&_span]:font-semibold [&_span]:tracking-[0.96px] [&_span]:text-[#604d32] max-[767px]:[&_span]:text-[1.2rem]">
             {/* <img src="./images/screen.png" alt="測驗背景" /> */}
            <br />
             <span>想知道適合你的貓咪性格是？</span>
             <span>讓我們來幫你測驗！</span>
-            <div className="screenBt">
+            <div className="flex justify-center">
               <button
-                className="testBt"
+                className="h-[100px] w-[100px] animate-shake rounded-full bg-[#ffa45b] text-[1.2rem] tracking-[1px] text-white hover:border-3 hover:border-[#ffa45b] hover:bg-[#fff6df] hover:text-[#ffa45b] max-[767px]:h-10 max-[767px]:w-10 max-[767px]:p-0 max-[767px]:text-[0.8rem]"
                 type="button"
                 onClick={() => setStart(true)}
               >
@@ -103,16 +102,18 @@ function Test() {
           </div>
         </>
       ) : currentQuestion < questions.length ? (
-        <div className="quiz-question">
+        <div className="relative flex flex-col gap-[10px] max-[767px]:gap-[3px]">
           <div className="progress-bar">
             <div className="progress" style={{ width: `${progress}%` }}></div>
           </div>
-          <p>{questions[currentQuestion].question}</p>
-          <div className="quiz-options">
+          <p className="text-[2rem] text-[#5c4033] max-[767px]:text-[1.1rem]">{questions[currentQuestion].question}</p>
+          <div className="flex h-[190px] flex-col items-center justify-between gap-[17px] max-[767px]:h-full max-[767px]:gap-[7px]">
             {questions[currentQuestion].options.map((opt, idx) => (
               <button
                 key={idx}
-                className={selected === idx ? "selectedAns" : ""}
+                className={`w-3/4 rounded-full border border-[#f9d176] text-[1.3rem] text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] max-[767px]:p-1 max-[767px]:text-base ${
+                  selected === idx ? "bg-[#f9d176] text-[#fff3e0]" : "bg-[#fff3e0]"
+                }`}
                 onClick={() => setSelected(idx)}
               >
                 {opt}
@@ -122,15 +123,18 @@ function Test() {
           <button
             onClick={handleNext}
             disabled={selected === null}
-            className="next-question"
+            className="absolute right-[-20px] bottom-[50px] h-[74px] w-[74px] rounded-full border border-[#f9d176] bg-[#fff3e0] p-0 text-sm text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] max-[767px]:top-[41px] max-[767px]:right-[-14px] max-[767px]:h-10 max-[767px]:w-10 max-[767px]:text-xs"
           >
             下一題
           </button>
         </div>
       ) : (
-        <div className="quiz-result">
-          <p>準備好看看適合你的主子了嗎？</p>
-          <button onClick={handleSubmit}>查看結果</button>
+        <div className="flex h-[277px] flex-col items-center justify-center gap-[50px] max-[767px]:h-[140px] max-[767px]:gap-5">
+          <p className="text-[2rem] text-[#5c4033] max-[767px]:text-base">準備好看看適合你的主子了嗎？</p>
+          <button
+            onClick={handleSubmit}
+            className="border-3 border-[#f9d176] bg-[#fff3e0] text-[#5c4033]"
+          >查看結果</button>
         </div>
       )}
     </div>

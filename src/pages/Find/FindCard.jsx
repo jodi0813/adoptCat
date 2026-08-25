@@ -1,4 +1,3 @@
-import "./FindCard.scss";
 function FindCard({
   find_pic,
   find_name,
@@ -12,47 +11,48 @@ function FindCard({
 }) {
   return (
     <>
-      <div className="findCard">
+      <div className="w-[30%] max-w-[286px] overflow-hidden rounded-[25px] bg-white max-[767px]:w-[90%]">
         <img
+          className="h-[286px] w-full"
           src={find_pic}
           alt="貓咪照片"
           onError={(e) => {
             e.currentTarget.src = "./images/lost_cat1.png";
           }}
         />
-        <div className="findCardBody">
+        <div className="p-[5%]">
           <ul>
-            <li>
-              <span className="findSmallTitle">寵物名字：</span>
-              <span className="findSmallText">{find_name}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">寵物名字：</span>
+              <span className="font-medium">{find_name}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">寵物性別：</span>
-              <span className="findSmallText">{find_sex}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">寵物性別：</span>
+              <span className="font-medium">{find_sex}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">寵物毛色：</span>
-              <span className="findSmallText">{find_color}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">寵物毛色：</span>
+              <span className="font-medium">{find_color}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">寵物特徵：</span>
-              <span className="findSmallText">{find_feature}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">寵物特徵：</span>
+              <span className="font-medium">{find_feature}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">遺失時間：</span>
-              <span className="findSmallText">{find_time}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">遺失時間：</span>
+              <span className="font-medium">{find_time}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">遺失地點：</span>
-              <span className="findSmallText">{find_location}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">遺失地點：</span>
+              <span className="font-medium">{find_location}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">飼主姓名：</span>
-              <span className="findSmallText">{find_owner_name}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">飼主姓名：</span>
+              <span className="font-medium">{find_owner_name}</span>
             </li>
-            <li>
-              <span className="findSmallTitle">連絡電話：</span>
-              <span className="findSmallText">{find_phone}</span>
+            <li className="text-left text-[1.1rem] leading-[27px]">
+              <span className="font-bold">連絡電話：</span>
+              <span className="font-medium">{find_phone}</span>
             </li>
           </ul>
         </div>

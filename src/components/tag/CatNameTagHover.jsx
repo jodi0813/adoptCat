@@ -1,18 +1,17 @@
 import { useState } from "react";
-import "./CatNameTagHover.scss"
 function CatNameTagHover({ name, catColor, textColor }) {
     const [isHover, setIsHover] = useState(false);
     return (
         <>
             <div
-                className="catNameTag"
+                className="relative flex h-[90px] w-[250px] cursor-pointer items-center justify-center max-[1024px]:h-[70px] max-[1024px]:w-[190px] max-[767px]:h-[50px] max-[767px]:w-[150px] max-[576px]:h-20 max-[576px]:w-[150px]"
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
             >
 
                 {isHover ? (
                     // 趴著的貓（hover）
-                    <svg xmlns="http://www.w3.org/2000/svg" width="230" height="77" viewBox="0 0 230 77" fill="none" className="catShape">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="230" height="77" viewBox="0 0 230 77" fill="none" className="absolute top-0 left-0 h-auto w-full transition-all duration-300 ease-in-out max-[576px]:top-[18px]">
                         <path d="M176.798 41.1761C176.798 42.9089 177.783 44.5148 179.381 45.1852C200.758 54.1554 213.481 39.5182 218.756 23.3922C224.241 6.62704 212.145 0.119373 206.953 20.3022C202.216 38.7155 202.226 43.1234 182.92 36.8224C179.927 35.8455 176.798 38.0275 176.798 41.1761Z" fill={catColor} />
                         <path d="M20.532 40.0951C20.532 26.2172 31.7823 14.9669 45.6603 14.9669H168.227C182.105 14.9669 193.355 26.2172 193.355 40.0951C193.355 53.9731 182.105 65.2234 168.227 65.2234H45.6603C31.7823 65.2234 20.532 53.9731 20.532 40.0951Z" fill={catColor} />
                         <path d="M46.8288 3.07225C47.6247 1.93073 49.3142 1.93073 50.11 3.07225L58.505 15.113C59.4295 16.4389 58.4808 18.2569 56.8644 18.2569H40.0744C38.4581 18.2569 37.5094 16.4389 38.4338 15.113L46.8288 3.07225Z" fill={catColor} />
@@ -24,11 +23,14 @@ function CatNameTagHover({ name, catColor, textColor }) {
                     </svg>
                 ) : (
                     // 預設形狀
-                    <svg xmlns="http://www.w3.org/2000/svg" width="231" height="77" viewBox="0 0 231 77" fill="none" className="catShape">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="231" height="77" viewBox="0 0 231 77" fill="none" className="absolute top-0 left-0 h-auto w-full transition-all duration-300 ease-in-out max-[576px]:top-[18px]">
                         <path d="M21.0452 40.2271C21.0452 26.3492 32.2955 15.0989 46.1735 15.0989H168.74C182.618 15.0989 193.868 26.3492 193.868 40.2271V40.2271C193.868 54.1051 182.618 65.3553 168.74 65.3553H46.1735C32.2955 65.3553 21.0452 54.1051 21.0452 40.2271V40.2271Z" fill={catColor} />
                     </svg>
                 )}
-               <span className="catText" style={{ color: textColor }}>{name}</span>
+               <span
+                 className="relative z-1 -translate-x-[5%] translate-y-0 text-2xl font-bold pointer-events-none max-[1024px]:-translate-x-[8%] max-[1024px]:-translate-y-[10%] max-[1024px]:text-2xl max-[767px]:translate-x-[-8%] max-[767px]:translate-y-[10%] max-[767px]:text-base"
+                 style={{ color: textColor }}
+               >{name}</span>
             </div>
 
         </>

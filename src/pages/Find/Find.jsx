@@ -1,6 +1,5 @@
 import Maintitle from "../../components/title/Maintitle";
 import FindCard from "./FindCard";
-import "./Find.scss";
 import useFindApi from "../../utils/api";
 
 function Find() {
@@ -15,9 +14,9 @@ function Find() {
 
   return (
     <>
-      <section id="findPet">
+      <section id="findPet" className="w-full px-[7%] py-[100px]">
         <Maintitle cn="遺失協尋" en="Help Find Me"/>
-        <div className="findBox">
+        <div className="mt-[50px] flex flex-wrap justify-center gap-[16px]">
         {findCats.slice(0,20).map((item, idx) => (           
           <FindCard
             key={item["晶片號碼"] ?? idx}

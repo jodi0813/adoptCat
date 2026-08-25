@@ -1,7 +1,6 @@
 // CatQuiz.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./CatQuiz.scss";
 
 const questions = [
   {
@@ -140,20 +139,24 @@ export default function CatQuiz() {
   const currentQuestions = questions.slice(startIndex, startIndex + 5);
  const navigate = useNavigate();
   return (
-    <div className="cat-quiz-container">
-      <h2>領養貓咪問卷測驗</h2>
+    <div className="mx-auto my-[200px] flex w-[70%] flex-col gap-[50px] rounded-[24px] bg-[#fffdf7] p-10 font-['Huninn',sans-serif] text-[#333] shadow-[0_0_12px_rgba(0,0,0,0.05)]">
+      <h2 className="text-center text-[2rem] leading-normal font-bold tracking-[3.2px] text-[#604d32]">領養貓咪問卷測驗</h2>
       {!showResult ? (
         <>
           {currentQuestions.map((q, i) => {
             const qIndex = startIndex + i;
             return (
-              <div key={qIndex} className="question-block">
-                <p>{qIndex + 1}. {q.question}</p>
-                <ul>
+              <div key={qIndex} className="flex flex-col items-center gap-[10px]">
+                <p className="text-[1.3rem] leading-[150%] font-normal tracking-[2.4px] text-[#604d32]">{qIndex + 1}. {q.question}</p>
+                <ul className="w-3/5">
                   {q.options.map((opt, j) => (
                     <li
                       key={j}
-                      className={answers[qIndex] === j ? "selected" : ""}
+                      className={`mb-2 cursor-pointer rounded-xl border px-4 py-[10px] text-base leading-[150%] font-normal tracking-[2.4px] text-[#604d32] transition-all duration-200 ease-in-out hover:bg-[#fff4e1] ${
+                        answers[qIndex] === j
+                          ? "border-[#f4b04c] bg-[#ffe4b5] font-bold"
+                          : "border-[#f2c98a] bg-white"
+                      }`}
                       onClick={() => handleOptionClick(qIndex, j)}
                     >
                       {String.fromCharCode(65 + j)}. {opt}
@@ -163,7 +166,7 @@ export default function CatQuiz() {
               </div>
             );
           })}
-          <div className="quiz-nav">
+          <div className="mt-8 flex justify-center gap-5 [&_button]:cursor-pointer [&_button]:rounded-full [&_button]:border-none [&_button]:bg-[#ffc37d] [&_button]:px-[50.5px] [&_button]:py-[8.5px] [&_button]:text-[1.5rem] [&_button]:leading-[150%] [&_button]:font-normal [&_button]:tracking-[2.4px] [&_button]:text-white [&_button]:transition-all [&_button]:duration-200 [&_button:hover]:bg-[#ffb964]">
             {page > 0 && <button onClick={() => setPage(page - 1)}>上一頁</button>}
             {startIndex + 5 < questions.length ? (
               <button
@@ -180,14 +183,25 @@ export default function CatQuiz() {
           </div>
         </>
       ) : (
-        <div className="result-popup">
-          <h3>~結果~</h3>
-          <p className={finalScore >= 80 ? "pass" : "fail"}>
+        <div className="mx-auto max-w-[500px] rounded-[20px] border-3 border-[#ff7a00] bg-white px-5 py-10 text-center">
+          <h3 className="mb-3 text-[22px]">~結果~</h3>
+          <p className={`mb-[10px] text-lg font-bold ${finalScore >= 80 ? "text-[#ff6600]" : "text-[#ff4444]"}`}>
             {finalScore >= 80 ? "恭喜通過" : "未通過"}
           </p>
-          <p>您的測驗成績為 <span>{finalScore}</span> 分！</p>
-          <p>{finalScore >= 80 ? "恭喜你可以繼續填寫領養申請囉！" : "請做好充足的準備後，等過一個月後再來測驗喔！"}</p>
-          <button onClick={() => navigate("/gohome/adopt")}>{finalScore >= 80 ? "前往下一步" : "回到領養頁面"}</button>
+          <p className="mb-[10px] text-lg">您的測驗成績為 <span className="text-xl font-bold text-[#ff6600]">{finalScore}</span> 分！</p>
+          <p className="mb-[10px] text-lg">{finalScore >= 80 ? "恭喜你可以繼續填寫領養申請囉！" : "請做好充足的準備後，等過一個月後再來測驗喔！"}</p>
+          <div className="mt-6 flex justify-center gap-4">
+            <button
+              onClick={() => navigate("/gohome/adopt")}
+              className="cursor-pointer rounded-[24px] border-none bg-[#ffc88a] px-6 py-[10px] text-base hover:bg-[#ffb25e]"
+            >{finalScore >= 80 ? "前往下一步" : "回到領養頁面"}</button>
+            {finalScore < 80 && (
+              <button
+                onClick={resetQuiz}
+                className="cursor-pointer rounded-[24px] border border-[#ff7a00] bg-white px-6 py-[10px] text-base text-[#ff7a00] hover:bg-[#fff3e0]"
+              >重新測驗</button>
+            )}
+          </div>
         </div>
       )}
     </div>

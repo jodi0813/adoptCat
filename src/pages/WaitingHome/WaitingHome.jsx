@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
 import Maintitle from "../../components/title/Maintitle";
 import FilterGroup from "./FilterGroup";
-import "./waitingHome.scss";
 import HomeCatCard from "../../components/card/HomeCatCard";
 import { getCats } from "../../services/catsService";
 import { useLocation } from "react-router-dom";
 import HomeCatCardSmall from "../../components/card/HomeCatCardSmaill.jsx";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "../../components/ui/pagination";
 
 function WaitingHome() {
   const location = useLocation();
@@ -20,11 +28,14 @@ function WaitingHome() {
     experienced: "",
   };
 
+  const PAGE_SIZE = 9;
+
   const [filters, setFilters] = useState(initialFilters);
   const [searchInput, setSearchInput] = useState("");
   const [catList, setCatList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     let cancelled = false;
@@ -94,6 +105,10 @@ function WaitingHome() {
     }));
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
+
   const filteredCats = catList.filter((cat) => {
     if (filters.name && !cat.name.includes(filters.name)) return false;
     if (filters.sex && cat.sex !== filters.sex) return false;
@@ -116,27 +131,61 @@ function WaitingHome() {
     return true;
   });
 
+  const totalPages = Math.max(1, Math.ceil(filteredCats.length / PAGE_SIZE));
+  const safeCurrentPage = Math.min(currentPage, totalPages);
+  const pagedCats = filteredCats.slice(
+    (safeCurrentPage - 1) * PAGE_SIZE,
+    safeCurrentPage * PAGE_SIZE,
+  );
+
+  const handlePageChange = (page) => {
+    if (page < 1 || page > totalPages || page === safeCurrentPage) return;
+    setCurrentPage(page);
+  };
+
+  const getPageNumbers = () => {
+    const pages = [];
+    const delta = 1;
+    const left = Math.max(2, safeCurrentPage - delta);
+    const right = Math.min(totalPages - 1, safeCurrentPage + delta);
+
+    pages.push(1);
+    if (left > 2) pages.push("ellipsis-left");
+    for (let i = left; i <= right; i++) pages.push(i);
+    if (right < totalPages - 1) pages.push("ellipsis-right");
+    if (totalPages > 1) pages.push(totalPages);
+
+    return pages;
+  };
+
   return (
-    <section className="waiting">
+    <section className="flex flex-col px-[5%] py-[100px]">
       <Maintitle en="Waiting For Home" cn="帶我回家" />
-      <div className="waiting-main">
-        <div className="cat-filter-section">
-          <div className="filter-reset">
-            <button className="reset-button" onClick={handleReset}>
+      <div className="mt-[50px] flex gap-[8%] max-[1024px]:mt-5 max-[1024px]:flex-col">
+        <div className="relative flex w-[22%] max-w-[250px] flex-col items-center gap-[15px] rounded-xl bg-[#fdf0c9] p-[15px] max-[1024px]:w-full max-[1024px]:max-w-full max-[1024px]:items-start max-[767px]:p-[10px] max-[576px]:py-5 max-[576px]:pr-0 max-[576px]:pl-5">
+          <div className="absolute top-[-24px] right-[3px]">
+            <button
+              className="cursor-pointer border-none bg-none p-0 text-[0.85rem] text-[#ffa134] hover:underline"
+              onClick={handleReset}
+            >
               清除全部條件
             </button>
           </div>
 
-          <div className="filter-group">
-            <label>名字</label>
-            <div className="input-row">
+          <div className="flex w-full flex-col items-center gap-1 max-[1024px]:flex-row">
+            <label className="text-center text-base leading-normal font-normal tracking-[2.16px] text-[#3a2c19] max-[1024px]:w-1/4 max-[1024px]:text-left">名字</label>
+            <div className="flex">
               <input
                 type="text"
                 placeholder="貓咪名字"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
+                className="h-[30px] w-4/5 rounded-full border border-[#ffa134] bg-white px-3 py-[6px] text-[0.8rem]"
               />
-              <button onClick={handleSearch}>搜尋</button>
+              <button
+                onClick={handleSearch}
+                className="cursor-pointer bg-transparent p-1 text-center text-[0.8rem] leading-normal font-normal text-[#604d32]"
+              >搜尋</button>
             </div>
           </div>
 
@@ -178,27 +227,84 @@ function WaitingHome() {
             onSelect={(v) => toggleSingle("experienced", v)}
           />
         </div>
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-wrap gap-[30px] max-[1024px]:mt-5 max-[1024px]:w-full max-[767px]:gap-[3%]">
+            {loading ? (
+              <div>貓咪資料載入中...</div>
+            ) : error ? (
+              <div>
+                貓咪資料載入失敗，請稍後再試一次。
+              </div>
+            ) : filteredCats.length === 0 ? (
+              <div>
+                好可惜!沒有符合的貓咪，還是有其他貓咪在等著你唷~
+              </div>
+            ) : (
+              pagedCats.map((cat) => (
+                <HomeCatCardSmall
+                  key={cat.id}
+                  cat={cat}
+                  id={cat.id}
+                  years={cat.years}
+                  name={cat.name}
+                  png={cat.png}
+                  hashtag={cat.hashtag}
+                  sex={cat.sex}
+                />
+              ))
+            )}
+          </div>
+          {!loading && !error && filteredCats.length > 0 && totalPages > 1 && (
+            <div>
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      href="#"
+                      text=""
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handlePageChange(safeCurrentPage - 1);
+                      }}
+                      aria-disabled={safeCurrentPage === 1}
+                    />
+                  </PaginationItem>
 
-        <div className="waiting-card">
-          {loading ? (
-            <div className="no-result">貓咪資料載入中...</div>
-          ) : error ? (
-            <div className="no-result">貓咪資料載入失敗，請稍後再試一次。</div>
-          ) : filteredCats.length === 0 ? (
-            <div className="no-result">好可惜!沒有符合的貓咪，還是有其他貓咪在等著你唷~</div>
-          ) : (
+                  {getPageNumbers().map((page) =>
+                    typeof page === "number" ? (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          href="#"
+                          isActive={page === safeCurrentPage}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(page);
+                          }}
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ) : (
+                      <PaginationItem key={page}>
+                        <PaginationEllipsis />
+                      </PaginationItem>
+                    ),
+                  )}
 
-            filteredCats.map((cat) => (
-              <HomeCatCardSmall
-                key={cat.id}
-                cat={cat}
-                years={cat.years}
-                name={cat.name}
-                png={cat.png}
-                hashtag={cat.hashtag}
-                sex={cat.sex}
-              />
-            ))
+                  <PaginationItem>
+                    <PaginationNext
+                      href="#"
+                      text=""
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handlePageChange(safeCurrentPage + 1);
+                      }}
+                      aria-disabled={safeCurrentPage === totalPages}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
           )}
         </div>
       </div>

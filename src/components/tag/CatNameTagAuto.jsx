@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./CatNameTagAuto.scss";
 
 function CatNameTagAuto({ name ,catColor}) {
     const [showAutoCat, setShowAutoCat] = useState(false);
@@ -16,9 +15,9 @@ function CatNameTagAuto({ name ,catColor}) {
     }, []);
 
     return (
-        <div className="catNameTagAuto">
+        <div className="relative top-0 flex h-[115px] w-[67%] max-w-[315px] cursor-default items-center justify-center max-[1023px]:h-[90px] max-[1023px]:w-[85%] max-[767px]:h-[70px] max-[767px]:w-[60%] max-[767px]:max-w-[210px]">
             <svg
-                className={`catAuto default-auto ${showAutoCat ? "hide-auto" : ""}`}
+                className={`absolute top-0 left-0 z-1 -translate-y-0 transition-[opacity,transform] duration-400 ease-in-out ${showAutoCat ? "opacity-0" : "opacity-100"}`}
                 viewBox="0 0 231 77"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -26,7 +25,7 @@ function CatNameTagAuto({ name ,catColor}) {
             </svg>
 
             <svg
-                className={`catAuto hover-auto ${showAutoCat ? "show-auto" : ""}`}
+                className={`absolute top-0 left-0 z-1 transition-[opacity,transform] duration-400 ease-in-out ${showAutoCat ? "translate-y-0 opacity-100" : "opacity-0"}`}
                 viewBox="0 0 230 77"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -40,7 +39,7 @@ function CatNameTagAuto({ name ,catColor}) {
                 <path d="M5.9463 62.9462C4.96619 61.4639 4.68768 59.611 5.2943 57.9406C9.73471 45.7139 16.2339 41.4885 32.0261 40.3509C34.0607 40.2043 36.0007 41.2041 37.1257 42.9057V42.9057C40.1225 47.4382 35.646 53.3469 30.2185 53.6052C24.6851 53.8685 21.1437 56.1872 18.8149 60.7168C16.2779 65.6514 9.00649 67.5746 5.9463 62.9462V62.9462Z" fill={catColor} />
             </svg>
 
-            <span className="catTextAuto">{name}</span>
+            <span className="pointer-events-none absolute top-[45%] left-1/2 z-2 -translate-x-[55%] -translate-y-[45%] text-2xl font-bold tracking-[2px] text-white max-[1023px]:top-[57%] max-[1023px]:text-xl max-[767px]:top-1/2 max-[767px]:text-lg">{name}</span>
         </div>
     );
 }
