@@ -36,7 +36,7 @@ function Follow() {
     return (
       <button
         key={month}
-        className={`flex aspect-square w-[35%] items-center justify-center rounded-full text-center text-[1.2rem] leading-normal font-bold tracking-[3.2px] text-white shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] max-[767px]:w-[100px] ${
+        className={`flex aspect-square items-center justify-center rounded-full text-center text-[1.2rem] leading-normal font-bold tracking-[3.2px] text-white shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] w-[100px] md:w-[35%] ${
           isUploaded ? "bg-[#9ecbff]" : "bg-[#d9d9d9]"
         }`}
         onClick={() => handleMonthClick(month)}
@@ -81,13 +81,13 @@ function Follow() {
           </svg>
         </div>
         <div className={`${gohomeBoxClass} flex-col! gap-5 p-[5%]`}>
-          <header className="flex items-center justify-center max-[767px]:flex-col max-[767px]:gap-[15px]">
+          <header className="flex items-center justify-center flex-col gap-[15px] md:flex-row md:gap-0">
             <div className="flex-1">
               <span className="inline-flex h-[40%] w-[140px] items-center justify-center rounded-[5px] border border-[#604d32] px-[8.5px] py-[10.5px] text-base leading-normal font-medium text-[#604d32]">目前貓咪：搗灰</span>
             </div>
             <div className="flex flex-[2] flex-col">
               <span className="text-center text-[2rem] leading-normal font-bold tracking-[3.2px] text-[#604d32]">每月領養追蹤</span>
-              <span className="text-center text-[1.5rem] leading-normal font-bold tracking-[2.4px] text-[#604d32] max-[767px]:text-[1.2rem]">
+              <span className="text-center text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32] md:text-[1.5rem]">
                 (請於每月底前完成上傳貓咪生活照)
               </span>
             </div>
@@ -100,11 +100,11 @@ function Follow() {
 
           <div className="flex text-center text-[1.2rem] leading-normal font-bold tracking-[2px] text-[#604d32]">當年度：114年</div>
 
-          <div className="flex flex-col gap-5 max-[767px]:flex-row max-[767px]:justify-center">
-            <div className="flex justify-center gap-[3%] max-[767px]:flex-col max-[767px]:gap-[10px]">
+          <div className="flex gap-5 flex-row justify-center md:flex-col md:justify-normal">
+            <div className="flex justify-center flex-col gap-[10px] md:flex-row md:gap-[3%]">
               {[1, 2, 3, 4, 5, 6].map(renderMonthButton)}
             </div>
-            <div className="flex justify-center gap-[3%] max-[767px]:flex-col max-[767px]:gap-[10px]">
+            <div className="flex justify-center flex-col gap-[10px] md:flex-row md:gap-[3%]">
               {[7, 8, 9, 10, 11, 12].map(renderMonthButton)}
             </div>
           </div>

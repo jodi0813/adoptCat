@@ -183,7 +183,7 @@ export default function CatQuiz() {
           </div>
         </>
       ) : (
-        <div className="mx-auto max-w-[500px] rounded-[20px] border-3 border-[#ff7a00] bg-white px-5 py-10 text-center">
+        <div className="mx-auto w-[min(100%,500px)] rounded-[20px] border-3 border-[#ff7a00] bg-white px-5 py-10 text-center">
           <h3 className="mb-3 text-[22px]">~結果~</h3>
           <p className={`mb-[10px] text-lg font-bold ${finalScore >= 80 ? "text-[#ff6600]" : "text-[#ff4444]"}`}>
             {finalScore >= 80 ? "恭喜通過" : "未通過"}

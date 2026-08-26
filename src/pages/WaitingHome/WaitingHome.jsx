@@ -159,10 +159,10 @@ function WaitingHome() {
   };
 
   return (
-    <section className="flex flex-col px-[5%] py-[100px]">
+    <section className="flex flex-col lg:w-full px-[5%] py-[100px]">
       <Maintitle en="Waiting For Home" cn="帶我回家" />
-      <div className="mt-[50px] flex gap-[8%] max-[1024px]:mt-5 max-[1024px]:flex-col">
-        <div className="relative flex w-[22%] max-w-[250px] flex-col items-center gap-[15px] rounded-xl bg-[#fdf0c9] p-[15px] max-[1024px]:w-full max-[1024px]:max-w-full max-[1024px]:items-start max-[767px]:p-[10px] max-[576px]:py-5 max-[576px]:pr-0 max-[576px]:pl-5">
+      <div className="flex gap-[2%] mt-5 flex-col lg:w-full lg:mt-12.5 lg:flex-row">
+        <div className="relative flex flex-col gap-[15px] rounded-xl lg:w-[30%] bg-[#fdf0c9] w-full items-start py-5 pr-0 pl-5 sm:p-[10px] md:p-[15px]  lg:items-center">
           <div className="absolute top-[-24px] right-[3px]">
             <button
               className="cursor-pointer border-none bg-none p-0 text-[0.85rem] text-[#ffa134] hover:underline"
@@ -172,8 +172,8 @@ function WaitingHome() {
             </button>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-1 max-[1024px]:flex-row">
-            <label className="text-center text-base leading-normal font-normal tracking-[2.16px] text-[#3a2c19] max-[1024px]:w-1/4 max-[1024px]:text-left">名字</label>
+          <div className="flex w-full items-center gap-1 flex-row lg:flex-col">
+            <label className="text-left w-1/4 text-base leading-normal font-normal tracking-[2.16px] text-[#3a2c19] lg:text-center lg:w-auto">名字</label>
             <div className="flex">
               <input
                 type="text"
@@ -227,8 +227,8 @@ function WaitingHome() {
             onSelect={(v) => toggleSingle("experienced", v)}
           />
         </div>
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap gap-[30px] max-[1024px]:mt-5 max-[1024px]:w-full max-[767px]:gap-[3%]">
+        <div className="flex flex-col w-full gap-10">
+          <div className="flex flex-wrap mt-5 w-full gap-[3%] md:gap-[30px] lg:mt-0 lg:w-auto">
             {loading ? (
               <div>貓咪資料載入中...</div>
             ) : error ? (

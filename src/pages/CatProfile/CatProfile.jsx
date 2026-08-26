@@ -1,7 +1,7 @@
 import CatPawRating from "./CatPawRating";
 import CatNameTagAuto from "../../components/tag/CatNameTagAuto";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { getCat } from "../../services/catsService";
 
@@ -36,8 +36,22 @@ const FALLBACK_TEXT = {
 };
 const FALLBACK_ADOPTION_REQUIREMENTS = ["23歲以上", "有穩定收入"];
 
+function BackButton({ onClick }) {
+    return (
+        <button
+            type="button"
+            onClick={onClick}
+            className="flex cursor-pointer items-center gap-2 self-start rounded-full border-2 border-[#604d32] bg-white px-4 py-1.5 text-base font-normal text-[#604d32] transition-colors hover:bg-[#f9d176] hover:text-white"
+        >
+            <span aria-hidden="true">←</span>
+            返回上一頁
+        </button>
+    );
+}
+
 function CatProfile() {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [cat, setCat] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -86,7 +100,8 @@ function CatProfile() {
 
     if (loading) {
         return (
-            <section id="catProfile" className="flex w-full items-center justify-center px-[5%] py-[100px]">
+            <section id="catProfile" className="flex w-full flex-col items-center justify-center gap-5 px-[5%] py-[100px]">
+                <BackButton onClick={() => navigate(-1)} />
                 <p className="text-[1.2rem] text-[#604d32]">貓咪資料載入中...</p>
             </section>
         );
@@ -94,7 +109,8 @@ function CatProfile() {
 
     if (error) {
         return (
-            <section id="catProfile" className="flex w-full items-center justify-center px-[5%] py-[100px]">
+            <section id="catProfile" className="flex w-full flex-col items-center justify-center gap-5 px-[5%] py-[100px]">
+                <BackButton onClick={() => navigate(-1)} />
                 <p className="text-[1.2rem] text-[#604d32]">貓咪資料載入失敗，請稍後再試一次。</p>
             </section>
         );
@@ -102,7 +118,8 @@ function CatProfile() {
 
     if (!cat) {
         return (
-            <section id="catProfile" className="flex w-full items-center justify-center px-[5%] py-[100px]">
+            <section id="catProfile" className="flex w-full flex-col items-center justify-center gap-5 px-[5%] py-[100px]">
+                <BackButton onClick={() => navigate(-1)} />
                 <p className="text-[1.2rem] text-[#604d32]">找不到這隻貓咪，牠可能已經被領養囉！</p>
             </section>
         );
@@ -110,8 +127,9 @@ function CatProfile() {
 
     return (
         <>
-            <section id="catProfile" className="flex flex-col gap-[150px] px-[5%] py-[100px]">
-                <div className="flex w-full max-[767px]:flex-col">
+            <section id="catProfile" className="flex flex-col  px-[5%] pt-30">
+                <BackButton onClick={() => navigate(-1)} />
+                <div className="flex w-full flex-col md:flex-row">
                     <div className="flex flex-1 flex-col items-center gap-5 pt-[50px]">
                         <header className="flex flex-col items-center justify-center gap-[10px]">
 
@@ -179,22 +197,22 @@ function CatProfile() {
                     </div>
                 </div>
                 <div className="flex w-full flex-1 flex-col gap-[1%]">
-                    <div className="flex max-[767px]:flex-col">
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="背景故事" catColor="#CAB271" />
                             <div className="profileDetail">
                                 {cat.story ?? FALLBACK_TEXT.story}
                             </div>
                         </div>
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="貓咪個性" catColor="#CAB271" />
                             <div className="profileDetail">
                                 {cat.personalityNote ?? FALLBACK_TEXT.personalityNote}
                             </div>
                         </div>
                     </div>
-                    <div className="flex max-[767px]:flex-col">
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="領養條件" catColor="#CAB271" />
                             <div className="profileDetail">
                                 <ol>
@@ -208,17 +226,17 @@ function CatProfile() {
                             </div>
                         </div>
 
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="健康狀態" catColor="#CAB271" />
                             <div className="profileDetail">{cat.healthStatus ?? FALLBACK_TEXT.healthStatus}</div>
                         </div>
                     </div>
-                    <div className="flex max-[767px]:flex-col">
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="貓咪喜好" catColor="#CAB271" />
                             <div className="profileDetail">{cat.favorites ?? FALLBACK_TEXT.favorites}</div>
                         </div>
-                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-4/5 [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] max-[767px]:[&_.profileDetail]:w-full">
+                        <div className="flex w-full flex-1 flex-col items-center [&_.profileDetail]:flex [&_.profileDetail]:h-[300px] [&_.profileDetail]:w-full [&_.profileDetail]:shrink-0 [&_.profileDetail]:items-center [&_.profileDetail]:justify-center [&_.profileDetail]:rounded-[25px] [&_.profileDetail]:bg-white/50 [&_.profileDetail]:px-[39px] [&_.profileDetail]:py-4 [&_.profileDetail]:text-justify [&_.profileDetail]:text-[1.2rem] [&_.profileDetail]:leading-[150%] [&_.profileDetail]:font-normal [&_.profileDetail]:tracking-[2.64px] [&_.profileDetail]:text-[#604d32] md:[&_.profileDetail]:w-4/5">
                             <CatNameTagAuto name="領貓想說..." catColor="#CAB271" />
                             <div className="profileDetail">
                                 {cat.adopterMessage ?? FALLBACK_TEXT.adopterMessage}

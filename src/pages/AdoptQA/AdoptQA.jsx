@@ -19,12 +19,12 @@ const QASection = ({ id, title, qas }) => {
       {qas.map((qa, index) => (
         <div
           key={index}
-          className={`mb-4 cursor-pointer rounded-2xl p-4 px-6 shadow-[0_0_6px_rgba(0,0,0,0.1)] transition-all duration-200 ease-in-out max-[767px]:p-4 ${
+          className={`mb-4 cursor-pointer rounded-2xl p-4 shadow-[0_0_6px_rgba(0,0,0,0.1)] transition-all duration-200 ease-in-out md:px-6 ${
             openIndex === index ? "bg-[#fff9f2]" : "bg-white"
           }`}
           onClick={() => setOpenIndex(openIndex === index ? null : index)}
         >
-          <div className="flex items-center justify-between text-justify text-[1.5rem] leading-normal font-normal tracking-[2.16px] text-[#604d32] max-[1024px]:text-[1.3rem] max-[767px]:text-base">
+          <div className="flex items-center justify-between text-justify text-base leading-normal font-normal tracking-[2.16px] text-[#604d32] md:text-[1.3rem] lg:text-[1.5rem]">
             <span>{qa.q}</span>
             <img src="./images/catpaworange.svg" alt="paw" className="w-[60px]" />
           </div>
@@ -75,11 +75,11 @@ function AdoptQA() {
 
   return (
     <>
-      <section className="flex flex-col px-[7%] py-[100px] max-[1024px]:px-[5%] max-[767px]:px-[2%]">
+      <section className="flex flex-col py-[100px] px-[2%] md:px-[5%] lg:px-[7%]">
         <Maintitle en="Q&A" cn="常見問題" />
-        <div className="relative mt-[50px] flex max-[1024px]:flex-col max-[767px]:mt-0">
+        <div className="relative flex flex-col mt-0 md:mt-[50px] lg:flex-row">
            <div
-             className="absolute right-0 flex flex-col items-center rounded-3xl bg-[rgba(255,236,183,0.5)] py-6 shadow-[0_4px_10px_rgba(0,0,0,0.1)] transition-[top] duration-300 ease-in-out max-[767px]:static max-[767px]:flex-col max-[767px]:bg-transparent max-[767px]:p-0 max-[767px]:shadow-none"
+             className="flex flex-col items-center rounded-3xl transition-[top] duration-300 ease-in-out static bg-transparent p-0 shadow-none md:absolute md:right-0 md:bg-[rgba(255,236,183,0.5)] md:py-6 md:shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
              ref={navRef}
            >
             {sections.map((sec) => (
@@ -93,7 +93,7 @@ function AdoptQA() {
             ))}
           </div>
 
-          <div className="w-[70%] max-w-[800px] max-[767px]:w-full">
+          <div className="w-full md:w-[min(70%,800px)]">
             {sections.map((sec) => (
               <QASection
                 key={sec.id}

@@ -82,14 +82,14 @@ function Test() {
     <div>
       {!start ? (
         <>
-          <div className="flex flex-col gap-4 max-[767px]:gap-[6px] [&_span]:text-[2.3rem] [&_span]:font-semibold [&_span]:tracking-[0.96px] [&_span]:text-[#604d32] max-[767px]:[&_span]:text-[1.2rem]">
+          <div className="flex flex-col gap-[6px] [&_span]:font-semibold [&_span]:tracking-[0.96px] [&_span]:text-[#604d32] [&_span]:text-[1.2rem] md:gap-4 md:[&_span]:text-[2.3rem]">
             {/* <img src="./images/screen.png" alt="測驗背景" /> */}
            <br />
             <span>想知道適合你的貓咪性格是？</span>
             <span>讓我們來幫你測驗！</span>
             <div className="flex justify-center">
               <button
-                className="h-[100px] w-[100px] animate-shake rounded-full bg-[#ffa45b] text-[1.2rem] tracking-[1px] text-white hover:border-3 hover:border-[#ffa45b] hover:bg-[#fff6df] hover:text-[#ffa45b] max-[767px]:h-10 max-[767px]:w-10 max-[767px]:p-0 max-[767px]:text-[0.8rem]"
+                className="animate-shake rounded-full bg-[#ffa45b] tracking-[1px] text-white hover:border-3 hover:border-[#ffa45b] hover:bg-[#fff6df] hover:text-[#ffa45b] h-10 w-10 text-[0.8rem] md:h-[100px] md:w-[100px] md:text-[1.2rem]"
                 type="button"
                 onClick={() => setStart(true)}
               >
@@ -102,16 +102,16 @@ function Test() {
           </div>
         </>
       ) : currentQuestion < questions.length ? (
-        <div className="relative flex flex-col gap-[10px] max-[767px]:gap-[3px]">
+        <div className="relative flex flex-col gap-[3px] md:gap-[10px]">
           <div className="progress-bar">
             <div className="progress" style={{ width: `${progress}%` }}></div>
           </div>
-          <p className="text-[2rem] text-[#5c4033] max-[767px]:text-[1.1rem]">{questions[currentQuestion].question}</p>
-          <div className="flex h-[190px] flex-col items-center justify-between gap-[17px] max-[767px]:h-full max-[767px]:gap-[7px]">
+          <p className="text-[1.1rem] text-[#5c4033] md:text-[2rem]">{questions[currentQuestion].question}</p>
+          <div className="flex flex-col items-center justify-between h-full gap-[7px] md:h-[190px] md:gap-[17px]">
             {questions[currentQuestion].options.map((opt, idx) => (
               <button
                 key={idx}
-                className={`w-3/4 rounded-full border border-[#f9d176] text-[1.3rem] text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] max-[767px]:p-1 max-[767px]:text-base ${
+                className={`w-3/4 rounded-full border border-[#f9d176] text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] p-1 text-base md:p-0 md:text-[1.3rem] ${
                   selected === idx ? "bg-[#f9d176] text-[#fff3e0]" : "bg-[#fff3e0]"
                 }`}
                 onClick={() => setSelected(idx)}
@@ -123,14 +123,14 @@ function Test() {
           <button
             onClick={handleNext}
             disabled={selected === null}
-            className="absolute right-[-20px] bottom-[50px] h-[74px] w-[74px] rounded-full border border-[#f9d176] bg-[#fff3e0] p-0 text-sm text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] max-[767px]:top-[41px] max-[767px]:right-[-14px] max-[767px]:h-10 max-[767px]:w-10 max-[767px]:text-xs"
+            className="absolute rounded-full border border-[#f9d176] bg-[#fff3e0] p-0 text-[#5c4033] hover:bg-[#f9d176] hover:text-[#fff3e0] top-[41px] right-[-14px] h-10 w-10 text-xs md:top-auto md:right-[-20px] md:bottom-[50px] md:h-[74px] md:w-[74px] md:text-sm"
           >
             下一題
           </button>
         </div>
       ) : (
-        <div className="flex h-[277px] flex-col items-center justify-center gap-[50px] max-[767px]:h-[140px] max-[767px]:gap-5">
-          <p className="text-[2rem] text-[#5c4033] max-[767px]:text-base">準備好看看適合你的主子了嗎？</p>
+        <div className="flex flex-col items-center justify-center h-[140px] gap-5 md:h-[277px] md:gap-[50px]">
+          <p className="text-base text-[#5c4033] md:text-[2rem]">準備好看看適合你的主子了嗎？</p>
           <button
             onClick={handleSubmit}
             className="border-3 border-[#f9d176] bg-[#fff3e0] text-[#5c4033]"

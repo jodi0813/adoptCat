@@ -74,9 +74,9 @@ function Adopt() {
                     <header className="flex justify-center">
                         <span className="text-center text-[2rem] leading-normal font-bold tracking-[3.2px] text-[#604d32]">申請領養貓咪</span>
                     </header>
-                    <div className="flex h-[70%] justify-center gap-[8%] max-[768px]:h-auto max-[768px]:flex-col max-[768px]:gap-[30px]">
+                    <div className="flex justify-center h-auto flex-col gap-[30px] md:h-[70%] md:flex-row md:gap-[8%]">
 
-                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] p-[5%] md:p-[2%]">
                             {quizStatus === "failed" ? (
                                 <div className={`flex flex-col items-center justify-center gap-[10px] rounded-full p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] ${badgeColorClass[badgeClass]}`}>
                                     <div className="number">1</div>
@@ -96,7 +96,7 @@ function Adopt() {
                             </div>
                         </div>
 
-                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] p-[5%] md:p-[2%]">
                             <Link to="#">
                                 <div className="flex flex-col items-center justify-center gap-[10px] rounded-full bg-[#d9d9d9] p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32]">
                                     <div className="number">2</div>
@@ -108,7 +108,7 @@ function Adopt() {
                                 <div className="rounded-[6px] bg-[#fff4da] p-2 text-center font-['Huninn'] text-[1.2rem] leading-normal font-bold tracking-[2.4px] text-[#604d32]">請先完成測驗</div></div>
                         </div>
 
-                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white p-[2%] text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[768px]:p-[5%]">
+                        <div className="flex h-full w-full flex-col justify-between rounded-[30px] border border-[#ffa50050] bg-white text-center shadow-[0_2px_6px_rgba(0,0,0,0.05)] p-[5%] md:p-[2%]">
                             <Link to="#">
                                 <div className="flex flex-col items-center justify-center gap-[10px] rounded-full bg-[#d9d9d9] p-[8%] font-bold shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] [&_.number]:flex [&_.number]:h-[60px] [&_.number]:w-[60px] [&_.number]:items-center [&_.number]:justify-center [&_.number]:rounded-full [&_.number]:bg-[#fffdf0] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32]">
                                     <div className="number">3</div>

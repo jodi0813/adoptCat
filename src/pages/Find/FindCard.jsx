@@ -11,7 +11,7 @@ function FindCard({
 }) {
   return (
     <>
-      <div className="w-[30%] max-w-[286px] overflow-hidden rounded-[25px] bg-white max-[767px]:w-[90%]">
+      <div className="w-[90%] overflow-hidden rounded-[25px] bg-white md:w-[min(30%,286px)]">
         <img
           className="h-[286px] w-full"
           src={find_pic}
