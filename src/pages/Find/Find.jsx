@@ -61,7 +61,7 @@ function Find() {
       <section id="findPet" className="w-full px-[7%] py-[100px]">
         <Maintitle cn="遺失協尋" en="Help Find Me"/>
         <p className="mt-4 text-center text-base text-[#604d32]/70">
-        ~本頁資訊係依據農業部政府資料開放平臺之「寵物遺失啟事」資料集建置，實際認養狀態請以收容所現場公告為準。~
+        ~本網站係依據農業部政府資料開放平臺之「寵物遺失啟事」資料集建置，如有相關疑問請直接與飼主聯繫。~
         </p>
 
         <div className="mt-[50px] grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
