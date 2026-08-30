@@ -43,7 +43,7 @@ function GoHome() {
         </div>
         <div className={gohomeBoxClass}>
           <div className="flex flex-1 items-center justify-center mb-[10%] lg:mb-0">
-            <button className="flex flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white hover:bg-[#f8c1a4] min-w-[260px] p-[15%] md:p-[5%] lg:min-w-[330px] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
+            <button className="flex flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white hover:bg-[#f8c1a4] min-w-[260px] p-[15%] md:p-[5%] lg:min-w-[330px] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] hover:[&_span]:text-white [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
               <Link to="/gohome/adopt" >
                 <span>申請領養貓咪</span>
                 <img src="./images/gohome1.png" alt="領養插圖" />
@@ -52,7 +52,7 @@ function GoHome() {
           </div>
           <div className="flex flex-1 items-center justify-center mb-[10%] lg:mb-0">
 
-            <button className="flex flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white hover:bg-[#f8c1a4] min-w-[260px] p-[15%] md:p-[5%] lg:min-w-[330px] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
+            <button className="flex flex-col items-center justify-center gap-[5%] rounded-full border-3 border-[#ff630f] bg-white hover:bg-[#f8c1a4] min-w-[260px] p-[15%] md:p-[5%] lg:min-w-[330px] [&_span]:text-center [&_span]:text-[2rem] [&_span]:leading-normal [&_span]:font-bold [&_span]:tracking-[3.2px] [&_span]:text-[#604d32] hover:[&_span]:text-white [&_img]:h-1/2 [&_img]:w-full [&_img]:max-h-[200px]">
               <Link to="/gohome/follow" >
                 <span>每月領養追蹤</span>
                 <img src="./images/gohome2.png" alt="追蹤插圖" />

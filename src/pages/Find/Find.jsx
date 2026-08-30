@@ -20,9 +20,13 @@ function Find() {
 
   if (error) return <p>發生錯誤：{String(error.message)}</p>;
 
-  const findCats=findList
-  .filter((row) => row["寵物別"] === "貓")
-  .sort((a, b) => new Date(b["遺失時間"]) - new Date(a["遺失時間"]));
+  const LATEST_COUNT = 400;
+
+  // api.js 那邊已經篩過「寵物別 === 貓」，這裡再依遺失時間排序、只留最新 400 筆
+  const findCats = findList
+    .slice()
+    .sort((a, b) => new Date(b["遺失時間"]) - new Date(a["遺失時間"]))
+    .slice(0, LATEST_COUNT);
 
   const totalPages = Math.max(1, Math.ceil(findCats.length / PAGE_SIZE));
   const safeCurrentPage = Math.min(currentPage, totalPages);
@@ -57,7 +61,7 @@ function Find() {
       <section id="findPet" className="w-full px-[7%] py-[100px]">
         <Maintitle cn="遺失協尋" en="Help Find Me"/>
         <p className="mt-4 text-center text-base text-[#604d32]/70">
-          ~本站貓咪協尋資訊係依據農業部政府資料開放平臺之寵物遺失啟事資料集建置。~
+        ~本頁資訊係依據農業部政府資料開放平臺之「寵物遺失啟事」資料集建置，實際認養狀態請以收容所現場公告為準。~
         </p>
 
         <div className="mt-[50px] grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -79,6 +83,7 @@ function Find() {
               find_location={item["遺失地點"] || ""}
               find_owner_name={item["飼主姓名"] || ""}
               find_phone={item["連絡電話"] || ""}
+              find_chip_id={item["晶片號碼"] || ""}
             />
           ))
         )}

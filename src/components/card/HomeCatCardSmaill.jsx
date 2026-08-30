@@ -27,8 +27,8 @@ function HomeCatCardSmall({ id, years, sex, name, png, hashtag = [] }) {
         <CatNameTagHover name={name} catColor="#F9D176" textColor="#FFF" />
         <div className="flex flex-col items-center gap-5">
           <div className="flex flex-col justify-center gap-2">
-            <div className="h-full border-4 border-[#f9d176] [&_img]:h-full [&_img]:w-full [&_img]:object-contain">
-              <img src={png} alt="貓照片" />
+            <div className="flex h-[254px] w-full items-center justify-center overflow-hidden border-4 border-[#f9d176] bg-white">
+              <img src={png} alt="貓照片" className="h-auto w-full" />
             </div>
             <div className="flex flex-wrap justify-center gap-[6px]">
               {hashtag.map((tag, index) => (

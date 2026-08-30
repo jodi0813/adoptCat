@@ -45,37 +45,55 @@ function Navbar() {
               menuOpen ? "max-[767px]:flex" : "max-[767px]:hidden"
             }`}
           >
-            <nav className="w-full">
-              <ul className="flex items-center justify-end gap-[4%] rounded-full px-5 py-[5px] max-[767px]:flex-col max-[767px]:gap-16 max-[767px]:px-0">
+            <nav className="flex w-full justify-center md:justify-end">
+              <ul className="flex items-center justify-end gap-6 rounded-full bg-white/85 px-5 py-[5px] whitespace-nowrap md:shadow-sm backdrop-blur-sm max-[767px]:flex-col max-[767px]:gap-16 max-[767px]:px-0">
                 <li
-                  className="inline-block cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]"
-                  onClick={() => { setMenuOpen(false); handleScrollToTAbout(); }}
+                  className="cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    handleScrollToTAbout();
+                  }}
                 >
                   關於我們
                 </li>
-                <li className="inline-block cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
-                  <Link to="/find" onClick={()=>setMenuOpen(false)}>遺失協尋</Link>
-                </li>
-                <li
+                {/* <li
                   className="inline-block cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]"
                   onClick={() => { setMenuOpen(false); handleScrollToTakeMeHome(); }}
                 >
                   領養流程
+                </li> */}
+                <li className="cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
+                  <Link to="/waitinghome" onClick={() => setMenuOpen(false)}>
+                    帶我回家
+                  </Link>
                 </li>
-                <li className="inline-block cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
-                  <Link to="/waitinghome" onClick={() => setMenuOpen(false)}>帶我回家</Link>
+                <li className="cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
+                  <Link to="/shelteradopt" onClick={() => setMenuOpen(false)}>
+                    收容所領養
+                  </Link>
                 </li>
-                <li className="inline-block cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
-                  <Link to="/adoptqa" onClick={() => setMenuOpen(false)}>常見問題</Link>
+                <li className="cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
+                  <Link to="/find" onClick={() => setMenuOpen(false)}>
+                    遺失協尋
+                  </Link>
+                </li>
+                <li className="cursor-pointer bg-gradient-to-r from-[#604d32] from-50% to-[#daa001] to-50% bg-[length:200%_100%] bg-left-bottom bg-clip-text text-[1.2rem] leading-normal font-semibold text-transparent transition-[background-position] duration-400 ease-in-out hover:bg-right-bottom max-[767px]:text-[1.5rem]">
+                  <Link to="/adoptqa" onClick={() => setMenuOpen(false)}>
+                    常見問題
+                  </Link>
                 </li>
 
-                <li className="inline-block cursor-pointer text-[1.2rem] leading-normal font-semibold max-[767px]:text-[1.5rem]">
+                <li className="cursor-pointer text-[1.2rem] leading-normal font-semibold max-[767px]:text-[1.5rem]">
                   <Link to="/gohome" onClick={() => setMenuOpen(false)}>
                     <button
                       type="button"
-                      className="group relative flex flex-col items-center bg-transparent p-0 text-[#604d32] [&_span]:text-[#604d32]"
+                      className="cursor-pointer group relative flex flex-col items-center bg-transparent p-0 text-[#604d32] [&_span]:text-[#604d32]"
                     >
-                      <img className="block transition-opacity duration-1000 group-hover:opacity-0" src="./images/houseBt.png" alt="回家按鈕" />
+                      <img
+                        className="block transition-opacity duration-1000 group-hover:opacity-0"
+                        src="./images/houseBt.png"
+                        alt="回家按鈕"
+                      />
                       <img
                         src="./images/catback.svg"
                         alt="回家按鈕hover"

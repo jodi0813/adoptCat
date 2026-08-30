@@ -13,6 +13,7 @@ import Follow from "./pages/GoHome/Follow";
 import Adopt from "./pages/GoHome/Adopt";
 import CatQuiz from "./pages/GoHome/CatQuiz";
 import Find from "./pages/Find/Find";
+import ShelterAdopt from "./pages/ShelterAdopt/ShelterAdopt";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/gohome/adopt" element={<Adopt />} />
         <Route path="/gohome/adopt/catquiz" element={<CatQuiz />} />
         <Route path="/find" element={<Find />}/>
+        <Route path="/shelteradopt" element={<ShelterAdopt />}/>
       </Routes>
       <Footer />
     </>
